@@ -28,10 +28,12 @@
       raw: false
     });
     db = connect.database('db');
-    db.save('hello', {
+    return db.save('hello', {
       world: 'here!'
+    }, function(err, res) {
+      if (err != null) res.send(500, util.inspect(err));
+      return res.send('hello world!');
     });
-    return res.send('hello world!');
   });
 
   app.post('/api/sms/receive', function(req, res) {

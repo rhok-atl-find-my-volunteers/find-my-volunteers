@@ -21,9 +21,9 @@ app.get '/api/hello', (req, res)->
   }
   db = connect.database 'db'
 
-  db.save 'hello', world: 'here!'
-
-  res.send 'hello world!'
+  db.save 'hello', world: 'here!', (err, res)->
+    res.send 500, util.inspect err if err?
+    res.send 'hello world!'
 
 app.post '/api/sms/receive', (req, res)->
   console.log req
