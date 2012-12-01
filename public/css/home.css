@@ -11,3 +11,22 @@
 #introVideo p {
   text-align: center;
 }
+
+/* line 14, home.scss */
+.callouts {
+  text-align: center;
+  font-size: 0.7em;
+}
+/* line 18, home.scss */
+.callouts > div {
+  display: inline-block;
+  box-sizing: border-box;
+  width: 30%;
+  text-align: left;
+  margin: 0 10px;
+}
+/* line 25, home.scss */
+.callouts > div ul {
+  list-style: disc;
+  padding-left: 20px;
+}

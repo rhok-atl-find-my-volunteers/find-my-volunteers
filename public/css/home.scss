@@ -10,3 +10,21 @@ $VideoWidth: 480px;
 
   p { text-align: center; }
 }
+
+.callouts {
+  text-align: center;
+  font-size: 0.7em;
+
+  & > div {
+    display: inline-block;
+    box-sizing: border-box;
+    width: 30%;
+    text-align: left;
+    margin: 0 10px;
+
+    ul {
+      list-style: disc;
+      padding-left: 20px;
+    }
+  }
+}
