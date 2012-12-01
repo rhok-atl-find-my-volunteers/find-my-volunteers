@@ -6,4 +6,3 @@ app.get '/', (req, res)->
   res.setHeader 'Content-Type', 'text/plain'
   res.setHeader 'Content-Length', body.length
   res.end body
-# this is a useless comment
