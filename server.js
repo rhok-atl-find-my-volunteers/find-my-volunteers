@@ -41,10 +41,10 @@
     });
   });
 
-  app.post('/api/sms/receive', function(err, response) {
+  app.post('/api/sms/receive', function(req, res) {
     var db;
     db = connect();
-    return db.save(response.body.SmsSid, response.body, function(err, response) {
+    return db.save(res.body.SmsSid, res.body, function(err, response) {
       if (err) {
         return res.send('<Response><Sms>We are unable to process your request.</Sms></Response>');
       } else {
