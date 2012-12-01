@@ -46,7 +46,7 @@
     var db;
     db = connect();
     return db.save(res.body.SmsSid, res.body, function(err, response) {
-      if (err) {
+      if (err != null) {
         return res.send('<Response><Sms>We are unable to process your request.</Sms></Response>');
       } else {
         return res.send("<Response><Sms>We have received your request.</Sms></Response>");

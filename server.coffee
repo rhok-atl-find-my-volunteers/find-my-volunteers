@@ -30,7 +30,7 @@ app.get '/api/hello', (req, res)->
 app.post '/api/sms/receive', (req, res)->
   db = connect()
   db.save res.body.SmsSid, res.body, (err, response)->
-    if err
+    if err?
       res.send '<Response><Sms>We are unable to process your request.</Sms></Response>'
     else
       res.send "<Response><Sms>We have received your request.</Sms></Response>"
