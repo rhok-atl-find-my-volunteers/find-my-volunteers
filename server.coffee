@@ -9,5 +9,8 @@ app.configure(->
 app.get '/', (req, res)->
   res.sendfile(__dirname + '/public/index.html')
 
+app.get '/api/hello', (res)->
+  res.send 'Hello World!'
+
 app.listen process.env.PORT or 3000
 console.log 'listening...'
