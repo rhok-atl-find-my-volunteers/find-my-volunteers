@@ -13,6 +13,7 @@ app.enable 'trust proxy'
 
 app.configure(->
   app.use(express.logger())
+  app.use(expres.bodyParser())
   app.use(app.router)
   app.use(express.static(__dirname + '/public'))
 )

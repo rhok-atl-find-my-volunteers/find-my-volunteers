@@ -20,6 +20,7 @@
 
   app.configure(function() {
     app.use(express.logger());
+    app.use(expres.bodyParser());
     app.use(app.router);
     return app.use(express["static"](__dirname + '/public'));
   });
