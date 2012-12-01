@@ -12,7 +12,7 @@
   app.configure(function() {
     app.use(express.logger());
     app.use(app.router);
-    return app.use(express["static"](__dirname + '/public'));
+    return app.use(express.static(__dirname + '/public'));
   });
 
   app.get('/', function(req, res) {
@@ -29,6 +29,14 @@
   });
 
   app.post('/api/register', function(req, res) {
+    var person, reg;
+    reg = req.body;
+    person = {
+      id: reg.vid,
+      name: reg.name,
+      phone: reg.phone,
+      group: reg.group
+    };
     return res.send(204);
   });
 
