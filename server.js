@@ -8,6 +8,7 @@
   app.enable('trust proxy');
 
   app.configure(function() {
+    app.use(express.logger());
     app.use(app.router);
     return app.use(express["static"](__dirname + '/public'));
   });
