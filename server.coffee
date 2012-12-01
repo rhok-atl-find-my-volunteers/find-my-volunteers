@@ -6,6 +6,7 @@ app.enable 'trust proxy'
 
 app.configure(->
   app.use(express.logger())
+  app.use(express.bodyParser())
   app.use(app.router)
   app.use(express.static(__dirname + '/public'))
 )
@@ -18,7 +19,7 @@ app.get '/api/hello', (req, res)->
 
 app.post '/api/sms/receive', (req, res)->
   console.log req
-  res.send "<Response><Sms>Got this:#{req.Body} from #{req.FromCity}</Sms></Response>"
+  res.send "<Response><Sms>Got this:#{req.body.Body} from #{req.body.FromCity}</Sms></Response>"
 
 
 app.post '/api/register', (req, res)->
