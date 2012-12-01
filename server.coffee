@@ -3,7 +3,13 @@ util = require 'util'
 cradle = require 'cradle'
 
 connect = ()->
-  (new cradle.Connection process.env.CLOUDANT_URL, 443, {
+  prod = !!process.env.CLOUDANT_URL
+  url = 'http://127.0.0.1'
+  url = process.env.CLOUDANT_URL if prod
+  port = 5984
+  port = 443 if prod
+
+  (new cradle.Connection url, port, {
     cache: true
     raw: false
   }).database 'db'
