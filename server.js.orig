@@ -35,10 +35,27 @@
     return res.sendfile(__dirname + '/public/index.html');
   });
 
-  app.post('/api/sms/receive', function(req, res) {
+<<<<<<< HEAD
+  app.get('/api/hello', function(req, res) {
     var db;
     db = connect();
-    return db.save("sms/" + req.body.SmsSid, req.body, function(err, response) {
+    return db.save('hello', {
+      world: 'here!'
+    }, function(err, response) {
+      if (err != null) {
+        res.send(500, util.inspect(err));
+      }
+      return res.send('hello world!');
+    });
+  });
+
+  app.post('/api/sms/receive', function(req, res) {
+=======
+  app.post('/api/sms/receive', function(err, response) {
+>>>>>>> cc67daf... cleaned up
+    var db;
+    db = connect();
+    return db.save(req.body.SmsSid, req.body, function(err, response) {
       if (err != null) {
         return res.send('<Response><Sms>We are unable to process your request.</Sms></Response>');
       } else {
