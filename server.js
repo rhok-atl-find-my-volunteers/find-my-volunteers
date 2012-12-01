@@ -11,7 +11,7 @@
     return res.send('Hello World!');
   });
 
-  app.listen(3000 || process.env.port);
+  app.listen(3000 || process.env.PORT);
 
   console.log('listening...');
 

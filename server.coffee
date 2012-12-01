@@ -5,5 +5,5 @@ app.enable 'trust proxy'
 app.get '/', (req, res)->
   res.send 'Hello World!'
 
-app.listen 3000 or process.env.port
+app.listen 3000 or process.env.PORT
 console.log 'listening...'
