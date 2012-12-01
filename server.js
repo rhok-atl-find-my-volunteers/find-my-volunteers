@@ -11,6 +11,7 @@
 
   app.configure(function() {
     app.use(express.logger());
+    app.use(express.bodyParser());
     app.use(app.router);
     return app.use(express["static"](__dirname + '/public'));
   });
@@ -25,10 +26,18 @@
 
   app.post('/api/sms/receive', function(req, res) {
     console.log(req);
-    return res.send("<Response><Sms>Got this:" + req.Body + " from " + req.FromCity + "</Sms></Response>");
+    return res.send("<Response><Sms>Got this:" + req.body.Body + " from " + req.body.FromCity + "</Sms></Response>");
   });
 
   app.post('/api/register', function(req, res) {
+    var person, reg;
+    reg = req.body;
+    person = {
+      id: reg.vid,
+      name: reg.name,
+      phone: reg.phone,
+      group: reg.group
+    };
     return res.send(204);
   });
 
