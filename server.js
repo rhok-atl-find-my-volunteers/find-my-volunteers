@@ -1,7 +1,9 @@
 (function() {
-  var app, express;
+  var app, express, util;
 
   express = require('express');
+
+  util = require('util');
 
   app = express();
 
@@ -21,8 +23,14 @@
     return res.send('Hello World!');
   });
 
-  app.listen(process.env.PORT || 3000);
+  app.post('/api/register', function(req, res) {
+    return res.send(204);
+  });
 
-  console.log('listening...');
+  app.listen(process.env.PORT || 5000);
+
+  console.log("listening...");
+
+  console.log("Settings " + (util.inspect(app.settings)));
 
 }).call(this);
