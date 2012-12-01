@@ -30,6 +30,14 @@
   });
 
   app.post('/api/register', function(req, res) {
+    var person, reg;
+    reg = req.body;
+    person = {
+      id: reg.vid,
+      name: reg.name,
+      phone: reg.phone,
+      group: reg.group
+    };
     return res.send(204);
   });
 

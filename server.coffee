@@ -23,6 +23,14 @@ app.post '/api/sms/receive', (req, res)->
 
 
 app.post '/api/register', (req, res)->
+  reg = req.body
+
+  person =
+    id: reg.vid
+    name: reg.name
+    phone: reg.phone
+    group: reg.group
+
   res.send 204
 
 app.listen process.env.PORT or 5000
