@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app>
+<html lang="en" ng-app="registerApp">
 <head>
     <meta charset="utf-8" />
     <title>Register | Find my Volunteer</title>
@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="css/styles.css" />
     <link rel="stylesheet" href="css/register.css" />
 </head>
-<body>
+<body ng-controller="registerCtrl">
 
     <div class="container">
 
@@ -17,46 +17,35 @@
 
         <h1>Find My Volunteers</h1>
 
-        <form class="registration-form" action="#">
+        <form novalidate class="registration-form" name="registrationForm" type="POST">
 
-            <fieldset class="clearfix">
+            <fieldset class="clearfix" ng-class="{error: registrationForm.name.$error.required}">
                 <label for="name">Name:</label>
-                <input type="text" required />
-                <span ng-show="myForm.name.$error.required" class="help-inline">Required</span>
+                <input type="text" name="name" ng-model="info.name" required />
+                <span class="help-inline">Required</span>
             </fieldset>
 
-            <fieldset class="clearfix">
+            <fieldset class="clearfix" ng-class="{error: registrationForm.volunteerId.$error.required}">
                 <label for="volunteerId">Volunteer ID:</label>
-                <input type="text" required />
-                <span ng-show="myForm.volunteerId.$error.required" class="help-inline">Required</span>
+                <input type="text" name="volunteerId" ng-model="info.volunteerId" required />
+                <span class="help-inline">Required</span>
             </fieldset>
 
-            <fieldset class="clearfix">
-                <label for="phone">Phone #:</label>
-                <input type="text" required />
-                <span ng-show="myForm.phone.$error.required" class="help-inline">Required</span>
+            <fieldset class="clearfix" ng-class="{error: registrationForm.phoneNumber.$error.required}">
+                <label for="phoneNumber">Phone #:</label>
+                <input type="text" name="phoneNumber" ng-model="info.phoneNumber" required />
+                <span class="help-inline">Required</span>
             </fieldset>
 
-            <fieldset class="clearfix">
+            <fieldset class="clearfix" ng-class="{error: registrationForm.groupId.$error.required}">
                 <label for="groupId">Group ID:</label>
-                <input type="text" required />
-                <span ng-show="myForm.groupId.$error.required" class="help-inline">Required</span>
+                <input type="text" name="groupId" ng-model="info.groupId" required />
+                <span class="help-inline">Required</span>
             </fieldset>
 
             <fieldset class="clearfix">
-                <label for="username">Username:</label>
-                <input type="text" required />
-                <span ng-show="myForm.username.$error.required" class="help-inline">Required</span>
-            </fieldset>
-
-            <fieldset class="clearfix">
-                <label for="password">Password:</label>
-                <input type="password" required />
-                <span ng-show="myForm.password.$error.required" class="help-inline">Required</span>
-            </fieldset>
-
-            <fieldset class="clearfix">
-                <button type="submit">Sign Up</button>
+                <button class="submit" ng-disabled="isClean() || registrationForm.$invalid" ng-click="submit()">Sign Up</button>
+                <button class="cancel" ng-click="cancel()">Cancel</button>
             </fieldset>
 
         </form>
@@ -64,6 +53,7 @@
     </div>
 
     <script src="vendor/angular-1.0.3.min.js"></script>
+    <script src="js/register.js"></script>
 
 </body>
 </html>
