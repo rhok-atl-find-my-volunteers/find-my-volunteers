@@ -21,7 +21,7 @@ app.get '/api/hello', (req, res)->
   }
   db = connect.database 'db'
 
-  db.save 'hello', world: 'here!', (err, res)->
+  db.save 'hello', world: 'here!', (err)->
     res.send 500, util.inspect err if err?
     res.send 'hello world!'
 

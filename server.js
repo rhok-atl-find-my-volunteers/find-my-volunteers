@@ -30,7 +30,7 @@
     db = connect.database('db');
     return db.save('hello', {
       world: 'here!'
-    }, function(err, res) {
+    }, function(err) {
       if (err != null) res.send(500, util.inspect(err));
       return res.send('hello world!');
     });
