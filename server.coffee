@@ -18,7 +18,8 @@ app.get '/api/hello', (req, res)->
 
 app.post '/api/sms/receive', (req, res)->
   console.log req
-  res.send "From City #{req.FromCity}"
+  res.send "<Response><Sms>Got this:#{req.Body} from #{req.FromCity}</Sms></Response>"
+
 
 app.post '/api/register', (req, res)->
   res.send 204

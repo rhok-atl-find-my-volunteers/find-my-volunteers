@@ -25,7 +25,7 @@
 
   app.post('/api/sms/receive', function(req, res) {
     console.log(req);
-    return res.send("From City " + req.FromCity);
+    return res.send("<Response><Sms>Got this:" + req.Body + " from " + req.FromCity + "</Sms></Response>");
   });
 
   app.post('/api/register', function(req, res) {
