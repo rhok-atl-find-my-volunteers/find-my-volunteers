@@ -4,7 +4,7 @@
 
   registerApp = angular.module('registerApp', ['ui.directives']);
 
-  registerApp.controller('registerCtrl', function($scope) {
+  registerApp.controller('registerCtrl', function($scope, $http) {
     $scope.showModal = false;
     $scope.openModal = function() {
       return $scope.showModal = true;
@@ -16,8 +16,8 @@
       return angular.equals(self.original, $scope.info);
     };
     return $scope.submit = function() {
-      if ($scope.isClean()) {
-        return console.log('sign up!');
+      if (!$scope.registrationForm.$invalid) {
+        return $http.post('/api/register', $scope.info);
       }
     };
   });
