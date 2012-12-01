@@ -5,12 +5,14 @@
 
   app = express();
 
+  app.enable('trust proxy');
+
   app.get('/', function(req, res) {
-    var body;
-    body = 'Hey!';
-    res.setHeader('Content-Type', 'text/plain');
-    res.setHeader('Content-Length', body.length);
-    return res.end(body);
+    return res.send('Hello World!');
   });
+
+  app.listen(3000 || process.env.PORT);
+
+  console.log('listening...');
 
 }).call(this);
