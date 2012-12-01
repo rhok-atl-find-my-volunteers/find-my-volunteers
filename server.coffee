@@ -26,9 +26,9 @@ app.get '/api/hello', (req, res)->
     res.send 500, util.inspect err if err?
     res.send 'hello world!'
 
-app.post '/api/sms/receive', (err, response)->
+app.post '/api/sms/receive', (req, res)->
   db = connect()
-  db.save response.body.SmsSid, response.body, (err, response)->
+  db.save res.body.SmsSid, res.body, (err, response)->
     if err
       res.send '<Response><Sms>We are unable to process your request.</Sms></Response>'
     else
