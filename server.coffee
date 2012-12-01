@@ -1,12 +1,18 @@
 express = require 'express'
 util = require 'util'
+cradle = require 'cradle'
+
+connect = ()->
+  (new cradle.Connection process.env.CLOUDANT_URL, 443, {
+    cache: true
+    raw: false
+  }).database 'db'
 
 app = express()
 app.enable 'trust proxy'
 
 app.configure(->
   app.use(express.logger())
-  app.use(express.bodyParser())
   app.use(app.router)
   app.use(express.static(__dirname + '/public'))
 )
@@ -15,11 +21,18 @@ app.get '/', (req, res)->
   res.sendfile(__dirname + '/public/index.html')
 
 app.get '/api/hello', (req, res)->
-  res.send 'hello world!'
+  db = connect()
+  db.save 'hello', world: 'here!', (err, response)->
+    res.send 500, util.inspect err if err?
+    res.send 'hello world!'
 
-app.post '/api/sms/receive', (req, res)->
-  console.log req
-  res.send "<Response><Sms>Got this:#{req.body.Body} from #{req.body.FromCity}</Sms></Response>"
+app.post '/api/sms/receive', (err, response)->
+  db = connect()
+  db.save response.body.SmsSid, response.body, (err, response)->
+    if err
+      res.send '<Response><Sms>We are unable to process your request.</Sms></Response>'
+    else
+      res.send "<Response><Sms>We have received your request.</Sms></Response>"
 
 app.post '/api/register', (req, res)->
   reg = req.body

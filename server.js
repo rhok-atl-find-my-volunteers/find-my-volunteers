@@ -1,9 +1,18 @@
 (function() {
-  var app, express, util;
+  var app, connect, cradle, express, util;
 
   express = require('express');
 
   util = require('util');
+
+  cradle = require('cradle');
+
+  connect = function() {
+    return (new cradle.Connection(process.env.CLOUDANT_URL, 443, {
+      cache: true,
+      raw: false
+    })).database('db');
+  };
 
   app = express();
 
@@ -11,7 +20,6 @@
 
   app.configure(function() {
     app.use(express.logger());
-    app.use(express.bodyParser());
     app.use(app.router);
     return app.use(express["static"](__dirname + '/public'));
   });
@@ -21,12 +29,28 @@
   });
 
   app.get('/api/hello', function(req, res) {
-    return res.send('hello world!');
+    var db;
+    db = connect();
+    return db.save('hello', {
+      world: 'here!'
+    }, function(err, response) {
+      if (err != null) {
+        res.send(500, util.inspect(err));
+      }
+      return res.send('hello world!');
+    });
   });
 
-  app.post('/api/sms/receive', function(req, res) {
-    console.log(req);
-    return res.send("<Response><Sms>Got this:" + req.body.Body + " from " + req.body.FromCity + "</Sms></Response>");
+  app.post('/api/sms/receive', function(err, response) {
+    var db;
+    db = connect();
+    return db.save(response.body.SmsSid, response.body, function(err, response) {
+      if (err) {
+        return res.send('<Response><Sms>We are unable to process your request.</Sms></Response>');
+      } else {
+        return res.send("<Response><Sms>We have received your request.</Sms></Response>");
+      }
+    });
   });
 
   app.post('/api/register', function(req, res) {
