@@ -1,0 +1,12 @@
+$VideoHeight: 320px;
+$VideoWidth: 480px;
+#introVideo {
+  width: $VideoWidth;
+  height: $VideoHeight;
+  margin: 20px auto;
+  border: 1px solid black;
+  line-height: $VideoHeight;
+  vertical-align: middle;
+
+  p { text-align: center; }
+}
