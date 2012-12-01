@@ -2,6 +2,12 @@ express = require 'express'
 util = require 'util'
 cradle = require 'cradle'
 
+connect = ()->
+  (new cradle.Connection process.env.CLOUDANT_URL, 443, {
+    cache: true
+    raw: false
+  }).database 'db'
+
 app = express()
 app.enable 'trust proxy'
 
@@ -15,13 +21,8 @@ app.get '/', (req, res)->
   res.sendfile(__dirname + '/public/index.html')
 
 app.get '/api/hello', (req, res)->
-  connect = new cradle.Connection process.env.CLOUDANT_URL, 443, {
-    cache: true
-    raw: false
-  }
-  db = connect.database 'db'
-
-  db.save 'hello', world: 'here!', (err)->
+  db = connect()
+  db.save 'hello', world: 'here!', (err, response)->
     res.send 500, util.inspect err if err?
     res.send 'hello world!'
 

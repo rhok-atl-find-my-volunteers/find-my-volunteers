@@ -1,11 +1,18 @@
 (function() {
-  var app, cradle, express, util;
+  var app, connect, cradle, express, util;
 
   express = require('express');
 
   util = require('util');
 
   cradle = require('cradle');
+
+  connect = function() {
+    return (new cradle.Connection(process.env.CLOUDANT_URL, 443, {
+      cache: true,
+      raw: false
+    })).database('db');
+  };
 
   app = express();
 
@@ -22,15 +29,11 @@
   });
 
   app.get('/api/hello', function(req, res) {
-    var connect, db;
-    connect = new cradle.Connection(process.env.CLOUDANT_URL, 443, {
-      cache: true,
-      raw: false
-    });
-    db = connect.database('db');
+    var db;
+    db = connect();
     return db.save('hello', {
       world: 'here!'
-    }, function(err) {
+    }, function(err, response) {
       if (err != null) res.send(500, util.inspect(err));
       return res.send('hello world!');
     });
