@@ -3,6 +3,7 @@
 
 $sans-serif: 'Helvetica Neue', Arial, sans-serif;
 $dark-grey: #333;
+$page-width: 960px;
 
 body {
     background: #f8f8f8;
@@ -11,11 +12,19 @@ body {
     font-size: 15px;
     width: 100%;
     height: 100%;
+
+    &>header {
+        width: $page-width;
+        height: 50px;
+        margin: 0 auto;
+        h1 { display: inline-block; }
+    }
 }
 
 .container {
     margin: 0 auto;
-    width: 960px;
+    width: $page-width;
+
 }
 
 h1,h2,h3 {
@@ -26,6 +35,7 @@ h1 {
     font-family: 'Open Sans', $sans-serif;
     font-size: 2em;
     font-weight: 700;
+    float: left;
 }
 
 h2 {
@@ -49,4 +59,10 @@ p {
             display: block;
         }
     }
+}
+
+#videoOuterContainer {
+  background: #000;
+  color: #fff;
+
 }

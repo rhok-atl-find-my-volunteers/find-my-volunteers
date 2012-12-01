@@ -1,6 +1,14 @@
 $VideoHeight: 320px;
-$VideoWidth: 480px;
-#introVideo {
+$VideoWidth: 270px;
+
+#register {
+  display: inline-block;
+  float: right;
+  padding-top: 18px;
+  p,a { display: inline-block; }
+}
+
+#videoContainer{
   width: $VideoWidth;
   height: $VideoHeight;
   margin: 20px auto;

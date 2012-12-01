@@ -10,15 +10,20 @@
 </head>
 <body>
 
-    <div class="container">
+        <header>
+          <h1>Find My Volunteers</h1>
 
-        <ul class="nav">
-            <li><a href="register.html">Register</a></li>
-        </ul>
+          <div id="register">
+             <p style="display: none;">Registration Submitted. Thank you!</p>
+             <button>Register Now</button>
+          </div>
+        </header>
 
-        <h1>Find My Volunteers</h1>
-
-        <div id="introVideo"><p>Loading the introduction video...</p></div>
+        <div id="videoOuterContainer">
+          <div id="videoContainer">
+            <p>Loading the introduction video...</p>
+          </div>
+        </div>
 
 
         <div class="callouts">
@@ -40,11 +45,9 @@
         </div>
 
 
-    </div>
-
     <script src="jwplayer/jwplayer.js"></script>
     <script type="text/javascript">
-        jwplayer("introVideo").setup({
+        jwplayer("videoContainer").setup({
             file: "/uploads/example.mp4",
             image: "http://voltaicsystems.com/blog/wp-content/uploads/2011/05/Peace-Corps.jpeg"
         });
