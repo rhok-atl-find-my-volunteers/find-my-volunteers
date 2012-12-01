@@ -6,6 +6,7 @@
 
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/home.css" />
 </head>
 <body>
 
@@ -17,9 +18,20 @@
 
         <h1>Find My Volunteers</h1>
 
+        <div id="introVideo"><p>Loading the introduction video...</p></div>
+
+
         <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium.</p>
+
 
     </div>
 
+    <script src="jwplayer/jwplayer.js"></script>
+    <script type="text/javascript">
+        jwplayer("introVideo").setup({
+            file: "/uploads/example.mp4",
+            image: "http://voltaicsystems.com/blog/wp-content/uploads/2011/05/Peace-Corps.jpeg"
+        });
+    </script>
 </body>
 </html>

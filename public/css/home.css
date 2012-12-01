@@ -1,0 +1,13 @@
+/* line 3, home.scss */
+#introVideo {
+  width: 480px;
+  height: 320px;
+  margin: 20px auto;
+  border: 1px solid black;
+  line-height: 320px;
+  vertical-align: middle;
+}
+/* line 11, home.scss */
+#introVideo p {
+  text-align: center;
+}

@@ -1,8 +1,9 @@
 express = require 'express'
 app = express()
+app.enable 'trust proxy'
 
 app.get '/', (req, res)->
-  body = 'Hey!'
-  res.setHeader 'Content-Type', 'text/plain'
-  res.setHeader 'Content-Length', body.length
-  res.end body
+  res.send 'Hello World!'
+
+app.listen 3000 or process.env.PORT
+console.log 'listening...'
