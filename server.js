@@ -12,7 +12,7 @@
   app.configure(function() {
     app.use(express.logger());
     app.use(app.router);
-    return app.use(express.static(__dirname + '/public'));
+    return app.use(express["static"](__dirname + '/public'));
   });
 
   app.get('/', function(req, res) {
@@ -20,7 +20,12 @@
   });
 
   app.get('/api/hello', function(req, res) {
-    return res.send('Hello World!');
+    return res.send('hello world!');
+  });
+
+  app.post('/api/sms/receive', function(req, res) {
+    console.log(req);
+    return res.send("<Response><Sms>Got this:" + req.Body + " from " + req.FromCity + "</Sms></Response>");
   });
 
   app.post('/api/register', function(req, res) {

@@ -14,7 +14,12 @@ app.get '/', (req, res)->
   res.sendfile(__dirname + '/public/index.html')
 
 app.get '/api/hello', (req, res)->
-  res.send 'Hello World!'
+  res.send 'hello world!'
+
+app.post '/api/sms/receive', (req, res)->
+  console.log req
+  res.send "<Response><Sms>Got this:#{req.Body} from #{req.FromCity}</Sms></Response>"
+
 
 app.post '/api/register', (req, res)->
   res.send 204
