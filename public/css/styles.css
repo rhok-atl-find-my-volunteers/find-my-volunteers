@@ -1,0 +1,102 @@
+/* line 1, styles.scss */
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, button, textarea, p, blockquote, th, td {
+  margin: 0;
+  padding: 0;
+}
+
+/* line 1, styles.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 1, styles.scss */
+fieldset, img, a img {
+  border: none;
+}
+
+/* line 1, styles.scss */
+address, caption, cite, code, dfn, em, strong, th, var, optgroup {
+  font-style: inherit;
+  font-weight: inherit;
+}
+
+/* line 1, styles.scss */
+del, ins {
+  text-decoration: none;
+}
+
+/* line 1, styles.scss */
+li {
+  list-style: none;
+}
+
+/* line 1, styles.scss */
+caption, th {
+  text-align: left;
+}
+
+/* line 1, styles.scss */
+h1, h2, h3, h4, h5, h6 {
+  font-size: 100%;
+  font-weight: normal;
+}
+
+/* line 1, styles.scss */
+q:before, q:after {
+  content: '';
+}
+
+/* line 1, styles.scss */
+abbr, acronym {
+  border: 0;
+  font-variant: normal;
+}
+
+/* line 1, styles.scss */
+sup {
+  vertical-align: baseline;
+}
+
+/* line 1, styles.scss */
+sub {
+  vertical-align: baseline;
+}
+
+/* line 1, styles.scss */
+legend {
+  color: #000;
+}
+
+/* line 3, styles.scss */
+body {
+  background: #f8f8f8;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-size: 15px;
+  width: 100%;
+  height: 100%;
+}
+
+/* line 11, styles.scss */
+.container {
+  margin: 0 auto;
+  width: 960px;
+}
+
+/* line 16, styles.scss */
+h1 {
+  font-size: 2em;
+}
+
+/* line 20, styles.scss */
+.nav {
+  float: right;
+}
+/* line 23, styles.scss */
+.nav li {
+  float: left;
+}
+/* line 26, styles.scss */
+.nav li a {
+  display: block;
+}
