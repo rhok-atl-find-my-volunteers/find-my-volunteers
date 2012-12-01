@@ -17,7 +17,7 @@
     return res.sendfile(__dirname + '/public/index.html');
   });
 
-  app.get('/api/hello', function(res) {
+  app.get('/api/hello', function(req, res) {
     return res.send('Hello World!');
   });
 
