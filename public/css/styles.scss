@@ -81,12 +81,6 @@ p {
   }
 }
 
-#videoOuterContainer {
-  background: #000;
-  color: #fff;
-
-}
-
 $VideoHeight: 320px;
 $VideoWidth: 270px;
 
@@ -101,15 +95,21 @@ $VideoWidth: 270px;
   }
 }
 
-#videoContainer {
-  width: $VideoWidth;
-  height: $VideoHeight;
-  margin: 20px auto;
-  border: 1px solid black;
-  line-height: $VideoHeight;
-  vertical-align: middle;
 
-  p { text-align: center; }
+#videoOuterContainer {
+  background: #000;
+  color: #fff;
+
+ &>div{
+    width: $VideoWidth;
+    height: $VideoHeight;
+    margin: 20px auto;
+    border: 1px solid black;
+    line-height: $VideoHeight;
+    vertical-align: middle;
+
+    p { text-align: center; }
+  }
 }
 
 .callouts {
