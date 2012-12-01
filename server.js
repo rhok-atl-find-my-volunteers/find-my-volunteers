@@ -45,7 +45,7 @@
   app.post('/api/sms/receive', function(req, res) {
     var db;
     db = connect();
-    return db.save(req.body.SmsSid, req.body, function(err, response) {
+    return db.save("/" + req.body.SmsSid, req.body, function(err, response) {
       if (err != null) {
         return res.send('<Response><Sms>We are unable to process your request.</Sms></Response>');
       } else {
