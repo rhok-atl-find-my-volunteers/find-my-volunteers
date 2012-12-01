@@ -86,12 +86,16 @@ $VideoWidth: 270px;
 
 #register {
   float: right;
-  padding-top: 5px;
+  padding-top: 12px;
 
-  p,a { display: inline-block; }
+  p {
+    display: inline-block;
+    padding-right: 25px;
+  }
 
   button {
     @include button;
+    display: inline-block;
   }
 }
 

@@ -131,13 +131,14 @@ p {
 /* line 87, styles.scss */
 #register {
   float: right;
-  padding-top: 5px;
+  padding-top: 12px;
 }
 /* line 91, styles.scss */
-#register p, #register a {
+#register p {
   display: inline-block;
+  padding-right: 25px;
 }
-/* line 93, styles.scss */
+/* line 96, styles.scss */
 #register button {
   background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #555555), color-stop(100%, #333333));
   background: -webkit-linear-gradient(top, #555555, #333333);
@@ -157,6 +158,7 @@ p {
   padding: 8px 15px;
   text-decoration: none;
   text-transform: uppercase;
+  display: inline-block;
 }
 /* line 23, styles.scss */
 #register button:hover, #register button:focus, #register button:active {
@@ -167,12 +169,12 @@ p {
   background: linear-gradient(top, #777777, #555555);
 }
 
-/* line 99, styles.scss */
+/* line 103, styles.scss */
 #videoOuterContainer {
   background: #000;
   color: #fff;
 }
-/* line 103, styles.scss */
+/* line 107, styles.scss */
 #videoOuterContainer > div {
   width: 270px;
   height: 320px;
@@ -181,17 +183,17 @@ p {
   line-height: 320px;
   vertical-align: middle;
 }
-/* line 111, styles.scss */
+/* line 115, styles.scss */
 #videoOuterContainer > div p {
   text-align: center;
 }
 
-/* line 115, styles.scss */
+/* line 119, styles.scss */
 .callouts {
   text-align: center;
   font-size: 0.7em;
 }
-/* line 119, styles.scss */
+/* line 123, styles.scss */
 .callouts > div {
   display: inline-block;
   box-sizing: border-box;
@@ -199,28 +201,28 @@ p {
   text-align: left;
   margin: 0 10px;
 }
-/* line 126, styles.scss */
+/* line 130, styles.scss */
 .callouts > div ul {
   list-style: disc;
   padding-left: 20px;
 }
 
-/* line 133, styles.scss */
+/* line 137, styles.scss */
 .modal {
   background: #e3e3e3;
 }
 
-/* line 137, styles.scss */
+/* line 141, styles.scss */
 .registration-form {
   margin: 0 auto;
   padding: 20px 0;
   width: 402px;
 }
-/* line 143, styles.scss */
+/* line 147, styles.scss */
 .registration-form fieldset {
   margin: 15px 0;
 }
-/* line 147, styles.scss */
+/* line 151, styles.scss */
 .registration-form label {
   display: block;
   float: left;
@@ -228,7 +230,7 @@ p {
   text-align: right;
   width: 100px;
 }
-/* line 155, styles.scss */
+/* line 159, styles.scss */
 .registration-form input {
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
@@ -240,7 +242,7 @@ p {
   padding: 8px 10px;
   width: 270px;
 }
-/* line 163, styles.scss */
+/* line 167, styles.scss */
 .registration-form button {
   background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #555555), color-stop(100%, #333333));
   background: -webkit-linear-gradient(top, #555555, #333333);
@@ -271,14 +273,14 @@ p {
   background: -o-linear-gradient(top, #777777, #555555);
   background: linear-gradient(top, #777777, #555555);
 }
-/* line 168, styles.scss */
+/* line 172, styles.scss */
 .registration-form button[disabled] {
   background: #555;
   border-color: #555;
   color: #c7c7c7;
   cursor: default;
 }
-/* line 176, styles.scss */
+/* line 180, styles.scss */
 .registration-form .cancel {
   background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #e3e3e3), color-stop(100%, #c7c7c7));
   background: -webkit-linear-gradient(top, #e3e3e3, #c7c7c7);
@@ -288,7 +290,7 @@ p {
   border-color: #a3a3a3;
   color: #777;
 }
-/* line 183, styles.scss */
+/* line 187, styles.scss */
 .registration-form .cancel:hover, .registration-form .cancel:focus, .registration-form .cancel:active {
   background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #d3d3d3), color-stop(100%, #b7b7b7));
   background: -webkit-linear-gradient(top, #d3d3d3, #b7b7b7);
@@ -297,12 +299,12 @@ p {
   background: linear-gradient(top, #d3d3d3, #b7b7b7);
 }
 
-/* line 190, styles.scss */
+/* line 194, styles.scss */
 .help-inline {
   display: none;
 }
 
-/* line 194, styles.scss */
+/* line 198, styles.scss */
 .error .help-inline {
   color: #850C0C;
   display: block;
