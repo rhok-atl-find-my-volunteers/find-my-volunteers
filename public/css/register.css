@@ -1,4 +1,4 @@
-/* line 17, ../../../../.rvm/gems/ruby-1.9.2-p290/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 17, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -20,50 +20,50 @@ time, mark, audio, video {
   vertical-align: baseline;
 }
 
-/* line 22, ../../../../.rvm/gems/ruby-1.9.2-p290/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 22, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 html {
   line-height: 1;
 }
 
-/* line 24, ../../../../.rvm/gems/ruby-1.9.2-p290/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 24, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 ol, ul {
   list-style: none;
 }
 
-/* line 26, ../../../../.rvm/gems/ruby-1.9.2-p290/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 26, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 table {
   border-collapse: collapse;
   border-spacing: 0;
 }
 
-/* line 28, ../../../../.rvm/gems/ruby-1.9.2-p290/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 28, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 caption, th, td {
   text-align: left;
   font-weight: normal;
   vertical-align: middle;
 }
 
-/* line 30, ../../../../.rvm/gems/ruby-1.9.2-p290/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 30, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 q, blockquote {
   quotes: none;
 }
-/* line 103, ../../../../.rvm/gems/ruby-1.9.2-p290/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 103, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 q:before, q:after, blockquote:before, blockquote:after {
   content: "";
   content: none;
 }
 
-/* line 32, ../../../../.rvm/gems/ruby-1.9.2-p290/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 32, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 a img {
   border: none;
 }
 
-/* line 116, ../../../../.rvm/gems/ruby-1.9.2-p290/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 116, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
   display: block;
 }
 
-/* line 8, styles.scss */
+/* line 28, styles.scss */
 body {
   background: #f8f8f8;
   color: #333333;
@@ -72,29 +72,29 @@ body {
   width: 100%;
   height: 100%;
 }
-/* line 16, styles.scss */
+/* line 36, styles.scss */
 body > header {
   width: 960px;
   height: 50px;
   margin: 0 auto;
 }
-/* line 20, styles.scss */
+/* line 40, styles.scss */
 body > header h1 {
   display: inline-block;
 }
 
-/* line 24, styles.scss */
+/* line 44, styles.scss */
 .container {
   margin: 0 auto;
   width: 960px;
 }
 
-/* line 30, styles.scss */
+/* line 50, styles.scss */
 h1, h2, h3 {
   margin: 20px 0;
 }
 
-/* line 34, styles.scss */
+/* line 54, styles.scss */
 h1 {
   font-family: "Open Sans", "Helvetica Neue", Arial, sans-serif;
   font-size: 2em;
@@ -102,39 +102,216 @@ h1 {
   float: left;
 }
 
-/* line 41, styles.scss */
+/* line 61, styles.scss */
 h2 {
   font-family: "Open Sans", "Helvetica Neue", Arial, sans-serif;
   font-size: 1.7em;
   font-weight: 700;
 }
 
-/* line 47, styles.scss */
+/* line 67, styles.scss */
 p {
   line-height: 1.5;
   margin: 10px 0;
 }
 
-/* line 52, styles.scss */
+/* line 72, styles.scss */
 .nav {
   float: right;
 }
-/* line 55, styles.scss */
+/* line 75, styles.scss */
 .nav li {
   float: left;
 }
-/* line 58, styles.scss */
+/* line 78, styles.scss */
 .nav li a {
   display: block;
 }
 
-/* line 64, styles.scss */
+/* line 84, styles.scss */
 #videoOuterContainer {
   background: #000;
   color: #fff;
 }
 
-/* line 5, register.scss */
+/* line 93, styles.scss */
+#register {
+  float: right;
+  padding-top: 5px;
+}
+/* line 97, styles.scss */
+#register p, #register a {
+  display: inline-block;
+}
+/* line 99, styles.scss */
+#register button {
+  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #555555), color-stop(100%, #333333));
+  background: -webkit-linear-gradient(top, #555555, #333333);
+  background: -moz-linear-gradient(top, #555555, #333333);
+  background: -o-linear-gradient(top, #555555, #333333);
+  background: linear-gradient(top, #555555, #333333);
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px;
+  border: solid 1px #222;
+  color: #f8f8f8;
+  cursor: pointer;
+  display: block;
+  font-size: 1em;
+  padding: 8px 15px;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+/* line 23, styles.scss */
+#register button:hover, #register button:focus, #register button:active {
+  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #777777), color-stop(100%, #555555));
+  background: -webkit-linear-gradient(top, #777777, #555555);
+  background: -moz-linear-gradient(top, #777777, #555555);
+  background: -o-linear-gradient(top, #777777, #555555);
+  background: linear-gradient(top, #777777, #555555);
+}
+
+/* line 104, styles.scss */
+#videoContainer {
+  width: 270px;
+  height: 320px;
+  margin: 20px auto;
+  border: 1px solid black;
+  line-height: 320px;
+  vertical-align: middle;
+}
+/* line 112, styles.scss */
+#videoContainer p {
+  text-align: center;
+}
+
+/* line 115, styles.scss */
+.callouts {
+  text-align: center;
+  font-size: 0.7em;
+}
+/* line 119, styles.scss */
+.callouts > div {
+  display: inline-block;
+  box-sizing: border-box;
+  width: 30%;
+  text-align: left;
+  margin: 0 10px;
+}
+/* line 126, styles.scss */
+.callouts > div ul {
+  list-style: disc;
+  padding-left: 20px;
+}
+
+/* line 133, styles.scss */
+.modal {
+  background: #e3e3e3;
+}
+
+/* line 137, styles.scss */
+.registration-form {
+  margin: 0 auto;
+  padding: 20px 0;
+  width: 402px;
+}
+/* line 143, styles.scss */
+.registration-form fieldset {
+  margin: 15px 0;
+}
+/* line 147, styles.scss */
+.registration-form label {
+  display: block;
+  float: left;
+  padding: 8px 10px 0 0;
+  text-align: right;
+  width: 100px;
+}
+/* line 155, styles.scss */
+.registration-form input {
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px;
+  border: solid 1px #d3d3d3;
+  display: block;
+  padding: 8px 10px;
+  width: 270px;
+}
+/* line 163, styles.scss */
+.registration-form button {
+  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #555555), color-stop(100%, #333333));
+  background: -webkit-linear-gradient(top, #555555, #333333);
+  background: -moz-linear-gradient(top, #555555, #333333);
+  background: -o-linear-gradient(top, #555555, #333333);
+  background: linear-gradient(top, #555555, #333333);
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px;
+  border: solid 1px #222;
+  color: #f8f8f8;
+  cursor: pointer;
+  display: block;
+  font-size: 1em;
+  padding: 8px 15px;
+  text-decoration: none;
+  text-transform: uppercase;
+  float: right;
+  margin-left: 15px;
+}
+/* line 23, styles.scss */
+.registration-form button:hover, .registration-form button:focus, .registration-form button:active {
+  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #777777), color-stop(100%, #555555));
+  background: -webkit-linear-gradient(top, #777777, #555555);
+  background: -moz-linear-gradient(top, #777777, #555555);
+  background: -o-linear-gradient(top, #777777, #555555);
+  background: linear-gradient(top, #777777, #555555);
+}
+/* line 168, styles.scss */
+.registration-form button[disabled] {
+  background: #555;
+  border-color: #555;
+  color: #c7c7c7;
+  cursor: default;
+}
+/* line 176, styles.scss */
+.registration-form .cancel {
+  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #e3e3e3), color-stop(100%, #c7c7c7));
+  background: -webkit-linear-gradient(top, #e3e3e3, #c7c7c7);
+  background: -moz-linear-gradient(top, #e3e3e3, #c7c7c7);
+  background: -o-linear-gradient(top, #e3e3e3, #c7c7c7);
+  background: linear-gradient(top, #e3e3e3, #c7c7c7);
+  border-color: #a3a3a3;
+  color: #777;
+}
+/* line 183, styles.scss */
+.registration-form .cancel:hover, .registration-form .cancel:focus, .registration-form .cancel:active {
+  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #d3d3d3), color-stop(100%, #b7b7b7));
+  background: -webkit-linear-gradient(top, #d3d3d3, #b7b7b7);
+  background: -moz-linear-gradient(top, #d3d3d3, #b7b7b7);
+  background: -o-linear-gradient(top, #d3d3d3, #b7b7b7);
+  background: linear-gradient(top, #d3d3d3, #b7b7b7);
+}
+
+/* line 190, styles.scss */
+.help-inline {
+  display: none;
+}
+
+/* line 194, styles.scss */
+.error .help-inline {
+  color: #850C0C;
+  display: block;
+  margin-top: 5px;
+  margin-left: 110px;
+}
+
+/* line 25, register.scss */
 .registration-form {
   background: #e3e3e3;
   -webkit-border-radius: 3px;
