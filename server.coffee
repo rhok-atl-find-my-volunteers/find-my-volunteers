@@ -29,7 +29,7 @@ app.get '/', (req, res)->
 
 app.post '/api/sms/receive', (req, res)->
   db = connect()
-  db.save "/#{req.body.SmsSid}", req.body, (err, response)->
+  db.save "sms/#{req.body.SmsSid}", req.body, (err, response)->
     if err?
       res.send '<Response><Sms>We are unable to process your request.</Sms></Response>'
     else
