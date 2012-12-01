@@ -21,7 +21,6 @@ app.post '/api/sms/receive', (req, res)->
   console.log req
   res.send "<Response><Sms>Got this:#{req.body.Body} from #{req.body.FromCity}</Sms></Response>"
 
-
 app.post '/api/register', (req, res)->
   reg = req.body
 
@@ -34,5 +33,6 @@ app.post '/api/register', (req, res)->
   res.send 204
 
 app.listen process.env.PORT or 5000
+
 console.log "listening..."
 console.log "Settings #{util.inspect app.settings}"
