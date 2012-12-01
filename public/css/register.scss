@@ -1,0 +1,53 @@
+@import "styles";
+
+$default-border-radius: 3px;
+
+.registration-form {
+
+    background: #e3e3e3;
+    @include border-radius;
+    border: solid 1px #c7c7c7;
+    margin: 0 auto;
+    padding: 20px 30px;
+    width: 432px;
+
+    fieldset {
+        margin: 15px 0;
+    }
+
+    label {
+        display: block;
+        float: left;
+        padding: 8px 10px 0 0;
+        text-align: right;
+        width: 100px;
+    }
+
+    input {
+        @include border-radius;
+        border: solid 1px #d3d3d3;
+        display: block;
+        padding: 8px 10px;
+        width: 300px;
+    }
+
+    button {
+        @include background(linear-gradient(top, #555, #333));
+        @include border-radius;
+        border: solid 1px #222;
+        color: #f8f8f8;
+        cursor: pointer;
+        float: right;
+        font-size: 1em;
+        padding: 8px 15px;
+        text-transform: uppercase;
+    }
+
+    button:hover,
+    button:focus,
+    button:active {
+        @include background(linear-gradient(top, #777, #555));
+    }
+
+}
+

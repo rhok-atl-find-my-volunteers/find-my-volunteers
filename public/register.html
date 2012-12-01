@@ -4,17 +4,60 @@
     <meta charset="utf-8" />
     <title>Register | Find my Volunteer</title>
 
-    <link rel="stylesheet" href="vendor/bootstrap.min.css" />
     <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/register.css" />
 </head>
 <body>
 
     <div class="container">
 
+        <ul class="nav">
+            <li><a href="index.html">Video Tutorial</a></li>
+        </ul>
+
         <h1>Find My Volunteers</h1>
 
-        <form action="#">
+        <form class="registration-form" action="#">
 
+            <fieldset class="clearfix">
+                <label for="name">Name:</label>
+                <input type="text" required />
+                <span ng-show="myForm.name.$error.required" class="help-inline">Required</span>
+            </fieldset>
+
+            <fieldset class="clearfix">
+                <label for="volunteerId">Volunteer ID:</label>
+                <input type="text" required />
+                <span ng-show="myForm.volunteerId.$error.required" class="help-inline">Required</span>
+            </fieldset>
+
+            <fieldset class="clearfix">
+                <label for="phone">Phone #:</label>
+                <input type="text" required />
+                <span ng-show="myForm.phone.$error.required" class="help-inline">Required</span>
+            </fieldset>
+
+            <fieldset class="clearfix">
+                <label for="groupId">Group ID:</label>
+                <input type="text" required />
+                <span ng-show="myForm.groupId.$error.required" class="help-inline">Required</span>
+            </fieldset>
+
+            <fieldset class="clearfix">
+                <label for="username">Username:</label>
+                <input type="text" required />
+                <span ng-show="myForm.username.$error.required" class="help-inline">Required</span>
+            </fieldset>
+
+            <fieldset class="clearfix">
+                <label for="password">Password:</label>
+                <input type="password" required />
+                <span ng-show="myForm.password.$error.required" class="help-inline">Required</span>
+            </fieldset>
+
+            <fieldset class="clearfix">
+                <button type="submit">Sign Up</button>
+            </fieldset>
 
         </form>
 
