@@ -15,7 +15,7 @@ app.get '/', (req, res)->
   res.sendfile(__dirname + '/public/index.html')
 
 app.get '/api/hello', (req, res)->
-  connect = new cradle.Connection process.env.CLOUDANT_URL, {
+  connect = (new cradle.Connection) process.env.CLOUDANT_URL, 443, {
     cache: true
     raw: false
   }
