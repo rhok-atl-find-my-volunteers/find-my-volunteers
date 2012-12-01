@@ -23,7 +23,7 @@
 
   app.get('/api/hello', function(req, res) {
     var connect, db;
-    connect = (new cradle.Connection)(process.env.CLOUDANT_URL, 443, {
+    connect = new cradle.Connection(process.env.CLOUDANT_URL, 443, {
       cache: true,
       raw: false
     });
