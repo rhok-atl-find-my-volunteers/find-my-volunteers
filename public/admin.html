@@ -111,29 +111,26 @@
         </pane>
         <pane title="New Site">
           <form novalidate name="newSiteForm" method="POST">
-            <fieldset class="clearfix" ng-class="{error: registrationForm.groupId.$error.required}">
-                <label for="newSiteAlias">Alias:</label>
-                <input name="newSiteAlias" ng-model="newSite.alias" required />
-                <span class="help-inline">Required</span>
+            <fieldset class="clearfix">
+                <label for="alias">Alias:</label>
+                <input name="alias" ng-model="newSite.alias" required />
             </fieldset>
 
-            <fieldset class="clearfix lat" ng-class="{error: registrationForm.groupId.$error.required}">
-                <label for="newSiteLat">Latitude:</label>
-                <input name="newSiteLat" ng-model="newSite.lat" required />
-                <span class="help-inline">Required</span>
+            <fieldset class="clearfix lat">
+                <label for="lat">Latitude:</label>
+                <input name="lat" ng-model="newSite.lat" required />
             </fieldset>
 
-            <fieldset class="clearfix lon" ng-class="{error: registrationForm.groupId.$error.required}">
-                <label for="newSiteLng">Longitude:</label>
-                <input name="newSiteLng" ng-model="newSite.lng" required />
-                <span class="help-inline">Required</span>
+            <fieldset class="clearfix lon">
+                <label for="lng">Longitude:</label>
+                <input name="lng" ng-model="newSite.lng" required />
             </fieldset>
 
             <div class="map"></div>
 
             <footer>
               <button ng-click="closeSetSite()" class="cancel">Cancel</button>
-              <button ng-disabled="!newSiteFullyEntered()">Add Site</button>
+              <button ng-click="addNewSite()" ng-disabled="newSiteForm.$invalid">Add Site</button>
             </footer>
           </form>
         </pane>

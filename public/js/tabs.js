@@ -3,7 +3,6 @@ angular.module('tabs', []).
     return {
       restrict: 'E',
       transclude: true,
-      scope: {},
       controller: function($scope, $element) {
         var panes = $scope.panes = [];
 
@@ -31,7 +30,7 @@ angular.module('tabs', []).
       replace: true
     };
   }).
-  directive('pane', function() {
+  directive('pane', function($rootScope) {
     return {
       require: '^tabs',
       restrict: 'E',

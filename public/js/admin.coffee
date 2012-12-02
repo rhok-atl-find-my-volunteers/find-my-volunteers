@@ -1,6 +1,6 @@
 adminApp = angular.module 'adminApp', ['ui.directives', 'appDirectives', 'appServices', 'tabs']
 
-adminApp.controller 'adminCtrl', ($scope, httpMaybe)->
+adminApp.controller 'adminCtrl', ($scope, $q, httpMaybe)->
 
   $scope.searchSubmitted = false
   $scope.people = undefined
@@ -63,19 +63,34 @@ adminApp.controller 'adminCtrl', ($scope, httpMaybe)->
         $scope.showSetSite = true
 
   $scope.setSiteForCurrentPerson = (site)->
-    console.log 'site: ', site
+    httpMaybe.post("/api/person/#{$scope.currentPerson.volunteerId}/site",
+      {lat: site.location.lat, lng: site.location.lng, alias: site.alias}
+    ).success ->
+      $scope.showSetSite = false
+      $scope.currentPerson = undefined
+      setTimeout $scope.submitSearch, 1000
 
   $scope.closeSetSite= ->
     $scope.showSetSite = false
 
   $scope.newSiteFullyEntered = ->
+    $scope.newSite? and notEmpty($scope.newSite.alias) and notEmpty($scope.newSite.lat) and notEmpty($scope.newSite.lng)
 
-    notEmpty($scope.newSite.alias) and notEmpty($scope.newSite.lat) and notEmpty($scope.newSite.lon)
+  $scope.addNewSite = ->
+    debugger
+    $scope.newSite.groupId = $scope.currentPerson.groupId
+    httpMaybe.post("/api/alias", $scope.newSite)
+    $scope.setSiteForCurrentPerson
+      alias: $scope.newSite.alias
+      location:
+        lat: $scope.newSite.lat
+        lng: $scope.newSite.lng
+
 
 
 
 notEmpty = (txt)->
-  txt.replace(/\s+/g, '').length > 0
+  txt?.replace(/\s+/g, '').length > 0
 
 sampleKnownLocations = [
   { alias: 'Atlanta', location: { lat: 23, lng: -36 } }
