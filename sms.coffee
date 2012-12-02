@@ -13,7 +13,6 @@ exports.receive = (db, req, res)->
 
     coder.geocode db, person, message.Body, (location)->
       message.location = location
-      console.log util.inspect location
 
       db.save "sms/#{message.SmsSid}", message, (err, response)->
         if err?
