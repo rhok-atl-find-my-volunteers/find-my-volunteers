@@ -7,7 +7,7 @@ $dark-grey: #333;
 $page-width: 960px;
 $default-border-radius: 3px;
 
-@mixin inline-block{
+@mixin inline-block {
   display:-moz-inline-stack;
   display:inline-block;
   zoom:1;
@@ -15,6 +15,7 @@ $default-border-radius: 3px;
 }
 
 @mixin button {
+  background: #333;
   @include background(linear-gradient(top, #555, #333));
   @include border-radius;
   @include inline-block;
@@ -29,7 +30,8 @@ $default-border-radius: 3px;
   &:hover,
   &:focus,
   &:active {
-      @include background(linear-gradient(top, #777, #555));
+    background: #555;
+    @include background(linear-gradient(top, #777, #555));
   }
 
   &[disabled] {
@@ -40,6 +42,7 @@ $default-border-radius: 3px;
   }
 
   &.cancel {
+    background: #c7c7c7;
     @include background(linear-gradient(top, #e3e3e3, #c7c7c7));
     border-color: #a3a3a3;
     color: #777;
@@ -47,7 +50,8 @@ $default-border-radius: 3px;
     &:hover,
     &:focus,
     &:active {
-        @include background(linear-gradient(top, #d3d3d3, #b7b7b7));
+      background: #b7b7b7;
+      @include background(linear-gradient(top, #d3d3d3, #b7b7b7));
     }
   }
 }
@@ -180,6 +184,7 @@ $VideoWidth: 270px;
 }
 
 .callouts {
+  padding-bottom: 30px;
   text-align: center;
 
   & > div {
