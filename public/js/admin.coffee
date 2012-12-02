@@ -39,7 +39,20 @@ adminApp.controller 'adminCtrl', ($scope, httpMaybe)->
 
 
 samplePeople = [
-    {name: 'bill', volunteerId: '12392', groupId: 'cambodia3', contact: ['(404) 293-9448', 'person@email.com']}
+    {
+      name: 'bill'
+      volunteerId: '12392'
+      groupId: 'cambodia3'
+      contact: ['(404) 293-9448', 'person@email.com']
+    },
+    {
+      name: 'mary'
+      volunteerId: '29192'
+      groupId: 'cambodia3'
+      contact: ['(404) 293-9448']
+      location: {lat: 39.4958, lng: 92.944}
+      site: { lat: 39.48, lng: 39.239, alias: 'Atlanta' }
+    }
   ]
 
 sampleCheckins = [

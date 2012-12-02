@@ -33,21 +33,30 @@
             <a href="#">map</a>
           </nav>
         </header>
-        <ul ng-show="searchFoundPeople()">
-          <li ng-repeat="person in people" class="clearfix">
-            <span class="metadata">
-              <span class="name">{{person.name}}</span>
-              <span class="volunteerId">( <span>{{person.volunteerId}}</span> )</span>
-              <span class="groupId">Group: <span>{{person.groupId}}</span></span>
-              <span class="contact">Contact: <span>{{person.contact.join(', ')}}</span></span>
-            </span>
-
-            <nav>
-              <a href="#">map</a>
-              <a href="#" ng-click="showCheckinLogForPerson(person)">log</a>
-            </nav>
-          </li>
-        </ul>
+        <table ng-show="searchFoundPeople()">
+          <tr>
+            <th class="location">&nbsp;</th>
+            <th class="name">Name</th>
+            <th class="volunteerId">Volunteer Id</th>
+            <th class="groupId">Group Id</th>
+            <th class="contact">Contact Information</th>
+            <th class="site">Site</th>
+            <th class="actions">&nbsp;</th>
+          </tr>
+          <tr ng-repeat="person in people">
+            <td location-title class="location" ng-click="showLocationForPerson(person)">
+              <i class="icon-map-marker"></i>
+            </td>
+            <td class="name">{{person.name}}</td>
+            <td class="volunteerId">{{person.volunteerId}}</td>
+            <td class="groupId">{{person.groupId}}</td>
+            <td class="contact">{{person.contact.join(', ')}}</td>
+            <td class="site"><a href="#">{{person.site && person.site.alias || 'unknown'}}</a></td>
+            <td class="actions">
+              <a href="#" ng-click="showCheckinLogForPerson(person)">checkin log</a>
+            </td>
+          </tr>
+        </table>
 
         <p class="noneFound" ng-show="!searchFoundPeople()">
           No People Found
