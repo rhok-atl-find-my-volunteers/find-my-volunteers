@@ -50,4 +50,3 @@ app.post '/api/alias', (req, res)->
 app.listen process.env.PORT or 5000
 
 console.log "listening..."
-console.log "Settings #{util.inspect app.settings}"

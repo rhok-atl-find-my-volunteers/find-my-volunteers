@@ -109,26 +109,26 @@
             </footer>
           </div>
         </pane>
-        <pane title="New Site">
+        <pane title="New Site" map="true">
           <form novalidate name="newSiteForm" method="POST">
             <fieldset class="clearfix">
-                <label for="alias">Alias:</label>
-                <input name="alias" ng-model="newSite.alias" required />
+                <label for="alias">Name:</label>
+                <input type="text" name="alias" ng-model="newSite.alias" required />
             </fieldset>
 
             </fieldset>
 
             <fieldset class="clearfix lat">
                 <label for="lat">Latitude:</label>
-                <input name="lat" ng-model="newSite.lat" required />
+                <input type="text" name="lat" ng-model="newSite.lat" required />
             </fieldset>
 
             <fieldset class="clearfix lon">
                 <label for="lng">Longitude:</label>
-                <input name="lng" ng-model="newSite.lng" required />
+                <input type="text" name="lng" ng-model="newSite.lng" required />
             </fieldset>
 
-            <div class="map"></div>
+            <div class="map" clickable-google-map></div>
 
             <footer>
               <button ng-click="closeSetSite()" class="cancel">Cancel</button>

@@ -5,12 +5,14 @@ angular.module('tabs', []).
       transclude: true,
       controller: function($scope, $element) {
         var panes = $scope.panes = [];
-
         $scope.select = function(pane) {
           angular.forEach(panes, function(pane) {
             pane.selected = false;
           });
           pane.selected = true;
+          if (pane.map) {
+            $scope.showClickableMap = true;
+          }
         }
 
         this.addPane = function(pane) {
@@ -35,7 +37,7 @@ angular.module('tabs', []).
       require: '^tabs',
       restrict: 'E',
       transclude: true,
-      scope: { title: '@' },
+      scope: { title: '@', map: '=map' },
       link: function(scope, element, attrs, tabsCtrl) {
         $rootScope.newSite = {};
         tabsCtrl.addPane(scope);
