@@ -26,6 +26,9 @@ adminApp.controller 'adminCtrl', ($scope, httpMaybe)->
   $scope.closeCheckinLog = ->
     $scope.showCheckinLog = false
 
+  $scope.closeMap = ->
+    $scope.showMap = false
+
   $scope.showCheckinLogForPerson = (person)->
     httpMaybe.get('/api/checkins/search', params: {q: person.volunteerId}, ifLocal: sampleCheckins)
       .success (checkins)->
