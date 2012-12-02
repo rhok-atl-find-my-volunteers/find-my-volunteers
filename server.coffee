@@ -8,6 +8,9 @@ db = require './db'
 
 people_search = require './search/people'
 checkins_search = require './search/checkins'
+aliases_search = require './search/aliases'
+
+aliases = require './entity_manipulations/aliases'
 
 app = express()
 app.enable 'trust proxy'
@@ -33,6 +36,12 @@ app.get '/api/people/search', (req, res)->
 
 app.get '/api/checkins/search', (req, res)->
   checkins_search.go db.connect(), req, res
+
+app.get '/api/aliases', (req, res)->
+  aliases_search.go db.connect(), req, res
+
+app.post '/api/alias', (req, res)->
+  aliases.add db.connect(), req, res
 
 app.listen process.env.PORT or 5000
 

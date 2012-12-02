@@ -29,6 +29,9 @@ adminApp.controller 'adminCtrl', ($scope, httpMaybe)->
   $scope.closeCheckinLog = ->
     $scope.showCheckinLog = false
 
+  $scope.closeMap = ->
+    $scope.showMap = false
+
   $scope.showCheckinLogForPerson = (person)->
     httpMaybe.get('/api/checkins/search', params: {q: person.volunteerId}, ifLocal: sampleCheckins)
       .success (checkins)->
@@ -81,7 +84,7 @@ samplePeople = [
       volunteerId: '29192'
       groupId: 'cambodia3'
       contact: ['(404) 293-9448']
-      location: {lat: 39.4958, lng: 92.944}
+      lastKnownLocation: {lat: 39.4958, lng: 92.944, timestamp: new Date()}
       site: { lat: 39.48, lng: 39.239, alias: 'Atlanta' }
     }
   ]

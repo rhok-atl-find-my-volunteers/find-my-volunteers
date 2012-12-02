@@ -30,7 +30,7 @@
           <h2>Results</h2>
 
           <nav ng-show="searchFoundPeople()">
-            <a href="#">map</a>
+            <a href="#" ng-click="showLocation(people)">map</a>
           </nav>
         </header>
         <table ng-show="searchFoundPeople()">
@@ -89,6 +89,9 @@
 
     <div ui-modal ng-model="showMap" class="fade">
         <div class="map" google-map></div>
+        <footer>
+            <button ng-click="closeMap()">Close</button>
+        </footer>
     </div>
 
     <div ui-modal ng-model="showSetSite" class="fade setSiteLocation">
