@@ -1,4 +1,7 @@
 (function() {
+  var iso8601;
+
+  iso8601 = require('iso8601');
 
   exports.register = function(db, req, res) {
     var person, reg;
@@ -7,7 +10,8 @@
       volunteerId: reg.volunteerId,
       name: reg.name,
       contact: [reg.phoneNumber],
-      groupId: reg.groupId
+      groupId: reg.groupId,
+      timeStamp: iso8601.fromDate(new Date)
     };
     return db.save('person/' + person.volunteerId, person, function(err) {
       if (err != null) res.send(500, util.inspect(err));

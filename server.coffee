@@ -30,6 +30,9 @@ app.post '/api/register', (req, res)->
 app.get '/api/people/search', (req, res)->
   people_search.go db.connect(), req, res
 
+app.get '/api/checkins/search', (req, res)->
+  checkins_search.go db.connect(), req, res
+
 app.listen process.env.PORT or 5000
 
 console.log "listening..."

@@ -13,4 +13,7 @@ create_views = (db, views...)->
   db.save '_design/views', views_doc
 
 module.exports = (connect)->
-  create_views connect(), (require './person_by_phone'), (require './person_search')
+  create_views connect(),
+    (require './person_by_phone'),
+    (require './person_search'),
+    (require './checkins_search')

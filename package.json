@@ -5,7 +5,8 @@
     "express": "3.x",
     "cradle": "x",
     "geocoder": "x",
-    "coffee-script": "*"
+    "coffee-script": "*",
+    "iso8601": "x"
   },
   "engines": {
     "node": "0.8.x",

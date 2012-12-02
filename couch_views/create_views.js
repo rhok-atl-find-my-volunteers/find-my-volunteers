@@ -22,7 +22,7 @@
   };
 
   module.exports = function(connect) {
-    return create_views(connect(), require('./person_by_phone'), require('./person_search'));
+    return create_views(connect(), require('./person_by_phone'), require('./person_search'), require('./checkins_search'));
   };
 
 }).call(this);

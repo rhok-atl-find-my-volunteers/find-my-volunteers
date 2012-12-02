@@ -100,6 +100,10 @@
     }
     return people_search.go(db.connect(), req, res);
   });
+  app.get('/api/checkins/search', function(req, res) {
+    return checkins_search.go(db.connect(), req, res);
+  });
+
   app.listen(process.env.PORT || 5000);
   console.log("listening...");
   console.log("Settings " + (util.inspect(app.settings)));
