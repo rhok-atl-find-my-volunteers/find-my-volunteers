@@ -11,6 +11,7 @@ checkins_search = require './search/checkins'
 aliases_search = require './search/aliases'
 
 aliases = require './entity_manipulations/aliases'
+people = require './entity_manipulations/people'
 
 app = express()
 app.enable 'trust proxy'
@@ -33,6 +34,9 @@ app.post '/api/register', (req, res)->
 
 app.get '/api/people/search', (req, res)->
   people_search.go db.connect(), req, res
+
+app.post '/api/person/:id/site', (req, res)->
+  people.set_post db.connect(), req, res
 
 app.get '/api/checkins/search', (req, res)->
   checkins_search.go db.connect(), req, res
