@@ -7,7 +7,6 @@
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="vendor/bootstrap.min.css" />
     <link rel="stylesheet" href="css/styles.css" />
-    <link rel="stylesheet" href="css/admin.css" />
 </head>
 <body ng-controller="adminCtrl" class="admin">
 
@@ -20,35 +19,39 @@
       <form novalidate name="searchForm" class="search" type="GET">
 
           <fieldset class="clearfix">
-              <input placeholder="Search Volunteer ID, Group ID or Volunteer Name" type="text" name="name" ng-model="search" />
+              <input autofocus placeholder="Search Volunteer ID, Group ID or Volunteer Name" type="text" name="name" ng-model="search" />
               <button class="submit" ng-disabled="!hasSearchTerm()" ng-click="submitSearch()">Search</button>
           </fieldset>
 
       </form>
 
-      <div class="results">
+      <div class="results" ng-show="searchSubmitted">
         <header class="clearfix">
           <h2>Results</h2>
 
-          <nav>
+          <nav ng-show="hasResults()">
             <a href="#">map</a>
           </nav>
         </header>
-        <ul>
-        <li ng-repeat="result in results" class="clearfix">
-          <span class="metadata">
-            <span class="name">{{result.name}}</span>
-            <span class="volunteerId">( <span>{{result.volunteerId}}</span> )</span>
-            <span class="groupId">Group: <span>{{result.groupId}}</span></span>
-            <span class="contact">Contact: <span>{{result.contact}}</span></span>
-          </span>
+        <ul ng-show="hasResults()">
+          <li ng-repeat="result in results" class="clearfix">
+            <span class="metadata">
+              <span class="name">{{result.name}}</span>
+              <span class="volunteerId">( <span>{{result.volunteerId}}</span> )</span>
+              <span class="groupId">Group: <span>{{result.groupId}}</span></span>
+              <span class="contact">Contact: <span>{{result.contact}}</span></span>
+            </span>
 
-          <nav>
-            <a href="#">map</a>
-            <a href="#">log</a>
-          </nav>
-        </li>
-      </ul>
+            <nav>
+              <a href="#">map</a>
+              <a href="#">log</a>
+            </nav>
+          </li>
+        </ul>
+
+        <p class="noneFound" ng-show="!hasResults()">
+          No Results Found
+        </p>
 
     </div>
 
