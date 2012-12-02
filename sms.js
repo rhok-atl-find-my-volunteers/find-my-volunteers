@@ -1,4 +1,5 @@
 (function() {
+
   exports.receive = function(db, req, res) {
     var util;
     util = require('util');
@@ -14,4 +15,5 @@
       }
     });
   };
+
 }).call(this);

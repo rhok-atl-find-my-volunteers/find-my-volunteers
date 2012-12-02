@@ -1,4 +1,5 @@
 (function() {
+
   exports.geocode = function(address, completion) {
     var geocoder, util;
     util = require('util');
@@ -11,4 +12,5 @@
       }
     });
   };
+
 }).call(this);
