@@ -15,7 +15,7 @@
 
           <div id="register">
              <p ng-show="formSubmitted">Registration Submitted. Thank you!</p>
-             <button ng-click="openModal()">Register Now</button>
+             <button ng-click="openModal()" ng-hide="formSubmitted">Register Now</button>
           </div>
         </header>
 
