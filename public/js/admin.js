@@ -13,7 +13,42 @@
         contact: '(404) 293-9448'
       }
     ];
-    $scope.checkinLog = void 0;
+    $scope.checkinLog = {
+      name: "Billy Bob",
+      entries: [
+        {
+          timestamp: new Date(),
+          message: "Atlanta"
+        }, {
+          timestamp: new Date(),
+          message: "Macon",
+          location: {
+            lat: 293.4949,
+            lon: 29.38337
+          }
+        }, {
+          timestamp: new Date(),
+          message: "Atlanta"
+        }, {
+          timestamp: new Date(),
+          message: "Macon",
+          location: {
+            lat: 293.4949,
+            lon: 29.38337
+          }
+        }, {
+          timestamp: new Date(),
+          message: "Atlanta"
+        }, {
+          timestamp: new Date(),
+          message: "Macon",
+          location: {
+            lat: 293.4949,
+            lon: 29.38337
+          }
+        }
+      ]
+    };
     $scope.hasResults = function() {
       var _ref;
       return ((_ref = $scope.results) != null ? _ref.length : void 0) > 0;

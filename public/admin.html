@@ -55,15 +55,15 @@
 
     </div>
 
-    <div ui-modal ngModel="showCheckinLog" class="fade">
-      <h2>{{log.name}}</h2>
+    <div ui-modal ng-model="checkinLog" class="fade">
+      <h2>{{checkinLog.name}}</h2>
       <table>
         <tr>
           <th class="located"></th>
           <th>Date / Time</th>
           <th>Message</th>
         </tr>
-        <tr ng-repeat="entry in entries">
+        <tr ng-repeat="entry in checkinLog.entries">
           <td><i class="icon-map-marker"></i></td>
           <td>{{entry.timestamp | date:'short'}}</td>
           <td>{{entry.message}}</td>

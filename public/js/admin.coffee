@@ -11,7 +11,38 @@ adminApp.controller 'adminCtrl', ($scope, $http)->
     {name: 'bill', volunteerId: '12392', groupId: 'cambodia3', contact: '(404) 293-9448'}
   ]
 
-  $scope.checkinLog = undefined
+  #$scope.checkinLog = undefined
+  $scope.checkinLog =
+    name: "Billy Bob"
+    entries: [
+      {
+        timestamp: new Date()
+        message: "Atlanta"
+      },
+      {
+        timestamp: new Date()
+        message: "Macon"
+        location: { lat: 293.4949, lon: 29.38337 }
+      },
+      {
+        timestamp: new Date()
+        message: "Atlanta"
+      },
+      {
+        timestamp: new Date()
+        message: "Macon"
+        location: { lat: 293.4949, lon: 29.38337 }
+      },
+      {
+        timestamp: new Date()
+        message: "Atlanta"
+      },
+      {
+        timestamp: new Date()
+        message: "Macon"
+        location: { lat: 293.4949, lon: 29.38337 }
+      }
+    ]
 
   $scope.hasResults = ->
     $scope.results?.length > 0
