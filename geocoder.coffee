@@ -22,7 +22,7 @@ exports.geocode = (db, person, address, completion)->
     unless alias?
       numberOfWords = address.match(/\S+/g).length
 
-      if numberOfWords > 3
+      if numberOfWords > 2
         geocoder.geocode address, (err, data)->
           if not err?
             completion data.results[0].geometry.location
