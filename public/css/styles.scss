@@ -343,11 +343,13 @@ $VideoWidth: 270px;
 
   fieldset {
     @include inline-block;
-    width: 40%;
+    width: 42%;
+
+    input: { width: 190px; }
   }
   fieldset.lat, fieldset.lon {
     @include inline-block;
-    width: 25%;
+    width: 28%;
 
     input {
       width: 120px;

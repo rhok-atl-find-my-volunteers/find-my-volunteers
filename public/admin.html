@@ -123,12 +123,12 @@
 
             <fieldset class="clearfix lat">
                 <label for="lat">Latitude:</label>
-                <input type="text" name="lat" ng-model="newSite.lat" required />
+                <input type="text" name="lat" ng-model="newSite.lat" required readonly />
             </fieldset>
 
             <fieldset class="clearfix lon">
                 <label for="lng">Longitude:</label>
-                <input type="text" name="lng" ng-model="newSite.lng" required />
+                <input type="text" name="lng" ng-model="newSite.lng" required readonly />
             </fieldset>
 
             <div class="map" clickable-google-map></div>
@@ -145,7 +145,7 @@
     <div ui-modal ng-model="showSendMessage" class="fade sendMessage">
       <h2>Message {{people.length}} {{people.length > 1 && 'Volunteers' || 'Volunteer'}}</h2>
 
-      <form novalidate name="sendMessageForm">
+      <form novalidate ng-submit="sendMessageForm.$invalid || sendMessage()" name="sendMessageForm">
         <fieldset class="clearfix lon">
             <label for="sendMessage">Message:</label>
             <input type="text" name="sendMessage" ng-model="messageToSend" required />

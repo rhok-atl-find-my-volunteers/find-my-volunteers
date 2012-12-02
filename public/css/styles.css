@@ -1769,49 +1769,50 @@ p {
   display: inline-block;
   zoom: 1;
   *display: inline;
-  width: 40%;
+  width: 42%;
+  input-width: 190px;
 }
-/* line 348, styles.scss */
+/* line 350, styles.scss */
 .setSiteLocation fieldset.lat, .setSiteLocation fieldset.lon {
   display: -moz-inline-stack;
   display: inline-block;
   zoom: 1;
   *display: inline;
-  width: 25%;
+  width: 28%;
 }
-/* line 352, styles.scss */
+/* line 354, styles.scss */
 .setSiteLocation fieldset.lat input, .setSiteLocation fieldset.lon input {
   width: 120px;
 }
-/* line 357, styles.scss */
+/* line 359, styles.scss */
 .setSiteLocation .map {
   width: 100%;
   height: 300px;
 }
 
-/* line 365, styles.scss */
+/* line 367, styles.scss */
 .sendMessage input {
   width: 100%;
   box-sizing: border-box;
   height: auto;
 }
-/* line 366, styles.scss */
+/* line 368, styles.scss */
 .sendMessage label {
   margin-bottom: 5px;
 }
 
-/* line 369, styles.scss */
+/* line 371, styles.scss */
 .modal {
   margin-left: -300px;
   padding: 20px;
 }
 
-/* line 374, styles.scss */
+/* line 376, styles.scss */
 .map {
   width: 100%;
   height: 400px;
 }
-/* line 378, styles.scss */
+/* line 380, styles.scss */
 .map img {
   max-width: inherit;
 }
