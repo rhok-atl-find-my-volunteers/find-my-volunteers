@@ -16,4 +16,5 @@ module.exports = (connect)->
   create_views connect(),
     (require './person_by_phone'),
     (require './person_search'),
-    (require './checkins_search')
+    (require './checkins_search'),
+    (require './aliases')
