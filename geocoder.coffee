@@ -1,15 +1,15 @@
 util = require 'util'
 geocoder = require 'geocoder'
 
-constructPrefix = (person, address) ->
+constructPrefix = (person, address)->
   prefix = ''
 
   if address.toLowerCase().trim() is 'home'
     prefix = person.volunteerId
   else
-	prefix = person.groupId
+  prefix = person.groupId
 
-exports.geocode = (db, person, address, completion) ->
+exports.geocode = (db, person, address, completion)->
   prefix = constructPrefix person, address
   console.log util.inspect prefix
 
@@ -17,15 +17,15 @@ exports.geocode = (db, person, address, completion) ->
   console.log util.inspect key
 
   db.view 'views/aliases', key: key, (err, response)->
-	alias = response[0]
-	console.log util.inspect alias
+  alias = response[0]
+  console.log util.inspect alias
 
-	completion alias.value if alias?
+  completion alias.value if alias?
 
-	unless alias?
-	  geocoder.geocode address, (err, data) ->	  	
-	  	console.log util.inspect err if err?
-	  	  
-	  	if not err?
-	  	  completion data.results[0].geometry.location
-	  	  console.log util.inspect data if data?
+  unless alias?
+    geocoder.geocode address, (err, data)->
+      console.log util.inspect err if err?
+
+      if not err?
+        completion data.results[0].geometry.location
+        console.log util.inspect data if data?
