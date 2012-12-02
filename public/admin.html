@@ -45,7 +45,7 @@
           </tr>
           <tr ng-repeat="person in people">
             <td location-title class="location" ng-click="showLocationForPerson(person)">
-              <i class="icon-map-marker"></i>
+              <i ng-click="showLocation([person])" class="icon-map-marker"></i>
             </td>
             <td class="name">{{person.name}}</td>
             <td class="volunteerId">{{person.volunteerId}}</td>
@@ -99,7 +99,7 @@
       <tabs>
         <pane title="Known Sites">
           <div class="knownLocations">
-            <input placeholder="filter" autofocus ng-model="locationFilter" />
+            <input type="text" placeholder="filter" autofocus ng-model="locationFilter" />
             <ul>
               <li ng-repeat="location in knownLocations | filter:locationFilter"
                   ng-click="setSiteForCurrentPerson(location)">{{location.alias}}</li>
@@ -110,19 +110,19 @@
           <form novalidate name="newSiteForm" method="POST">
             <fieldset class="clearfix" ng-class="{error: registrationForm.groupId.$error.required}">
                 <label for="newSiteAlias">Alias:</label>
-                <input name="newSiteAlias" ng-model="newSite.alias" required />
+                <input type="text" name="newSiteAlias" ng-model="newSite.alias" required />
                 <span class="help-inline">Required</span>
             </fieldset>
 
             <fieldset class="clearfix lat" ng-class="{error: registrationForm.groupId.$error.required}">
                 <label for="newSiteLat">Latitude:</label>
-                <input name="newSiteLat" ng-model="newSite.lat" required />
+                <input type="text" name="newSiteLat" ng-model="newSite.lat" required />
                 <span class="help-inline">Required</span>
             </fieldset>
 
             <fieldset class="clearfix lon" ng-class="{error: registrationForm.groupId.$error.required}">
                 <label for="newSiteLng">Longitude:</label>
-                <input name="newSiteLng" ng-model="newSite.lng" required />
+                <input type="text" name="newSiteLng" ng-model="newSite.lng" required />
                 <span class="help-inline">Required</span>
             </fieldset>
 
