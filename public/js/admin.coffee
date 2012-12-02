@@ -1,6 +1,6 @@
 adminApp = angular.module 'adminApp', ['ui.directives', 'appDirectives', 'appServices', 'tabs']
 
-adminApp.controller 'adminCtrl', ($scope, $q, httpMaybe)->
+adminApp.controller 'adminCtrl', ($scope, $q, httpMaybe, $rootScope)->
 
   $scope.searchSubmitted = false
   $scope.people = undefined
@@ -57,7 +57,7 @@ adminApp.controller 'adminCtrl', ($scope, $q, httpMaybe)->
 
   $scope.editSiteForPerson = (person)->
     $scope.currentPerson = person
-    httpMaybe.get('/api/aliases', params: {}, ifLocal: sampleKnownLocations)
+    httpMaybe.get('/api/aliases', params: {groupId: person.groupId}, ifLocal: sampleKnownLocations)
       .success (knownLocations)->
         $scope.knownLocations = knownLocations
         $scope.showSetSite = true
@@ -77,14 +77,13 @@ adminApp.controller 'adminCtrl', ($scope, $q, httpMaybe)->
     $scope.newSite? and notEmpty($scope.newSite.alias) and notEmpty($scope.newSite.lat) and notEmpty($scope.newSite.lng)
 
   $scope.addNewSite = ->
-    debugger
-    $scope.newSite.groupId = $scope.currentPerson.groupId
-    httpMaybe.post("/api/alias", $scope.newSite)
+    $rootScope.newSite.groupId = $scope.currentPerson.groupId
+    httpMaybe.post("/api/alias", $rootScope.newSite)
     $scope.setSiteForCurrentPerson
-      alias: $scope.newSite.alias
+      alias: $rootScope.newSite.alias
       location:
-        lat: $scope.newSite.lat
-        lng: $scope.newSite.lng
+        lat: $rootScope.newSite.lat
+        lng: $rootScope.newSite.lng
 
 
 

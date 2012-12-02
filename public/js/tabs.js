@@ -37,6 +37,7 @@ angular.module('tabs', []).
       transclude: true,
       scope: { title: '@' },
       link: function(scope, element, attrs, tabsCtrl) {
+        $rootScope.newSite = {};
         tabsCtrl.addPane(scope);
       },
       template:
