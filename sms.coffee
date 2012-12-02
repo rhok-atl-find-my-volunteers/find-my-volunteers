@@ -7,7 +7,10 @@ exports.send = (req, res)->
   {message, contacts} = req.body
 
   for number in contacts
-    process.nextTick (number)-> console.log "Send '#{message}' to: #{number}" #sendTo number, message
+    do (number)->
+      process.nextTick ()-> console.log "Send '#{message}' to: #{number}" #sendTo number, message
+
+  res.send 204
 
 exports.receive = (db, req, res)->
   message = req.body
