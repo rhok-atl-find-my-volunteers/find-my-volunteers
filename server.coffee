@@ -29,6 +29,9 @@ app.get '/', (req, res)->
 app.post '/api/sms/receive', (req, res)->
   sms.receive db.connect(), req, res
 
+app.post '/api/sms/send', (req, res)->
+  sms.send req, res
+
 app.post '/api/register', (req, res)->
   registration.register db.connect(), req, res
 
