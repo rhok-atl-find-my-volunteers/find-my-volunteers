@@ -2,6 +2,10 @@ adminApp = angular.module 'adminApp', ['ui.directives', 'appDirectives', 'appSer
 
 adminApp.controller 'adminCtrl', ($scope, $q, httpMaybe, $rootScope)->
 
+  reduce = (arr, seed, fn)->
+    seed = fn(val, seed) for val in arr
+    return seed
+
   $scope.searchSubmitted = false
   $scope.people = undefined
 
@@ -84,6 +88,23 @@ adminApp.controller 'adminCtrl', ($scope, $q, httpMaybe, $rootScope)->
       location:
         lat: $rootScope.newSite.lat
         lng: $rootScope.newSite.lng
+
+  $scope.showSendMessage = false
+
+  $scope.closeSendMessage = ->
+    $scope.showSendMessage = false
+
+  $scope.openSendMessage = ->
+    $scope.messageToSend = ''
+    $scope.showSendMessage = true
+
+  $scope.sendMessage = ->
+    httpMaybe.post('/api/sms/send',
+      contacts: reduce($scope.people, [], (next, acc)-> acc.concat next.contact)
+      message: $scope.messageToSend
+    ).success ->
+      $scope.showSendMessage = false
+
 
 
 
