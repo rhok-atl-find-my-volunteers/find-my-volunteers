@@ -115,12 +115,18 @@ samplePeople = [
 
 sampleCheckins = [
       {
-        timeStamp: new Date()
-        message: "Atlanta"
+        timeStamp: new Date(292282928)
+        message: "Earlier"
       },
       {
-        timeStamp: new Date()
-        message: "Macon"
+        timeStamp: new Date(392282928)
+        message: "Most Recently Sent"
+        location: { lat: 22, lng: -78.670 }
+      },
+      {
+        timeStamp: new Date(292482928)
+        message: "Sent in the middle"
         location: { lat: 22, lng: -78.670 }
       }
+
     ]
