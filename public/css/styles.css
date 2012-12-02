@@ -188,27 +188,42 @@ p {
 #videoOuterContainer {
   background: #000;
   color: #fff;
+  margin: 20px 0;
+  text-align: center;
 }
+/* line 124, styles.scss */
 /* line 120, styles.scss */
+/* line 126, styles.scss */
 #videoOuterContainer > div {
-  width: 270px;
-  height: 320px;
-  margin: 20px auto;
-  border: 1px solid black;
+  display: -moz-inline-stack;
+  display: inline-block;
+  zoom: 1;
+  *display: inline;
+}
+/* line 129, styles.scss */
+#videoOuterContainer > div iframe {
   line-height: 320px;
   vertical-align: middle;
 }
+/* line 132, styles.scss */
+#videoOuterContainer > div p {
 /* line 128, styles.scss */
 #videoOuterContainer > div p {
+/* line 133, styles.scss */
+#videoOuterContainer > div iframe p {
   text-align: center;
 }
 
+/* line 136, styles.scss */
 /* line 132, styles.scss */
+/* line 138, styles.scss */
 .callouts {
   text-align: center;
   font-size: 0.7em;
 }
+/* line 140, styles.scss */
 /* line 136, styles.scss */
+/* line 142, styles.scss */
 .callouts > div {
   display: -moz-inline-stack;
   display: inline-block;
@@ -219,28 +234,38 @@ p {
   text-align: left;
   margin: 0 10px;
 }
+/* line 147, styles.scss */
 /* line 143, styles.scss */
+/* line 149, styles.scss */
 .callouts > div ul {
   list-style: disc;
   padding-left: 20px;
 }
 
+/* line 154, styles.scss */
 /* line 150, styles.scss */
+/* line 156, styles.scss */
 .modal {
   background: #e3e3e3;
 }
 
+/* line 158, styles.scss */
 /* line 154, styles.scss */
+/* line 160, styles.scss */
 .registration-form {
   margin: 0 auto;
   padding: 20px 0;
   width: 402px;
 }
+/* line 164, styles.scss */
 /* line 160, styles.scss */
+/* line 166, styles.scss */
 .registration-form fieldset {
   margin: 15px 0;
 }
+/* line 168, styles.scss */
 /* line 164, styles.scss */
+/* line 170, styles.scss */
 .registration-form label {
   display: block;
   float: left;
@@ -248,7 +273,9 @@ p {
   text-align: right;
   width: 100px;
 }
+/* line 176, styles.scss */
 /* line 172, styles.scss */
+/* line 178, styles.scss */
 .registration-form input {
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
@@ -260,7 +287,9 @@ p {
   padding: 8px 10px;
   width: 270px;
 }
+/* line 184, styles.scss */
 /* line 180, styles.scss */
+/* line 186, styles.scss */
 .registration-form button {
   background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #555555), color-stop(100%, #333333));
   background: -webkit-linear-gradient(top, #555555, #333333);
@@ -296,12 +325,42 @@ p {
 }
 /* line 34, styles.scss */
 .registration-form button[disabled] {
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=50);
+  opacity: 0.5;
+  cursor: default;
+}
+/* line 40, styles.scss */
+.registration-form button[disabled]:hover, .registration-form button[disabled]:focus, .registration-form button[disabled]:active {
+  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #555555), color-stop(100%, #333333));
+  background: -webkit-linear-gradient(top, #555555, #333333);
+  background: -moz-linear-gradient(top, #555555, #333333);
+  background: -o-linear-gradient(top, #555555, #333333);
+  background: linear-gradient(top, #555555, #333333);
+}
+/* line 189, styles.scss */
+.registration-form button[disabled] {
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=50);
+  opacity: 0.5;
+  cursor: default;
+}
+/* line 40, styles.scss */
+.registration-form button[disabled]:hover, .registration-form button[disabled]:focus, .registration-form button[disabled]:active {
+  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #555555), color-stop(100%, #333333));
+  background: -webkit-linear-gradient(top, #555555, #333333);
+  background: -moz-linear-gradient(top, #555555, #333333);
+  background: -o-linear-gradient(top, #555555, #333333);
+  background: linear-gradient(top, #555555, #333333);
+}
+/* line 191, styles.scss */
+.registration-form button[disabled] {
   background: #555;
   border-color: #555;
   color: #c7c7c7;
   cursor: default;
 }
+/* line 197, styles.scss */
 /* line 186, styles.scss */
+/* line 199, styles.scss */
 .registration-form .cancel {
   background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #e3e3e3), color-stop(100%, #c7c7c7));
   background: -webkit-linear-gradient(top, #e3e3e3, #c7c7c7);
@@ -311,7 +370,9 @@ p {
   border-color: #a3a3a3;
   color: #777;
 }
+/* line 204, styles.scss */
 /* line 193, styles.scss */
+/* line 206, styles.scss */
 .registration-form .cancel:hover, .registration-form .cancel:focus, .registration-form .cancel:active {
   background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #d3d3d3), color-stop(100%, #b7b7b7));
   background: -webkit-linear-gradient(top, #d3d3d3, #b7b7b7);
@@ -320,12 +381,16 @@ p {
   background: linear-gradient(top, #d3d3d3, #b7b7b7);
 }
 
+/* line 211, styles.scss */
 /* line 200, styles.scss */
+/* line 213, styles.scss */
 .help-inline {
   display: none;
 }
 
+/* line 215, styles.scss */
 /* line 204, styles.scss */
+/* line 217, styles.scss */
 .error .help-inline {
   color: #850C0C;
   display: block;
@@ -333,66 +398,93 @@ p {
   margin-left: 110px;
 }
 
+/* line 224, styles.scss */
 /* line 213, styles.scss */
+/* line 226, styles.scss */
 .admin header {
   height: auto;
 }
+/* line 227, styles.scss */
 /* line 216, styles.scss */
+/* line 229, styles.scss */
 .admin header h1 {
   float: none;
 }
+/* line 232, styles.scss */
 /* line 221, styles.scss */
+/* line 234, styles.scss */
 .admin form.search {
   width: 50%;
   margin: 50px auto;
 }
+/* line 236, styles.scss */
 /* line 225, styles.scss */
+/* line 238, styles.scss */
 .admin form.search input {
   width: 75%;
   box-sizing: border-box;
   padding: 7px;
   height: auto;
+  margin-bottom: 0;
 }
+/* line 245, styles.scss */
 /* line 234, styles.scss */
+/* line 248, styles.scss */
 .admin .results header {
   border-bottom: 1px solid #000;
   padding: 0;
   margin: 0;
 }
+/* line 248, styles.scss */
 /* line 237, styles.scss */
+/* line 251, styles.scss */
 .admin .results header h2 {
   float: left;
   padding: 0;
   margin: 0;
 }
+/* line 254, styles.scss */
 /* line 243, styles.scss */
+/* line 257, styles.scss */
 .admin .results nav {
   float: right;
 }
+/* line 257, styles.scss */
 /* line 246, styles.scss */
+/* line 260, styles.scss */
 .admin .results nav a {
   padding: 0 5px;
 }
+/* line 262, styles.scss */
 /* line 251, styles.scss */
+/* line 265, styles.scss */
 .admin .results li {
   display: block;
   padding: 10px;
   margin: 0 10px;
   border-top: 1px solid #000;
 }
+/* line 268, styles.scss */
 /* line 257, styles.scss */
+/* line 271, styles.scss */
 .admin .results li:first-child {
   border: 0;
 }
+/* line 272, styles.scss */
 /* line 261, styles.scss */
+/* line 275, styles.scss */
 .admin .results li .metadata {
   float: left;
 }
+/* line 275, styles.scss */
 /* line 264, styles.scss */
+/* line 278, styles.scss */
 .admin .results li .metadata > span {
   padding: 0 5px;
 }
+/* line 282, styles.scss */
 /* line 271, styles.scss */
+/* line 285, styles.scss */
 .admin button {
   background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #555555), color-stop(100%, #333333));
   background: -webkit-linear-gradient(top, #555555, #333333);
@@ -426,8 +518,5 @@ p {
 }
 /* line 34, styles.scss */
 .admin button[disabled] {
-  background: #555;
-  border-color: #555;
-  color: #c7c7c7;
   cursor: default;
 }

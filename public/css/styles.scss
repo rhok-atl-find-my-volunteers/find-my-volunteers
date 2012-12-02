@@ -116,16 +116,18 @@ $VideoWidth: 270px;
 #videoOuterContainer {
   background: #000;
   color: #fff;
+  margin: 20px 0;
+  text-align: center;
 
- &>div{
-    width: $VideoWidth;
-    height: $VideoHeight;
-    margin: 20px auto;
-    border: 1px solid black;
-    line-height: $VideoHeight;
-    vertical-align: middle;
+  &>div {
+    @include inline-block;
 
-    p { text-align: center; }
+    iframe {
+      line-height: $VideoHeight;
+      vertical-align: middle;
+
+      p { text-align: center; }
+    }
   }
 }
 
@@ -227,6 +229,7 @@ $VideoWidth: 270px;
       box-sizing: border-box;
       padding: 7px;
       height: auto;
+      margin-bottom: 0;
     }
   }
 

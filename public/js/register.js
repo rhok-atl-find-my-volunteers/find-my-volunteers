@@ -7,9 +7,11 @@
     $scope.showModal = false;
     $scope.formSubmitted = false;
     $scope.openModal = function() {
+      $scope.clear();
       return $scope.showModal = true;
     };
     $scope.closeModal = function() {
+      $scope.clear();
       return $scope.showModal = false;
     };
     $scope.isClean = function() {

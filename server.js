@@ -1,24 +1,17 @@
 (function() {
-  var app, connect, cradle, express, util;
+  var app, db, express, registration, sms, util;
 
   express = require('express');
 
   util = require('util');
 
-  cradle = require('cradle');
+  sms = require('./sms');
 
-  connect = function() {
-    var port, prod, url;
-    prod = !!process.env.CLOUDANT_URL;
-    url = 'http://127.0.0.1';
-    if (prod) url = process.env.CLOUDANT_URL;
-    port = 5984;
-    if (prod) port = 443;
-    return (new cradle.Connection(url, port, {
-      cache: true,
-      raw: false
-    })).database('db');
-  };
+  registration = require('./registration');
+
+  db = require('./db');
+
+  (require('./couch_views/create_views'))(db.connect);
 
   app = express();
 
@@ -36,31 +29,22 @@
   });
 
   app.post('/api/sms/receive', function(req, res) {
-    var db;
-    db = connect();
-    return db.save("sms/" + req.body.SmsSid, req.body, function(err, response) {
-      if (err != null) {
-        return res.send('<Response><Sms>We are unable to process your request.</Sms></Response>');
-      } else {
-        return res.send("<Response><Sms>We have received your request.</Sms></Response>");
-      }
-    });
+    return sms.receive(db.connect(), req, res);
   });
 
   app.post('/api/register', function(req, res) {
-    var db, person, reg;
-    reg = req.body;
-    person = {
-      id: reg.volunteerId,
-      name: reg.name,
-      phone: reg.phoneNumber,
-      group: reg.groupId
-    };
-    db = connect();
-    return db.save('person/' + person.id, person, function(err) {
-      if (err) res.send(500, util.inspect(err));
-      if (!err) return res.send(204);
-    });
+    return registration.register(db.connect(), req, res);
+  });
+
+  app.get('/api/people/search', function(req, res) {
+    return res.json([
+      {
+        name: "bill",
+        volunteerId: "239388",
+        groupId: "cambodia3",
+        contact: ["293-439-48484"]
+      }
+    ]);
   });
 
   app.listen(process.env.PORT || 5000);
