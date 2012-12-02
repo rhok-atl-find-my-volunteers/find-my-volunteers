@@ -3,10 +3,16 @@
   "version": "0.0.0",
   "dependencies": {
     "express": "3.x",
-    "cradle": "x"
+    "cradle": "x",
+    "geocoder": "x",
+    "coffee-script": "*",
+    "iso8601": "x"
   },
   "engines": {
     "node": "0.8.x",
     "npm": "1.1.x"
+  },
+  "scripts": {
+    "install": "coffee --compile ."
   }
 }

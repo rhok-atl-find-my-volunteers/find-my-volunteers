@@ -1,13 +1,15 @@
-exports.register = (db, req, res) ->
+iso8601 = require 'iso8601'
+
+exports.register = (db, req, res)->
   reg = req.body
 
   person =
-    id: reg.volunteerId
+    volunteerId: reg.volunteerId
     name: reg.name
-    phone: reg.phoneNumber
-    group: reg.groupId
+    contact: [reg.phoneNumber]
+    groupId: reg.groupId
+    timeStamp: iso8601.fromDate new Date
 
-  db = connect()
-  db.save 'person/' + person.id, person, (err)->
-    res.send 500, util.inspect err if err
-    res.send 204 unless err
+  db.save 'person/' + person.volunteerId, person, (err)->
+    res.send 500, util.inspect err if err?
+    res.send 204 unless err?

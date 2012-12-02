@@ -273,6 +273,34 @@ $VideoWidth: 270px;
   }
 
   button { @include button; }
+
+  .checkinLog {
+    padding: 20px;
+
+    h2 { margin-top: 0; }
+
+    table {
+      table-layout: fixed;
+      width: 100%;
+
+      th {
+        font-weight: bold;
+        color: #333;
+      }
+      td,th { padding: 4px 5px; }
+      th.location { width: 16px; }
+      th.timestamp { width: 145px; }
+
+      td.location {
+        color: #999;
+
+        &.located {
+          color: blue;
+        }
+      }
+
+    }
+  }
 }
 
 .map {

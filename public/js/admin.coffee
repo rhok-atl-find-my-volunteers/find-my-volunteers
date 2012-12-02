@@ -1,4 +1,4 @@
-adminApp = angular.module 'adminApp', ['ui.directives']
+adminApp = angular.module 'adminApp', ['ui.directives', 'appDirectives']
 
 adminApp.controller 'adminCtrl', ($scope, $http)->
 
@@ -8,10 +8,47 @@ adminApp.controller 'adminCtrl', ($scope, $http)->
   # State after a search
   $scope.searchSubmitted = true
   $scope.results = [
-    {name: 'bill', volunteerId: '12392', groupId: 'cambodia3', contact: '(404) 293-9448'}
+    {name: 'bill', volunteerId: '12392', groupId: 'cambodia3', contact: ['(404) 293-9448', 'person@email.com']}
   ]
 
+  $scope.showCheckinLog = false
   $scope.checkinLog = undefined
+
+  # State after checkin log returned
+  #$scope.showCheckinLog = true
+  #$scope.checkinLog =
+    #name: "Billy Bob"
+    #entries: [
+      #{
+        #timestamp: new Date()
+        #message: "Atlanta"
+      #},
+      #{
+        #timestamp: new Date()
+        #message: "Macon"
+        #location: { lat: 293.4949, lon: 29.38337 }
+      #},
+      #{
+        #timestamp: new Date()
+        #message: "Atlanta"
+      #},
+      #{
+        #timestamp: new Date()
+        #message: "Macon"
+        #location: { lat: 293.4949, lon: 29.38337 }
+      #},
+      #{
+        #timestamp: new Date()
+        #message: "Atlanta"
+      #},
+      #{
+        #timestamp: new Date()
+        #message: "Macon"
+        #location: { lat: 293.4949, lon: 29.38337 }
+      #}
+    #]
+
+  $scope.$watch 'showCheckinLog', (newVal, oldVal)->
 
   $scope.hasResults = ->
     $scope.results?.length > 0
@@ -24,28 +61,13 @@ adminApp.controller 'adminCtrl', ($scope, $http)->
       .success (results) ->
         $scope.searchSubmitted = true
         $scope.results = results
+  $scope.showCheckinLogForPerson = (person)->
+    $http.get('/api/checkins/search', params: q: person.volunteerId)
+      .success (checkins)->
+        $scope.checkinLog =
+          name: person.name
+          entries: checkins
+        $scope.showCheckinLog = true
 
-  $scope.mapLocations = []
-
-  $scope.mapLocations = [
-    { lat: 35.784, lng: -78.670 }
-    { lat: 38.784, lng: -80.670 }
-    { lat: 33.784, lng: -75.670 }
-    { lat: 32.784, lng: -77.670 }
-  ]
-
-  $scope.mapOptions =
-    center: new google.maps.LatLng($scope.mapLocations[0].lat, $scope.mapLocations[0].lng)
-    zoom: 15
-    mapTypeId: google.maps.MapTypeId.ROADMAP
-
-  $scope.showMap = false
-
-  $scope.openMap = ->
-
-    $scope.showMap = true
-
-    for mapLoc in $scope.mapLocations
-      new google.maps.Marker
-        map: $scope.checkinMap
-        position: new google.maps.LatLng(mapLoc.lat, mapLoc.lng)
+  $scope.showLocation = (entries)->
+    console.log 'mapping entries', entries

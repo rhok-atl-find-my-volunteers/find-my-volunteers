@@ -4,6 +4,8 @@ sms = require './sms'
 registration = require './registration'
 db = require './db'
 
+people_search = require './search/people'
+
 (require './couch_views/create_views')(db.connect)
 
 app = express()
@@ -26,14 +28,10 @@ app.post '/api/register', (req, res)->
   registration.register db.connect(), req, res
 
 app.get '/api/people/search', (req, res)->
-  res.json [
-    {
-      name: "bill",
-      volunteerId: "239388",
-      groupId: "cambodia3",
-      contact: ["293-439-48484"]
-    }
-  ]
+  people_search.go db.connect(), req, res
+
+app.get '/api/checkins/search', (req, res)->
+  checkins_search.go db.connect(), req, res
 
 app.listen process.env.PORT or 5000
 
