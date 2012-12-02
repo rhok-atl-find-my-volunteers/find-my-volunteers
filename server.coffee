@@ -26,14 +26,22 @@ app.post '/api/register', (req, res)->
   registration.register db.connect(), req, res
 
 app.get '/api/people/search', (req, res)->
-  res.json [
-    {
-      name: "bill",
-      volunteerId: "239388",
-      groupId: "cambodia3",
-      contact: ["293-439-48484"]
-    }
-  ]
+  if req.query.q?
+    query = req.query.q.toLowerCase().trim()
+    console.log "Searching for People: #{query}"
+
+    db.connect().view 'views/person_search', key: query, include_docs: yes, (err, data)->
+      res.send 500, util.inspect err if err?
+
+      project = (person)->
+        name: person.name
+        volunteerId: person.volunteerId
+        groupId: person.groupId
+        contact: person.contact
+
+      res.json (project item.doc for item in data) unless err?
+  else
+    res.json []
 
 app.listen process.env.PORT or 5000
 

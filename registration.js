@@ -3,17 +3,16 @@
     var person, reg;
     reg = req.body;
     person = {
-      id: reg.volunteerId,
+      volunteerId: reg.volunteerId,
       name: reg.name,
-      phone: reg.phoneNumber,
-      group: reg.groupId
+      contact: [reg.phoneNumber],
+      groupId: reg.groupId
     };
-    db = connect();
-    return db.save('person/' + person.id, person, function(err) {
-      if (err) {
+    return db.save('person/' + person.volunteerId, person, function(err) {
+      if (err != null) {
         res.send(500, util.inspect(err));
       }
-      if (!err) {
+      if (err == null) {
         return res.send(204);
       }
     });
