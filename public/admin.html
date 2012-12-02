@@ -55,12 +55,12 @@
 
     </div>
 
-    <div ui-modal ng-model="checkinLog" class="fade">
-      <h2>{{checkinLog.name}}</h2>
+    <div ui-modal ng-model="showCheckinLog" class="fade checkinLog">
+      <h2>Checkin Log for {{checkinLog.name}}</h2>
       <table>
         <tr>
-          <th class="located"></th>
-          <th>Date / Time</th>
+          <th class="location">&nbsp;</th>
+          <th class="timestamp">Date &amp; Time</th>
           <th>Message</th>
         </tr>
         <tr ng-repeat="entry in checkinLog.entries">

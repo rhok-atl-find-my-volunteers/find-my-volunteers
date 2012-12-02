@@ -4,51 +4,10 @@
   adminApp = angular.module('adminApp', ['ui.directives']);
 
   adminApp.controller('adminCtrl', function($scope, $http) {
-    $scope.searchSubmitted = true;
-    $scope.results = [
-      {
-        name: 'bill',
-        volunteerId: '12392',
-        groupId: 'cambodia3',
-        contact: '(404) 293-9448'
-      }
-    ];
-    $scope.checkinLog = {
-      name: "Billy Bob",
-      entries: [
-        {
-          timestamp: new Date(),
-          message: "Atlanta"
-        }, {
-          timestamp: new Date(),
-          message: "Macon",
-          location: {
-            lat: 293.4949,
-            lon: 29.38337
-          }
-        }, {
-          timestamp: new Date(),
-          message: "Atlanta"
-        }, {
-          timestamp: new Date(),
-          message: "Macon",
-          location: {
-            lat: 293.4949,
-            lon: 29.38337
-          }
-        }, {
-          timestamp: new Date(),
-          message: "Atlanta"
-        }, {
-          timestamp: new Date(),
-          message: "Macon",
-          location: {
-            lat: 293.4949,
-            lon: 29.38337
-          }
-        }
-      ]
-    };
+    $scope.results = void 0;
+    $scope.searchSubmitted = false;
+    $scope.checkinLog = void 0;
+    $scope.showCheckinLog = void 0;
     $scope.hasResults = function() {
       var _ref;
       return ((_ref = $scope.results) != null ? _ref.length : void 0) > 0;
