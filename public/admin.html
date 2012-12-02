@@ -44,8 +44,8 @@
             <th class="actions">&nbsp;</th>
           </tr>
           <tr ng-repeat="person in people">
-            <td location-title class="location" ng-click="showLocationForPerson(person)">
-              <i ng-click="showLocation([person])" class="icon-map-marker"></i>
+            <td ng-click="showLocation([person])" location-title class="location">
+              <i class="icon-map-marker"></i>
             </td>
             <td class="name">{{person.name}}</td>
             <td class="volunteerId">{{person.volunteerId}}</td>

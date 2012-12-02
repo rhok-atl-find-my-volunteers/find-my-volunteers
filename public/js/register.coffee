@@ -1,6 +1,6 @@
 registerApp = angular.module 'registerApp', ['ui.directives']
 
-registerApp.controller 'registerCtrl', ($scope, $http)->
+registerApp.controller 'registerCtrl', ($scope, httpMaybe)->
 
   $scope.showModal = false
   $scope.formSubmitted = false
@@ -21,7 +21,7 @@ registerApp.controller 'registerCtrl', ($scope, $http)->
 
   $scope.submit = ->
     unless $scope.registrationForm.$invalid
-      $http.post('/api/register', $scope.info)
+      httpMaybe.post('/api/register', $scope.info)
        .success ->
           $scope.showModal = false
           $scope.formSubmitted = true
