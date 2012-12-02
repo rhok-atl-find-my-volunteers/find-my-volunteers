@@ -6,9 +6,11 @@ registerApp.controller 'registerCtrl', ($scope, $http)->
   $scope.formSubmitted = false
 
   $scope.openModal = ->
+    $scope.clear()
     $scope.showModal = true
 
   $scope.closeModal = ->
+    $scope.clear()
     $scope.showModal = false
 
   $scope.isClean = ->
