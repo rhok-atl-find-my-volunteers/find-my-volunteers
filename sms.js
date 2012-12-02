@@ -1,4 +1,5 @@
 (function() {
+
   exports.receive = function(db, req, res) {
     return db.save("sms/" + req.body.SmsSid, req.body, function(err, response) {
       if (err != null) {
@@ -9,4 +10,5 @@
       }
     });
   };
+
 }).call(this);

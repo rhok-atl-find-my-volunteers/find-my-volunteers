@@ -4,6 +4,8 @@ sms = require './sms'
 registration = require './registration'
 db = require './db'
 
+(require './couch_views/create_views')(connect)
+
 app = express()
 app.enable 'trust proxy'
 
