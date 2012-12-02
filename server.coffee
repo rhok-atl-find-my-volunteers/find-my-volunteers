@@ -1,6 +1,7 @@
 express = require 'express'
 util = require 'util'
 cradle = require 'cradle'
+sms = require './sms'
 
 connect = ()->
   prod = !!process.env.CLOUDANT_URL
@@ -28,13 +29,7 @@ app.get '/', (req, res)->
   res.sendfile(__dirname + '/public/index.html')
 
 app.post '/api/sms/receive', (req, res)->
-  db = connect()
-  db.save "sms/#{req.body.SmsSid}", req.body, (err, response)->
-    if err?
-      console.log util.inspect err
-      res.send '<Response><Sms>We are unable to process your request.</Sms></Response>'
-    else
-      res.send "<Response><Sms>We have received your request.</Sms></Response>"
+  sms.receive connect(), req, res
 
 app.post '/api/register', (req, res)->
   reg = req.body
