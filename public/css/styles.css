@@ -1213,7 +1213,7 @@ ul.icons li .icon-large:before {
   content: "\f200";
 }
 
-/* line 55, styles.scss */
+/* line 59, styles.scss */
 body {
   background: #f8f8f8 url("../images/gray_jean.png");
   color: #333333;
@@ -1222,13 +1222,13 @@ body {
   width: 100%;
   height: 100%;
 }
-/* line 63, styles.scss */
+/* line 67, styles.scss */
 body > header {
   width: 960px;
   margin: 0 auto;
   padding: 5px 0;
 }
-/* line 67, styles.scss */
+/* line 71, styles.scss */
 body > header h1 {
   display: -moz-inline-stack;
   display: inline-block;
@@ -1236,24 +1236,24 @@ body > header h1 {
   *display: inline;
 }
 
-/* line 71, styles.scss */
+/* line 75, styles.scss */
 footer {
   padding-top: 10px;
   text-align: right;
 }
 
-/* line 76, styles.scss */
+/* line 80, styles.scss */
 .container {
   margin: 0 auto;
   width: 960px;
 }
 
-/* line 82, styles.scss */
+/* line 86, styles.scss */
 h2, h3 {
   margin: 20px 0;
 }
 
-/* line 86, styles.scss */
+/* line 90, styles.scss */
 h1 {
   background: url("../images/peace-corps-logo.png") no-repeat;
   color: #2F387C;
@@ -1266,7 +1266,7 @@ h1 {
   padding-left: 120px;
 }
 
-/* line 98, styles.scss */
+/* line 102, styles.scss */
 h2 {
   color: #941B1B;
   font-family: "Open Sans", "Helvetica Neue", Arial, sans-serif;
@@ -1274,42 +1274,42 @@ h2 {
   font-weight: 700;
 }
 
-/* line 105, styles.scss */
+/* line 109, styles.scss */
 p {
   line-height: 1.5;
   margin: 10px 0;
 }
 
-/* line 110, styles.scss */
+/* line 114, styles.scss */
 strong {
   font-weight: bold;
 }
 
-/* line 114, styles.scss */
+/* line 118, styles.scss */
 em {
   font-style: italic;
 }
 
-/* line 118, styles.scss */
+/* line 122, styles.scss */
 .nav {
   float: right;
 }
-/* line 121, styles.scss */
+/* line 125, styles.scss */
 .nav li {
   float: left;
 }
-/* line 124, styles.scss */
+/* line 128, styles.scss */
 .nav li a {
   display: block;
 }
 
-/* line 130, styles.scss */
+/* line 134, styles.scss */
 .nav-tabs {
   border-bottom: none;
   margin-bottom: 0;
 }
 
-/* line 135, styles.scss */
+/* line 139, styles.scss */
 .tab-content {
   background: #FFF;
   -webkit-border-radius: 0 3px 3px 3px;
@@ -1320,17 +1320,17 @@ em {
   padding: 15px;
 }
 
-/* line 141, styles.scss */
+/* line 145, styles.scss */
 .tab-pane label {
   margin-bottom: 5px;
 }
 
-/* line 148, styles.scss */
+/* line 152, styles.scss */
 #register {
   float: right;
   padding-top: 30px;
 }
-/* line 152, styles.scss */
+/* line 156, styles.scss */
 #register p {
   display: -moz-inline-stack;
   display: inline-block;
@@ -1338,8 +1338,9 @@ em {
   *display: inline;
   padding-right: 25px;
 }
-/* line 157, styles.scss */
+/* line 161, styles.scss */
 #register button {
+  background: #333;
   background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #555555), color-stop(100%, #333333));
   background: -webkit-linear-gradient(top, #555555, #333333);
   background: -moz-linear-gradient(top, #555555, #333333);
@@ -1362,23 +1363,25 @@ em {
   text-decoration: none;
   text-transform: uppercase;
 }
-/* line 31, styles.scss */
+/* line 32, styles.scss */
 #register button:hover, #register button:focus, #register button:active {
+  background: #555;
   background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #777777), color-stop(100%, #555555));
   background: -webkit-linear-gradient(top, #777777, #555555);
   background: -moz-linear-gradient(top, #777777, #555555);
   background: -o-linear-gradient(top, #777777, #555555);
   background: linear-gradient(top, #777777, #555555);
 }
-/* line 35, styles.scss */
+/* line 37, styles.scss */
 #register button[disabled] {
   background: #555;
   border-color: #555;
   color: #c7c7c7;
   cursor: default;
 }
-/* line 42, styles.scss */
+/* line 44, styles.scss */
 #register button.cancel {
+  background: #c7c7c7;
   background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #e3e3e3), color-stop(100%, #c7c7c7));
   background: -webkit-linear-gradient(top, #e3e3e3, #c7c7c7);
   background: -moz-linear-gradient(top, #e3e3e3, #c7c7c7);
@@ -1387,8 +1390,9 @@ em {
   border-color: #a3a3a3;
   color: #777;
 }
-/* line 49, styles.scss */
+/* line 52, styles.scss */
 #register button.cancel:hover, #register button.cancel:focus, #register button.cancel:active {
+  background: #b7b7b7;
   background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #d3d3d3), color-stop(100%, #b7b7b7));
   background: -webkit-linear-gradient(top, #d3d3d3, #b7b7b7);
   background: -moz-linear-gradient(top, #d3d3d3, #b7b7b7);
@@ -1396,7 +1400,7 @@ em {
   background: linear-gradient(top, #d3d3d3, #b7b7b7);
 }
 
-/* line 163, styles.scss */
+/* line 167, styles.scss */
 #videoOuterContainer {
   background: #333333 url("../images/debut_dark.png");
   -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.7) inset;
@@ -1406,28 +1410,29 @@ em {
   margin-bottom: 20px;
   text-align: center;
 }
-/* line 170, styles.scss */
+/* line 174, styles.scss */
 #videoOuterContainer > div {
   display: -moz-inline-stack;
   display: inline-block;
   zoom: 1;
   *display: inline;
 }
-/* line 173, styles.scss */
+/* line 177, styles.scss */
 #videoOuterContainer > div iframe {
   line-height: 320px;
   vertical-align: middle;
 }
-/* line 177, styles.scss */
+/* line 181, styles.scss */
 #videoOuterContainer > div iframe p {
   text-align: center;
 }
 
-/* line 182, styles.scss */
+/* line 186, styles.scss */
 .callouts {
+  padding-bottom: 30px;
   text-align: center;
 }
-/* line 185, styles.scss */
+/* line 190, styles.scss */
 .callouts > div {
   display: -moz-inline-stack;
   display: inline-block;
@@ -1440,28 +1445,28 @@ em {
   text-align: left;
   margin: 0 10px;
 }
-/* line 192, styles.scss */
+/* line 197, styles.scss */
 .callouts > div ul {
   list-style: disc;
   padding-left: 20px;
 }
 
-/* line 199, styles.scss */
+/* line 204, styles.scss */
 .modal {
   background: #e3e3e3;
 }
 
-/* line 203, styles.scss */
+/* line 208, styles.scss */
 .registration-form {
   margin: 0 auto;
   padding: 20px 0;
   width: 402px;
 }
-/* line 209, styles.scss */
+/* line 214, styles.scss */
 .registration-form fieldset {
   margin: 15px 0;
 }
-/* line 213, styles.scss */
+/* line 218, styles.scss */
 .registration-form label {
   display: block;
   float: left;
@@ -1469,7 +1474,7 @@ em {
   text-align: right;
   width: 100px;
 }
-/* line 221, styles.scss */
+/* line 226, styles.scss */
 .registration-form input {
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
@@ -1481,8 +1486,9 @@ em {
   padding: 8px 10px;
   width: 270px;
 }
-/* line 229, styles.scss */
+/* line 234, styles.scss */
 .registration-form button {
+  background: #333;
   background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #555555), color-stop(100%, #333333));
   background: -webkit-linear-gradient(top, #555555, #333333);
   background: -moz-linear-gradient(top, #555555, #333333);
@@ -1507,23 +1513,25 @@ em {
   float: right;
   margin-left: 15px;
 }
-/* line 31, styles.scss */
+/* line 32, styles.scss */
 .registration-form button:hover, .registration-form button:focus, .registration-form button:active {
+  background: #555;
   background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #777777), color-stop(100%, #555555));
   background: -webkit-linear-gradient(top, #777777, #555555);
   background: -moz-linear-gradient(top, #777777, #555555);
   background: -o-linear-gradient(top, #777777, #555555);
   background: linear-gradient(top, #777777, #555555);
 }
-/* line 35, styles.scss */
+/* line 37, styles.scss */
 .registration-form button[disabled] {
   background: #555;
   border-color: #555;
   color: #c7c7c7;
   cursor: default;
 }
-/* line 42, styles.scss */
+/* line 44, styles.scss */
 .registration-form button.cancel {
+  background: #c7c7c7;
   background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #e3e3e3), color-stop(100%, #c7c7c7));
   background: -webkit-linear-gradient(top, #e3e3e3, #c7c7c7);
   background: -moz-linear-gradient(top, #e3e3e3, #c7c7c7);
@@ -1532,8 +1540,9 @@ em {
   border-color: #a3a3a3;
   color: #777;
 }
-/* line 49, styles.scss */
+/* line 52, styles.scss */
 .registration-form button.cancel:hover, .registration-form button.cancel:focus, .registration-form button.cancel:active {
+  background: #b7b7b7;
   background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #d3d3d3), color-stop(100%, #b7b7b7));
   background: -webkit-linear-gradient(top, #d3d3d3, #b7b7b7);
   background: -moz-linear-gradient(top, #d3d3d3, #b7b7b7);
@@ -1541,12 +1550,12 @@ em {
   background: linear-gradient(top, #d3d3d3, #b7b7b7);
 }
 
-/* line 238, styles.scss */
+/* line 243, styles.scss */
 .help-inline {
   display: none;
 }
 
-/* line 242, styles.scss */
+/* line 247, styles.scss */
 .error .help-inline {
   color: #850C0C;
   display: block;
@@ -1554,16 +1563,16 @@ em {
   margin-left: 110px;
 }
 
-/* line 251, styles.scss */
+/* line 256, styles.scss */
 .admin header h1 {
   float: none;
 }
-/* line 255, styles.scss */
+/* line 260, styles.scss */
 .admin form.search {
   width: 50%;
   margin: 50px auto;
 }
-/* line 259, styles.scss */
+/* line 264, styles.scss */
 .admin form.search input {
   width: 75%;
   -webkit-box-sizing: border-box;
@@ -1573,60 +1582,61 @@ em {
   height: auto;
   margin-bottom: 0;
 }
-/* line 268, styles.scss */
+/* line 273, styles.scss */
 .admin th {
   font-weight: bold;
   color: #333;
 }
-/* line 272, styles.scss */
+/* line 277, styles.scss */
 .admin td, .admin th {
   padding: 4px 5px;
 }
-/* line 273, styles.scss */
+/* line 278, styles.scss */
 .admin td.location, .admin th.location {
   width: 16px;
 }
-/* line 274, styles.scss */
+/* line 279, styles.scss */
 .admin td.location {
   color: #999;
 }
-/* line 277, styles.scss */
+/* line 282, styles.scss */
 .admin td.location.located {
   color: #5360be;
   cursor: pointer;
 }
-/* line 284, styles.scss */
+/* line 289, styles.scss */
 .admin .results header {
   border-bottom: 1px solid #a2a2a2;
   margin: 0 0 10px;
   padding: 0 0 10px;
 }
-/* line 289, styles.scss */
+/* line 294, styles.scss */
 .admin .results header h2 {
   float: left;
   margin: 0;
   padding: 0;
 }
-/* line 296, styles.scss */
+/* line 301, styles.scss */
 .admin .results table {
   width: 100%;
 }
-/* line 299, styles.scss */
+/* line 304, styles.scss */
 .admin .results table td.actions {
   width: 1;
   text-align: right;
 }
-/* line 302, styles.scss */
+/* line 307, styles.scss */
 .admin .results table td.actions a {
   padding: 0 5px;
 }
-/* line 308, styles.scss */
+/* line 313, styles.scss */
 .admin .results nav {
   float: right;
   padding-top: 8px;
 }
-/* line 315, styles.scss */
+/* line 320, styles.scss */
 .admin button {
+  background: #333;
   background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #555555), color-stop(100%, #333333));
   background: -webkit-linear-gradient(top, #555555, #333333);
   background: -moz-linear-gradient(top, #555555, #333333);
@@ -1649,23 +1659,25 @@ em {
   text-decoration: none;
   text-transform: uppercase;
 }
-/* line 31, styles.scss */
+/* line 32, styles.scss */
 .admin button:hover, .admin button:focus, .admin button:active {
+  background: #555;
   background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #777777), color-stop(100%, #555555));
   background: -webkit-linear-gradient(top, #777777, #555555);
   background: -moz-linear-gradient(top, #777777, #555555);
   background: -o-linear-gradient(top, #777777, #555555);
   background: linear-gradient(top, #777777, #555555);
 }
-/* line 35, styles.scss */
+/* line 37, styles.scss */
 .admin button[disabled] {
   background: #555;
   border-color: #555;
   color: #c7c7c7;
   cursor: default;
 }
-/* line 42, styles.scss */
+/* line 44, styles.scss */
 .admin button.cancel {
+  background: #c7c7c7;
   background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #e3e3e3), color-stop(100%, #c7c7c7));
   background: -webkit-linear-gradient(top, #e3e3e3, #c7c7c7);
   background: -moz-linear-gradient(top, #e3e3e3, #c7c7c7);
@@ -1674,57 +1686,59 @@ em {
   border-color: #a3a3a3;
   color: #777;
 }
-/* line 49, styles.scss */
+/* line 52, styles.scss */
 .admin button.cancel:hover, .admin button.cancel:focus, .admin button.cancel:active {
+  background: #b7b7b7;
   background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #d3d3d3), color-stop(100%, #b7b7b7));
   background: -webkit-linear-gradient(top, #d3d3d3, #b7b7b7);
   background: -moz-linear-gradient(top, #d3d3d3, #b7b7b7);
   background: -o-linear-gradient(top, #d3d3d3, #b7b7b7);
   background: linear-gradient(top, #d3d3d3, #b7b7b7);
 }
-/* line 317, styles.scss */
+/* line 322, styles.scss */
 .admin .checkinLog {
   padding: 20px;
 }
-/* line 320, styles.scss */
+/* line 325, styles.scss */
 .admin .checkinLog h2 {
   margin-top: 0;
 }
-/* line 322, styles.scss */
+/* line 327, styles.scss */
 .admin .checkinLog .tableViewport {
   max-height: 200px;
   overflow: auto;
 }
-/* line 327, styles.scss */
+/* line 332, styles.scss */
 .admin .checkinLog table {
   table-layout: fixed;
   width: 100%;
 }
-/* line 331, styles.scss */
+/* line 336, styles.scss */
 .admin .checkinLog table .timestamp {
   width: 145px;
 }
 
-/* line 339, styles.scss */
+/* line 344, styles.scss */
 .setSiteLocation h2 {
   margin-top: 0;
 }
-/* line 340, styles.scss */
+/* line 345, styles.scss */
 .setSiteLocation .nav {
   float: none;
 }
-/* line 342, styles.scss */
+/* line 347, styles.scss */
 .setSiteLocation .knownLocations input {
   width: 80%;
   margin-bottom: 15px;
 }
-/* line 346, styles.scss */
+/* line 351, styles.scss */
 .setSiteLocation .knownLocations ul {
   max-height: 200px;
   overflow: auto;
 }
-/* line 350, styles.scss */
+/* line 355, styles.scss */
 .setSiteLocation .knownLocations ul li {
+  background: #333;
   background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #555555), color-stop(100%, #333333));
   background: -webkit-linear-gradient(top, #555555, #333333);
   background: -moz-linear-gradient(top, #555555, #333333);
@@ -1749,23 +1763,25 @@ em {
   margin: 0 10px 10px 0;
   font-size: 0.8em;
 }
-/* line 31, styles.scss */
+/* line 32, styles.scss */
 .setSiteLocation .knownLocations ul li:hover, .setSiteLocation .knownLocations ul li:focus, .setSiteLocation .knownLocations ul li:active {
+  background: #555;
   background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #777777), color-stop(100%, #555555));
   background: -webkit-linear-gradient(top, #777777, #555555);
   background: -moz-linear-gradient(top, #777777, #555555);
   background: -o-linear-gradient(top, #777777, #555555);
   background: linear-gradient(top, #777777, #555555);
 }
-/* line 35, styles.scss */
+/* line 37, styles.scss */
 .setSiteLocation .knownLocations ul li[disabled] {
   background: #555;
   border-color: #555;
   color: #c7c7c7;
   cursor: default;
 }
-/* line 42, styles.scss */
+/* line 44, styles.scss */
 .setSiteLocation .knownLocations ul li.cancel {
+  background: #c7c7c7;
   background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #e3e3e3), color-stop(100%, #c7c7c7));
   background: -webkit-linear-gradient(top, #e3e3e3, #c7c7c7);
   background: -moz-linear-gradient(top, #e3e3e3, #c7c7c7);
@@ -1774,15 +1790,16 @@ em {
   border-color: #a3a3a3;
   color: #777;
 }
-/* line 49, styles.scss */
+/* line 52, styles.scss */
 .setSiteLocation .knownLocations ul li.cancel:hover, .setSiteLocation .knownLocations ul li.cancel:focus, .setSiteLocation .knownLocations ul li.cancel:active {
+  background: #b7b7b7;
   background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #d3d3d3), color-stop(100%, #b7b7b7));
   background: -webkit-linear-gradient(top, #d3d3d3, #b7b7b7);
   background: -moz-linear-gradient(top, #d3d3d3, #b7b7b7);
   background: -o-linear-gradient(top, #d3d3d3, #b7b7b7);
   background: linear-gradient(top, #d3d3d3, #b7b7b7);
 }
-/* line 358, styles.scss */
+/* line 363, styles.scss */
 .setSiteLocation fieldset {
   display: -moz-inline-stack;
   display: inline-block;
@@ -1791,7 +1808,7 @@ em {
   width: 42%;
   input-width: 190px;
 }
-/* line 364, styles.scss */
+/* line 369, styles.scss */
 .setSiteLocation fieldset.lat, .setSiteLocation fieldset.lon {
   display: -moz-inline-stack;
   display: inline-block;
@@ -1799,17 +1816,17 @@ em {
   *display: inline;
   width: 28%;
 }
-/* line 368, styles.scss */
+/* line 373, styles.scss */
 .setSiteLocation fieldset.lat input, .setSiteLocation fieldset.lon input {
   width: 120px;
 }
-/* line 373, styles.scss */
+/* line 378, styles.scss */
 .setSiteLocation .map {
   width: 100%;
   height: 300px;
 }
 
-/* line 381, styles.scss */
+/* line 386, styles.scss */
 .sendMessage input {
   width: 100%;
   -webkit-box-sizing: border-box;
@@ -1817,28 +1834,28 @@ em {
   box-sizing: border-box;
   height: auto;
 }
-/* line 382, styles.scss */
+/* line 387, styles.scss */
 .sendMessage label {
   margin-bottom: 5px;
 }
 
-/* line 385, styles.scss */
+/* line 390, styles.scss */
 .modal {
   margin-left: -300px;
   padding: 20px;
 }
 
-/* line 390, styles.scss */
+/* line 395, styles.scss */
 .map {
   width: 100%;
   height: 400px;
 }
-/* line 394, styles.scss */
+/* line 399, styles.scss */
 .map img {
   max-width: inherit;
 }
 
-/* line 399, styles.scss */
+/* line 404, styles.scss */
 .info-window-content {
   font-size: .9em;
   margin: 5px 0;
