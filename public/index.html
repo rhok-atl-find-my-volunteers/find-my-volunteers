@@ -2,7 +2,7 @@
 <html lang="en" ng-app="registerApp">
 <head>
     <meta charset="utf-8" />
-    <title>Find my Volunteer</title>
+    <title>Find My Volunteers</title>
 
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="vendor/bootstrap.min.css" />
@@ -15,7 +15,7 @@
 
           <div id="register">
              <p ng-show="formSubmitted">Registration Submitted. Thank you!</p>
-             <button ng-click="openModal()">Register Now</button>
+             <button ng-click="openModal()" ng-hide="formSubmitted">Register Now</button>
           </div>
         </header>
 
