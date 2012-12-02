@@ -1,10 +1,8 @@
 (function() {
   var adminApp;
-  adminApp = angular.module('adminApp', ['ui.directives']);
 
   adminApp = angular.module('adminApp', ['ui.directives', 'appDirectives']);
 
-  adminApp = angular.module('adminApp', ['ui.directives']);
   adminApp.controller('adminCtrl', function($scope, $http) {
     $scope.searchSubmitted = true;
     $scope.results = [
@@ -15,43 +13,9 @@
         contact: ['(404) 293-9448', 'person@email.com']
       }
     ];
-    $scope.showCheckinLog = true;
-    $scope.checkinLog = {
-      name: "Billy Bob",
-      entries: [
-        {
-          timestamp: new Date(),
-          message: "Atlanta"
-        }, {
-          timestamp: new Date(),
-          message: "Macon",
-          location: {
-            lat: 293.4949,
-            lon: 29.38337
-          }
-        }, {
-          timestamp: new Date(),
-          message: "Atlanta"
-        }, {
-          timestamp: new Date(),
-          message: "Macon",
-          location: {
-            lat: 293.4949,
-            lon: 29.38337
-          }
-        }, {
-          timestamp: new Date(),
-          message: "Atlanta"
-        }, {
-          timestamp: new Date(),
-          message: "Macon",
-          location: {
-            lat: 293.4949,
-            lon: 29.38337
-          }
-        }
-      ]
-    };
+    $scope.showCheckinLog = false;
+    $scope.checkinLog = void 0;
+    $scope.$watch('showCheckinLog', function(newVal, oldVal) {});
     $scope.hasResults = function() {
       var _ref;
       return ((_ref = $scope.results) != null ? _ref.length : void 0) > 0;
@@ -70,8 +34,22 @@
         return $scope.results = results;
       });
     };
+    $scope.showCheckinLogForPerson = function(person) {
+      return $http.get('/api/checkins/search', {
+        params: {
+          q: person.volunteerId
+        }
+      }).success(function(checkins) {
+        $scope.checkinLog = {
+          name: person.name,
+          entries: checkins
+        };
+        return $scope.showCheckinLog = true;
+      });
+    };
     return $scope.showLocation = function(entries) {
       return console.log('mapping entries', entries);
     };
   });
+
 }).call(this);
