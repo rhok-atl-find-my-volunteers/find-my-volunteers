@@ -30,7 +30,7 @@ app.post '/api/sms/receive', (req, res)->
   sms.receive db.connect(), req, res
 
 app.post '/api/sms/send', (req, res)->
-  sms.send req, res
+  res.send 204 if sms.send {body: req.body.message, contacts: req.body.contacts} 
 
 app.post '/api/register', (req, res)->
   registration.register db.connect(), req, res
