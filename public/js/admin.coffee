@@ -11,6 +11,7 @@ adminApp.controller 'adminCtrl', ($scope, $http)->
     {name: 'bill', volunteerId: '12392', groupId: 'cambodia3', contact: '(404) 293-9448'}
   ]
 
+  $scope.checkinLog = undefined
 
   $scope.hasResults = ->
     $scope.results?.length > 0

@@ -13,6 +13,7 @@
         contact: '(404) 293-9448'
       }
     ];
+    $scope.checkinLog = void 0;
     $scope.hasResults = function() {
       var _ref;
       return ((_ref = $scope.results) != null ? _ref.length : void 0) > 0;
