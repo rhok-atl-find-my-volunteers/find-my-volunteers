@@ -1,51 +1,52 @@
-adminApp = angular.module 'adminApp', ['ui.directives']
+adminApp = angular.module 'adminApp', ['ui.directives', 'appDirectives']
 
 adminApp.controller 'adminCtrl', ($scope, $http)->
 
-  $scope.results = undefined
-  $scope.searchSubmitted = false
+  #$scope.results = undefined
+  #$scope.searchSubmitted = false
 
   # State after a search
-  #$scope.searchSubmitted = true
-  #$scope.results = [
-    #{name: 'bill', volunteerId: '12392', groupId: 'cambodia3', contact: '(404) 293-9448'}
-  #]
+  $scope.searchSubmitted = true
+  $scope.results = [
+    {name: 'bill', volunteerId: '12392', groupId: 'cambodia3', contact: ['(404) 293-9448', 'person@email.com']}
+  ]
 
-  $scope.checkinLog = undefined
-  $scope.showCheckinLog = undefined
+  #$scope.checkinLog = undefined
+  #$scope.showCheckinLog = undefined
 
-  #$scope.showCheckinLog = true
-  #$scope.checkinLog =
-    #name: "Billy Bob"
-    #entries: [
-      #{
-        #timestamp: new Date()
-        #message: "Atlanta"
-      #},
-      #{
-        #timestamp: new Date()
-        #message: "Macon"
-        #location: { lat: 293.4949, lon: 29.38337 }
-      #},
-      #{
-        #timestamp: new Date()
-        #message: "Atlanta"
-      #},
-      #{
-        #timestamp: new Date()
-        #message: "Macon"
-        #location: { lat: 293.4949, lon: 29.38337 }
-      #},
-      #{
-        #timestamp: new Date()
-        #message: "Atlanta"
-      #},
-      #{
-        #timestamp: new Date()
-        #message: "Macon"
-        #location: { lat: 293.4949, lon: 29.38337 }
-      #}
-    #]
+  # State after checkin log returned
+  $scope.showCheckinLog = true
+  $scope.checkinLog =
+    name: "Billy Bob"
+    entries: [
+      {
+        timestamp: new Date()
+        message: "Atlanta"
+      },
+      {
+        timestamp: new Date()
+        message: "Macon"
+        location: { lat: 293.4949, lon: 29.38337 }
+      },
+      {
+        timestamp: new Date()
+        message: "Atlanta"
+      },
+      {
+        timestamp: new Date()
+        message: "Macon"
+        location: { lat: 293.4949, lon: 29.38337 }
+      },
+      {
+        timestamp: new Date()
+        message: "Atlanta"
+      },
+      {
+        timestamp: new Date()
+        message: "Macon"
+        location: { lat: 293.4949, lon: 29.38337 }
+      }
+    ]
 
   $scope.hasResults = ->
     $scope.results?.length > 0
@@ -58,3 +59,6 @@ adminApp.controller 'adminCtrl', ($scope, $http)->
       .success (results)->
         $scope.searchSubmitted = true
         $scope.results = results
+
+  $scope.showLocation = (entries)->
+    console.log 'mapping entries', entries

@@ -1619,5 +1619,9 @@ p {
 }
 /* line 294, styles.scss */
 .admin .checkinLog table td.location {
-  color: #ddd;
+  color: #999;
+}
+/* line 297, styles.scss */
+.admin .checkinLog table td.location.located {
+  color: blue;
 }
