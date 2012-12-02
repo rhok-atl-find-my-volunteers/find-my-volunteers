@@ -8,7 +8,7 @@ angular.module('appDirectives', [])
       else
         element.attr 'title', 'No Location Information'
 
-  .directive 'googleMap', ->
+  .directive 'googleMap', ($filter) ->
     restrict: 'A'
     link: (scope, element, attrs) ->
       scope.$watch 'showMap', (showMap) ->
@@ -17,20 +17,39 @@ angular.module('appDirectives', [])
           setTimeout( ->
             element.html ''
 
-            locations = $.map scope.entries, (entry) ->
-              entry.location
+            entries = scope.entries
+            i = 0
+            while entries[i] and !centerLocation
+              centerLocation = entries[i].location || entries[i].lastKnownLocation
+              i++
 
             mapOptions =
-              center: new google.maps.LatLng(locations[0].lat, locations[0].lng)
+              center: new google.maps.LatLng(centerLocation.lat, centerLocation.lng)
               zoom: 15
               mapTypeId: google.maps.MapTypeId.ROADMAP
 
             map = new google.maps.Map( element[0], mapOptions )
 
-            for location in locations
-              new google.maps.Marker(
-                map: map,
-                position: new google.maps.LatLng(location.lat, location.lng)
-              )
+            for entry in entries
+              location = entry.location || entry.lastKnownLocation
+
+              if location
+                marker = new google.maps.Marker(
+                  map: map,
+                  position: new google.maps.LatLng(location.lat, location.lng)
+                )
+
+                content = ''
+
+                for own key, value of entry
+                  if key != 'location' and key != 'lastKnownLocation' and key.indexOf('$') == -1
+                    if key == 'timestamp'
+                      value = $filter('date')(value, 'short')
+                    content += "<p>#{key}: #{value}</p>"
+
+                marker.addListener 'click', ->
+                  new google.maps.InfoWindow(
+                    content: content
+                  ).open(map, marker)
 
           , 250)
