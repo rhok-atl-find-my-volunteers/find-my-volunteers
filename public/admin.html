@@ -71,10 +71,23 @@
       </table>
     </div>
 
+    <div ui-modal ng-model="dontshowMap" class="fade">
+    </div>
+        <div
+            id="map_canvas"
+            class="map"
+            ui-map="checkinMap"
+            ui-options="mapOptions">
+        </div>
+
+    <button ng-click="openMap()">Open Map</button>
+
     <script src="vendor/jquery-1.8.3.min.js"></script>
     <script src="vendor/angular-1.0.3.min.js"></script>
     <script src="vendor/bootstrap-modal.min.js"></script>
     <script src="vendor/angular-ui-modal.js"></script>
+    <script src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+    <script src="vendor/angular-ui-map.js"></script>
     <script src="js/admin.js"></script>
 
 </body>
