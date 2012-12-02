@@ -45,7 +45,7 @@
           </tr>
           <tr ng-repeat="person in people">
             <td location-title class="location" ng-click="showLocationForPerson(person)">
-              <i class="icon-map-marker"></i>
+              <i ng-click="showLocation([person])" class="icon-map-marker"></i>
             </td>
             <td class="name">{{person.name}}</td>
             <td class="volunteerId">{{person.volunteerId}}</td>
@@ -99,7 +99,7 @@
       <tabs>
         <pane title="Known Sites">
           <div class="knownLocations">
-            <input placeholder="filter" autofocus ng-model="locationFilter" />
+            <input type="text" placeholder="filter" autofocus ng-model="locationFilter" />
             <ul>
               <li ng-repeat="location in knownLocations | filter:locationFilter"
                   ng-click="setSiteForCurrentPerson(location)">{{location.alias}}</li>
@@ -116,9 +116,6 @@
                 <input name="alias" ng-model="newSite.alias" required />
             </fieldset>
 
-            <fieldset class="clearfix lat">
-                <label for="lat">Latitude:</label>
-                <input name="lat" ng-model="newSite.lat" required />
             </fieldset>
 
             <fieldset class="clearfix lon">
