@@ -291,7 +291,14 @@ $VideoWidth: 270px;
       th.location { width: 16px; }
       th.timestamp { width: 145px; }
 
-      td.location { color: #ddd; }
+      td.location {
+        color: #999;
+
+        &.located {
+          color: blue;
+        }
+      }
+
     }
   }
 }
