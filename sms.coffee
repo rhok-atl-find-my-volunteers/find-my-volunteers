@@ -13,15 +13,14 @@ exports.receive = (db, req, res)->
 
     coder.geocode db, person, message.Body, (err, location)->
       if not err?
-        if location?
           message.location = location
 
           db.save "sms/#{message.SmsSid}", message, (err, response)->
             if not err?
-              res.send "<Response><Sms>We have received your request.</Sms></Response>"
+              res.send "<Response><Sms>We have successfully determined your location to be #{util.inspect location}</Sms></Response>"
             else
               res.send '<Response><Sms>We are unable to process your request.</Sms></Response>'
-        else
-          res.send "<Response><Sms>We have received your request; however we were unable to determine your location.</Sms></Response>"
+
+          res.send "<Response><Sms>We have received your request; however we were unable to determine your location.</Sms></Response>" if not location?
       else
         res.send '<Response><Sms>We are unable to process your request.</Sms></Response>'
