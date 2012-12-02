@@ -1,16 +1,26 @@
 util = require 'util'
 geocoder = require 'geocoder'
+iso8601 = require 'iso8601'
 
-constructPrefix = (person, address)->
+constructPrefix = (personData, address)->
   prefix = ''
 
   if address.toLowerCase().trim() is 'home'
-    prefix = person.volunteerId
+    prefix = personData.volunteerId
   else
-    prefix = person.groupId
+    prefix = personData.groupId
 
-exports.geocode = (db, person, address, completion)->
-  prefix = constructPrefix person, address
+updatePersonLastKnownLocation = (db, personData, location) ->
+  person = db.get "person/#{personData.volunteerId}", (err, doc) ->
+    if doc?
+      doc.lastKnownLocation = 
+        lat: location.lat
+        lng: location.lng
+        timeStamp: iso8601.fromDate new Date
+      db.save "person/#{personData.volunteerId}", doc
+
+exports.geocode = (db, personData, address, completion)->
+  prefix = constructPrefix personData, address
 
   key = (prefix + '_' + address).toLowerCase().trim()
 
@@ -22,18 +32,25 @@ exports.geocode = (db, person, address, completion)->
     alias = response[0]
 
     if alias?
-      completion undefined, alias.value
-      return
-  
-    numberOfWords = address.match(/\S+/g).length
+      location = alias.value
 
-    if numberOfWords < 3
-      completion undefined, undefined
-      return
+      if location?
+        completion undefined, location
+        updatePersonLastKnownLocation db, personData, location
+    else
+      numberOfWords = address.match(/\S+/g).length
 
-    geocoder.geocode address, (err, data)->
-      if err?
-        completion err, undefined
+      if numberOfWords < 3
+        completion undefined, undefined
         return
 
-      completion undefined, data.results[0].geometry.location
+      geocoder.geocode address, (err, data)->
+        if err?
+          completion err, undefined
+          return
+
+        location = data.results[0].geometry.location
+
+        if location?
+          completion undefined, location
+          updatePersonLastKnownLocation db, personData, location
