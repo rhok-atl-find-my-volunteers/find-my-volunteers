@@ -1,4 +1,4 @@
-registerApp = angular.module 'registerApp', ['ui.directives']
+registerApp = angular.module 'registerApp', ['ui.directives', 'appServices']
 
 registerApp.controller 'registerCtrl', ($scope, httpMaybe)->
 
