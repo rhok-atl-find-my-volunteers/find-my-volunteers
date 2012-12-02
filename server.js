@@ -36,6 +36,17 @@
     return registration.register(db.connect(), req, res);
   });
 
+  app.get('/api/people/search', function(req, res) {
+    return res.json([
+      {
+        name: "bill",
+        volunteerId: "239388",
+        groupId: "cambodia3",
+        contact: ["293-439-48484"]
+      }
+    ]);
+  });
+
   app.listen(process.env.PORT || 5000);
 
   console.log("listening...");

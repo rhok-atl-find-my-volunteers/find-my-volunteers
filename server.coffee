@@ -25,6 +25,16 @@ app.post '/api/sms/receive', (req, res)->
 app.post '/api/register', (req, res)->
   registration.register db.connect(), req, res
 
+app.get '/api/people/search', (req, res)->
+  res.json [
+    {
+      name: "bill",
+      volunteerId: "239388",
+      groupId: "cambodia3",
+      contact: ["293-439-48484"]
+    }
+  ]
+
 app.listen process.env.PORT or 5000
 
 console.log "listening..."
