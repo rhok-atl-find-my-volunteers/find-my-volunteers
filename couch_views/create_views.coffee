@@ -17,4 +17,5 @@ module.exports = (connect)->
     (require './person_by_phone'),
     (require './person_search'),
     (require './checkins_search'),
-    (require './aliases')
+    (require './aliases'),
+    (require './aliases_by_id')

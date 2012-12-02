@@ -14,8 +14,8 @@ exports.receive = (db, req, res)->
     coder.geocode db, person, message.Body, (location)->
       message.location = location
 
-    db.save "sms/#{message.SmsSid}", message, (err, response)->
-      if err?
-        res.send '<Response><Sms>We are unable to process your request.</Sms></Response>'
-      else
-        res.send "<Response><Sms>We have received your request.</Sms></Response>"
+      db.save "sms/#{message.SmsSid}", message, (err, response)->
+        if err?
+          res.send '<Response><Sms>We are unable to process your request.</Sms></Response>'
+        else
+          res.send "<Response><Sms>We have received your request.</Sms></Response>"
