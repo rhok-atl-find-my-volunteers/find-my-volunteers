@@ -65,11 +65,21 @@ adminApp.controller 'adminCtrl', ($scope, httpMaybe)->
   $scope.setSiteForCurrentPerson = (site)->
     console.log 'site: ', site
 
+  $scope.closeSetSite= ->
+    $scope.showSetSite = false
 
+  $scope.newSiteFullyEntered = ->
+
+    notEmpty($scope.newSite.alias) and notEmpty($scope.newSite.lat) and notEmpty($scope.newSite.lon)
+
+
+
+notEmpty = (txt)->
+  txt.replace(/\s+/g, '').length > 0
 
 sampleKnownLocations = [
-  { alias: 'Atlanta', lat: 23, lng: -36 }
-  { alias: 'Macon', lat: 23, lng: -36 }
+  { alias: 'Atlanta', location: { lat: 23, lng: -36 } }
+  { alias: 'Macon', location: { lat: 23, lng: -36 } }
 ]
 
 samplePeople = [
@@ -84,18 +94,18 @@ samplePeople = [
       volunteerId: '29192'
       groupId: 'cambodia3'
       contact: ['(404) 293-9448']
-      lastKnownLocation: {lat: 39.4958, lng: 92.944, timestamp: new Date()}
+      lastKnownLocation: {lat: 39.4958, lng: 92.944, timeStamp: new Date()}
       site: { lat: 39.48, lng: 39.239, alias: 'Atlanta' }
     }
   ]
 
 sampleCheckins = [
       {
-        timestamp: new Date()
+        timeStamp: new Date()
         message: "Atlanta"
       },
       {
-        timestamp: new Date()
+        timeStamp: new Date()
         message: "Macon"
         location: { lat: 22, lng: -78.670 }
       }
