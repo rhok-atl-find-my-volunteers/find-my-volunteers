@@ -7,15 +7,13 @@ c=d.insertBefore(c.lastChild,d.firstChild);b.hasCSS=!!c}g||t(a,b);return a}var k
 "undefined"==typeof c.createDocumentFragment||"undefined"==typeof c.createElement}g=b}catch(d){g=j=!0}})();var e={elements:k.elements||"abbr article aside audio bdi canvas data datalist details figcaption figure footer header hgroup mark meter nav output progress section summary time video",version:"3.6.2pre",shivCSS:!1!==k.shivCSS,supportsUnknownElements:g,shivMethods:!1!==k.shivMethods,type:"default",shivDocument:q,createElement:p,createDocumentFragment:function(a,b){a||(a=f);if(g)return a.createDocumentFragment();
 for(var b=b||i(a),c=b.frag.cloneNode(),d=0,e=m(),h=e.length;d<h;d++)c.createElement(e[d]);return c}};l.html5=e;q(f)})(this,document);
 
-<script>
-    document.createElement('ng-include');
-    document.createElement('ng-pluralize');
-    document.createElement('ng-view');
-    document.createElement('tabs');
-    document.createElement('pane');
+document.createElement('ng-include');
+document.createElement('ng-pluralize');
+document.createElement('ng-view');
+document.createElement('tabs');
+document.createElement('pane');
 
-    // Optionally these for CSS
-    document.createElement('ng:include');
-    document.createElement('ng:pluralize');
-    document.createElement('ng:view');
-</script>
+// Optionally these for CSS
+document.createElement('ng:include');
+document.createElement('ng:pluralize');
+document.createElement('ng:view');
