@@ -51,9 +51,9 @@ angular.module('appDirectives', [])
                 for own key, value of entry
                   if $.inArray(key, ignoreKeys) == -1
                     if key == 'lastKnownLocation'
-                      key = 'timestamp'
-                      value = value.timestamp
-                    if key == 'timestamp'
+                      key = 'timeStamp'
+                      value = value.timeStamp
+                    if key == 'timeStamp'
                       value = $filter('date')(value, 'short')
                     content += "<p>#{key}: #{value}</p>"
 

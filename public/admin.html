@@ -75,7 +75,7 @@
       </table>
       <div class="tableViewport">
         <table>
-          <tr ng-repeat="entry in checkinLog.entries" ng-click="entry.location && showLocation([entry])">
+          <tr ng-repeat="entry in checkinLog.entries | orderBy:'timeStamp'" ng-click="entry.location && showLocation([entry])">
             <td location-title class="location"><i class="icon-map-marker"></i></td>
             <td class="timestamp">{{entry.timeStamp | date:'short'}}</td>
             <td>{{entry.message}}</td>
