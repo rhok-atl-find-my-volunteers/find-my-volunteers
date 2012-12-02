@@ -56,6 +56,10 @@ body {
   }
 }
 
+footer {
+  text-align: right;
+}
+
 .container {
   margin: 0 auto;
   width: $page-width;
@@ -279,6 +283,11 @@ $VideoWidth: 270px;
 
     h2 { margin-top: 0; }
 
+    .tableViewport {
+      max-height: 200px;
+      overflow: auto;
+    }
+
     table {
       table-layout: fixed;
       width: 100%;
@@ -288,14 +297,15 @@ $VideoWidth: 270px;
         color: #333;
       }
       td,th { padding: 4px 5px; }
-      th.location { width: 16px; }
-      th.timestamp { width: 145px; }
+      .location { width: 16px; }
+      .timestamp { width: 145px; }
 
       td.location {
         color: #999;
 
         &.located {
           color: blue;
+          cursor: pointer;
         }
       }
 

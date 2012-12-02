@@ -6,7 +6,8 @@
     "cradle": "x",
     "geocoder": "x",
     "coffee-script": "*",
-    "iso8601": "x"
+    "iso8601": "x",
+    "underscore": "x"
   },
   "engines": {
     "node": "0.8.x",
