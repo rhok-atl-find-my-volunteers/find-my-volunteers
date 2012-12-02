@@ -84,6 +84,7 @@ h1,h2,h3 {
 }
 
 h1 {
+  color: #2F387C;
   font-family: 'Open Sans', $sans-serif;
   font-size: 2em;
   font-weight: 700;
@@ -91,6 +92,7 @@ h1 {
 }
 
 h2 {
+  color: #941B1B;
   font-family: 'Open Sans', $sans-serif;
   font-size: 1.7em;
   font-weight: 700;
@@ -141,7 +143,7 @@ $VideoWidth: 270px;
 
 #register {
   float: right;
-  padding-top: 12px;
+  padding-top: 15px;
 
   p {
     @include inline-block;
@@ -175,11 +177,10 @@ $VideoWidth: 270px;
 
 .callouts {
   text-align: center;
-  font-size: 0.7em;
 
   & > div {
     @include inline-block;
-    box-sizing: border-box;
+    @include box-sizing(border-box);
     width: 30%;
     text-align: left;
     margin: 0 10px;
@@ -257,7 +258,7 @@ $VideoWidth: 270px;
 
     input {
       width: 75%;
-      box-sizing: border-box;
+      @include box-sizing(border-box);
       padding: 7px;
       height: auto;
       margin-bottom: 0;
@@ -377,7 +378,7 @@ $VideoWidth: 270px;
 
 .sendMessage {
 
-  input { width: 100%; box-sizing: border-box; height: auto; }
+  input { width: 100%; @include box-sizing(border-box); height: auto; }
   label { margin-bottom: 5px; }
 }
 
