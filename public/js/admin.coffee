@@ -1,4 +1,4 @@
-adminApp = angular.module 'adminApp', ['ui.directives', 'appDirectives', 'appServices']
+adminApp = angular.module 'adminApp', ['ui.directives', 'appDirectives', 'appServices', 'tabs']
 
 adminApp.controller 'adminCtrl', ($scope, httpMaybe)->
 
@@ -7,6 +7,9 @@ adminApp.controller 'adminCtrl', ($scope, httpMaybe)->
 
   $scope.showCheckinLog = false
   $scope.checkinLog = undefined
+
+  $scope.showSetSite = false
+  $scope.knownSites = undefined
 
   $scope.$watch 'showCheckinLog', (nowShowing)->
     $scope.checkinLog = undefined if !nowShowing
@@ -49,6 +52,22 @@ adminApp.controller 'adminCtrl', ($scope, httpMaybe)->
       $scope.savedCheckinLog = undefined
       $scope.showCheckinLog = true
 
+  $scope.editSiteForPerson = (person)->
+    $scope.currentPerson = person
+    httpMaybe.get('/api/aliases', params: {}, ifLocal: sampleKnownLocations)
+      .success (knownLocations)->
+        $scope.knownLocations = knownLocations
+        $scope.showSetSite = true
+
+  $scope.setSiteForCurrentPerson = (site)->
+    console.log 'site: ', site
+
+
+
+sampleKnownLocations = [
+  { alias: 'Atlanta', lat: 23, lng: -36 }
+  { alias: 'Macon', lat: 23, lng: -36 }
+]
 
 samplePeople = [
     {
@@ -76,123 +95,5 @@ sampleCheckins = [
         timestamp: new Date()
         message: "Macon"
         location: { lat: 22, lng: -78.670 }
-      },
-      {
-        timestamp: new Date()
-        message: "Atlanta"
-      },
-      {
-        timestamp: new Date()
-        message: "Macon"
-        location: { lat: 23, lng: -78.670 }
-      },
-      {
-        timestamp: new Date()
-        message: "Atlanta"
-      },
-      {
-        timestamp: new Date()
-        message: "Macon"
-        location: { lat: 24, lng: -78.670 }
-      },
-      {
-        timestamp: new Date()
-        message: "Macon"
-        location: { lat: 25, lng: -78.670 }
-      },
-      {
-        timestamp: new Date()
-        message: "Macon"
-        location: { lat: 26, lng: -78.670 }
-      },
-      {
-        timestamp: new Date()
-        message: "Macon"
-        location: { lat: 27, lng: -78.670 }
-      },
-      {
-        timestamp: new Date()
-        message: "Macon"
-        location: { lat: 28, lng: -78.670 }
-      },
-      {
-        timestamp: new Date()
-        message: "Macon"
-        location: { lat: 29, lng: -78.670 }
-      },
-      {
-        timestamp: new Date()
-        message: "Macon"
-        location: { lat: 30, lng: -78.670 }
-      },
-      {
-        timestamp: new Date()
-        message: "Macon"
-        location: { lat: 31, lng: -78.670 }
-      },
-      {
-        timestamp: new Date()
-        message: "Macon"
-        location: { lat: 32, lng: -78.670 }
-      },
-      {
-        timestamp: new Date()
-        message: "Macon"
-        location: { lat: 33, lng: -78.670 }
-      },
-      {
-        timestamp: new Date()
-        message: "Macon"
-        location: { lat: 34, lng: -78.670 }
-      },
-      {
-        timestamp: new Date()
-        message: "Macon"
-        location: { lat: 35, lng: -78.670 }
-      },
-      {
-        timestamp: new Date()
-        message: "Macon"
-        location: { lat: 36, lng: -78.670 }
-      },
-      {
-        timestamp: new Date()
-        message: "Macon"
-        location: { lat: 37, lng: -78.670 }
-      },
-      {
-        timestamp: new Date()
-        message: "Macon"
-        location: { lat: 38, lng: -78.670 }
-      },
-      {
-        timestamp: new Date()
-        message: "Macon"
-        location: { lat: 39, lng: -78.670 }
-      },
-      {
-        timestamp: new Date()
-        message: "Macon"
-        location: { lat: 40, lng: -78.670 }
-      },
-      {
-        timestamp: new Date()
-        message: "Macon"
-        location: { lat: 41, lng: -78.670 }
-      },
-      {
-        timestamp: new Date()
-        message: "Macon"
-        location: { lat: 42, lng: -78.670 }
-      },
-      {
-        timestamp: new Date()
-        message: "Macon"
-        location: { lat: 43, lng: -78.670 }
-      },
-      {
-        timestamp: new Date()
-        message: "Macon"
-        location: { lat: 44, lng: -78.670 }
       }
     ]
