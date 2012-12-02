@@ -51,7 +51,7 @@
             <td class="volunteerId">{{person.volunteerId}}</td>
             <td class="groupId">{{person.groupId}}</td>
             <td class="contact">{{person.contact.join(', ')}}</td>
-            <td class="site"><a href="#">{{person.site && person.site.alias || 'unknown'}}</a></td>
+            <td class="site"><a href="#" ng-click="editSiteForPerson(person)">{{person.site && person.site.alias || 'unknown'}}</a></td>
             <td class="actions">
               <a href="#" ng-click="showCheckinLogForPerson(person)">checkin log</a>
             </td>
@@ -94,6 +94,48 @@
         </footer>
     </div>
 
+    <div ui-modal ng-model="showSetSite" class="fade setSiteLocation">
+      <h2>Edit Site for {{currentPerson.name}}</h2>
+      <tabs>
+        <pane title="Known Sites">
+          <div class="knownLocations">
+            <input placeholder="filter" autofocus ng-model="locationFilter" />
+            <ul>
+              <li ng-repeat="location in knownLocations | filter:locationFilter"
+                  ng-click="setSiteForCurrentPerson(location)">{{location.alias}}</li>
+            </ul>
+          </div>
+        </pane>
+        <pane title="New Site">
+          <form novalidate name="newSiteForm" method="POST">
+            <fieldset class="clearfix" ng-class="{error: registrationForm.groupId.$error.required}">
+                <label for="newSiteAlias">Alias:</label>
+                <input name="newSiteAlias" ng-model="newSite.alias" required />
+                <span class="help-inline">Required</span>
+            </fieldset>
+
+            <fieldset class="clearfix lat" ng-class="{error: registrationForm.groupId.$error.required}">
+                <label for="newSiteLat">Latitude:</label>
+                <input name="newSiteLat" ng-model="newSite.lat" required />
+                <span class="help-inline">Required</span>
+            </fieldset>
+
+            <fieldset class="clearfix lon" ng-class="{error: registrationForm.groupId.$error.required}">
+                <label for="newSiteLng">Longitude:</label>
+                <input name="newSiteLng" ng-model="newSite.lng" required />
+                <span class="help-inline">Required</span>
+            </fieldset>
+
+            <div class="map"></div>
+
+            <footer>
+              <button>Add Site</button>
+            </footer>
+          </form>
+        </pane>
+      </tabs>
+    </div>
+
     <script src="vendor/jquery-1.8.3.min.js"></script>
     <script src="vendor/angular-1.0.3.min.js"></script>
     <script src="vendor/bootstrap-modal.min.js"></script>
@@ -101,6 +143,7 @@
     <script src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
     <script src="js/services.js"></script>
     <script src="js/directives.js"></script>
+    <script src="js/tabs.js"></script>
     <script src="js/admin.js"></script>
 
 </body>

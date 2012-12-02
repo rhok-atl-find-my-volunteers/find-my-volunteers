@@ -305,6 +305,45 @@ $VideoWidth: 270px;
   }
 }
 
+.setSiteLocation {
+  h2 { margin-top: 0; }
+  .nav { float: none; }
+  .knownLocations {
+    input {
+      width: 80%;
+      margin-bottom: 15px;
+    }
+    ul {
+      max-height: 200px;
+      overflow: auto;
+
+      li {
+        @include button;
+        margin: 0 10px 10px 0;
+        font-size: 0.8em;
+      }
+    }
+  }
+
+  fieldset {
+    @include inline-block;
+    width: 40%;
+  }
+  fieldset.lat, fieldset.lon {
+    @include inline-block;
+    width: 25%;
+
+    input {
+      width: 120px;
+    }
+  }
+
+  .map {
+    width: 100%;
+    height: 300px;
+  }
+}
+
 .modal {
     margin-left: -300px;
     padding: 20px;

@@ -2,19 +2,19 @@ angular.module('appDirectives', [])
 
   .directive 'locationTitle', ->
     restrict: 'A'
-    link: (scope, element, attrs) ->
-      if scope.entry?.location? or scope.person?.location?
+    link: (scope, element, attrs)->
+      if scope.entry?.location? or scope.person?.lastKnownLocation?
         element.addClass 'located'
       else
         element.attr 'title', 'No Location Information'
 
-  .directive 'googleMap', ($filter) ->
+  .directive 'googleMap', ($filter)->
     restrict: 'A'
-    link: (scope, element, attrs) ->
-      scope.$watch 'showMap', (showMap) ->
+    link: (scope, element, attrs)->
+      scope.$watch 'showMap', (showMap)->
         if showMap
 
-          setTimeout( ->
+          setTimeout(->
             element.html ''
 
             entries = scope.entries
@@ -28,7 +28,7 @@ angular.module('appDirectives', [])
               zoom: 15
               mapTypeId: google.maps.MapTypeId.ROADMAP
 
-            map = new google.maps.Map( element[0], mapOptions )
+            map = new google.maps.Map(element[0], mapOptions)
 
             for entry in entries
               location = entry.location || entry.lastKnownLocation
