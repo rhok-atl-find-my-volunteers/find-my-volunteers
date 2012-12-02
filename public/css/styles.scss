@@ -53,7 +53,7 @@ $default-border-radius: 3px;
 }
 
 body {
-  background: #f8f8f8;
+  background: #f8f8f8 url('../images/gray_jean.png');
   color: $dark-grey;
   font-family: $sans-serif;
   font-size: 15px;
@@ -99,6 +99,14 @@ h2 {
 p {
   line-height: 1.5;
   margin: 10px 0;
+}
+
+strong {
+  font-weight: bold;
+}
+
+em {
+  font-style: italic;
 }
 
 .nav {
@@ -147,7 +155,8 @@ $VideoWidth: 270px;
 
 
 #videoOuterContainer {
-  background: #000;
+  background: #333 url('../images/debut_dark.png');
+  @include box-shadow(0 0 10px rgba(0,0,0,0.7) inset);
   color: #fff;
   margin: 20px 0;
   text-align: center;
@@ -272,11 +281,14 @@ $VideoWidth: 270px;
 
   .results {
     header {
-      border-bottom: 1px solid #000;
-      padding: 0; margin: 0;
+      border-bottom: 1px solid #a2a2a2;
+      margin: 0 0 10px;
+      padding: 0 0 10px;
+
       h2 {
         float: left;
-        padding: 0; margin: 0;
+        margin: 0;
+        padding: 0;
       }
     }
 
@@ -294,6 +306,7 @@ $VideoWidth: 270px;
 
     nav {
       float: right;
+      padding-top: 8px;
     }
 
   }
@@ -372,4 +385,9 @@ $VideoWidth: 270px;
     img {
         max-width: inherit;
     }
+}
+
+.info-window-content {
+    font-size: .9em;
+    margin: 5px 0;
 }
