@@ -15,16 +15,25 @@ exports.geocode = (db, person, address, completion)->
   key = (prefix + '_' + address).toLowerCase().trim()
 
   db.view 'views/aliases', key: key, (err, response)->
+    if err?
+      completion err, undefined
+      return
+
     alias = response[0]
 
-    completion undefined, alias.value if alias?
+    if alias?
+      completion undefined, alias.value
+      return
+  
+    numberOfWords = address.match(/\S+/g).length
 
-    unless alias?
-      numberOfWords = address.match(/\S+/g).length
+    if numberOfWords < 3
+      completion undefined, undefined
+      return
 
-      if numberOfWords > 2
-        geocoder.geocode address, (err, data)->
-          if not err?
-            completion undefined, data.results[0].geometry.location
-      else
-        completion undefined, undefined
+    geocoder.geocode address, (err, data)->
+      if err?
+        completion err, undefined
+        return
+
+      completion undefined, data.results[0].geometry.location
