@@ -1592,7 +1592,12 @@ p {
   color: #c7c7c7;
   cursor: default;
 }
-/* line 281, styles.scss */
+
+/* line 278, styles.scss */
+.map {
+  width: 600px;
+  height: 400px;
+/* line 277, styles.scss */
 .admin .checkinLog {
   padding: 20px;
 }

@@ -2,11 +2,12 @@ express = require 'express'
 util = require 'util'
 sms = require './sms'
 registration = require './registration'
+
 db = require './db'
+(require './couch_views/create_views')(db.connect)
 
 people_search = require './search/people'
-
-(require './couch_views/create_views')(db.connect)
+checkins_search = require './search/checkins'
 
 app = express()
 app.enable 'trust proxy'
