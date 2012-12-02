@@ -18,6 +18,7 @@ angular.module('appDirectives', [])
             element.html ''
 
             entries = scope.entries
+
             i = 0
             while entries[i] and !centerLocation
               centerLocation = entries[i].location || entries[i].lastKnownLocation
@@ -25,10 +26,16 @@ angular.module('appDirectives', [])
 
             mapOptions =
               center: new google.maps.LatLng(centerLocation.lat, centerLocation.lng)
-              zoom: 15
+              zoom: if entries.length > 1 then 5 else 10
               mapTypeId: google.maps.MapTypeId.ROADMAP
 
             map = new google.maps.Map(element[0], mapOptions)
+
+            ignoreKeys = [
+              'location'
+              '$$hashKey'
+              'site'
+            ]
 
             for entry in entries
               location = entry.location || entry.lastKnownLocation
@@ -42,7 +49,10 @@ angular.module('appDirectives', [])
                 content = ''
 
                 for own key, value of entry
-                  if key != 'location' and key != 'lastKnownLocation' and key.indexOf('$') == -1
+                  if $.inArray(key, ignoreKeys) == -1
+                    if key == 'lastKnownLocation'
+                      key = 'timestamp'
+                      value = value.timestamp
                     if key == 'timestamp'
                       value = $filter('date')(value, 'short')
                     content += "<p>#{key}: #{value}</p>"
