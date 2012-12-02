@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="adminApp">
+<head>
+    <meta charset="utf-8" />
+    <title>Find my Volunteer :: Administration</title>
+
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="vendor/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/admin.css" />
+</head>
+<body ng-controller="adminCtrl" class="admin">
+
+    <header>
+      <h1>Find My Volunteers Administration</h1>
+    </header>
+
+
+    <div class="container">
+      <form novalidate name="searchForm" class="search" type="GET">
+
+          <fieldset class="clearfix">
+              <input placeholder="Search Volunteer ID, Group ID or Volunteer Name" type="text" name="name" ng-model="search" />
+              <button class="submit" ng-disabled="!hasSearchTerm()" ng-click="submitSearch()">Search</button>
+          </fieldset>
+
+      </form>
+
+      <div class="results">
+        <header class="clearfix">
+          <h2>Results</h2>
+
+          <nav>
+            <a href="#">map</a>
+          </nav>
+        </header>
+        <ul>
+        <li ng-repeat="result in results" class="clearfix">
+          <span class="metadata">
+            <span class="name">{{result.name}}</span>
+            <span class="volunteerId">( <span>{{result.volunteerId}}</span> )</span>
+            <span class="groupId">Group: <span>{{result.groupId}}</span></span>
+            <span class="contact">Contact: <span>{{result.contact}}</span></span>
+          </span>
+
+          <nav>
+            <a href="#">map</a>
+            <a href="#">log</a>
+          </nav>
+        </li>
+      </ul>
+
+    </div>
+
+    <script src="vendor/jquery-1.8.3.min.js"></script>
+    <script src="vendor/angular-1.0.3.min.js"></script>
+    <script src="vendor/bootstrap-modal.min.js"></script>
+    <script src="vendor/angular-ui-modal.js"></script>
+    <script src="js/admin.js"></script>
+
+</body>
+</html>
