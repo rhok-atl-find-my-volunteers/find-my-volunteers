@@ -35,32 +35,49 @@ angular.module('appDirectives', [])
               'location'
               '$$hashKey'
               'site'
+              'marker'
             ]
 
+            keyDisplay =
+              name: 'Name'
+              volunteerId: 'Volunteer ID'
+              groupId: 'Group ID'
+              contact: 'Contact'
+              timeStamp: 'Time'
+              message: 'Message'
+
             for entry in entries
-              location = entry.location || entry.lastKnownLocation
+              do (entry) ->
 
-              if location
-                marker = new google.maps.Marker(
-                  map: map,
-                  position: new google.maps.LatLng(location.lat, location.lng)
-                )
+                location = entry.location || entry.lastKnownLocation
 
-                content = ''
+                if location
+                  entry.marker = new google.maps.Marker(
+                    map: map,
+                    position: new google.maps.LatLng(location.lat, location.lng)
+                  )
 
-                for own key, value of entry
-                  if $.inArray(key, ignoreKeys) == -1
-                    if key == 'lastKnownLocation'
-                      key = 'timeStamp'
-                      value = value.timeStamp
-                    if key == 'timeStamp'
-                      value = $filter('date')(value, 'short')
-                    content += "<p>#{key}: #{value}</p>"
+                  content = ''
 
-                marker.addListener 'click', ->
-                  new google.maps.InfoWindow(
+                  for own key, value of entry
+                    if $.inArray(key, ignoreKeys) == -1
+                      if key == 'lastKnownLocation'
+                        key = 'timeStamp'
+                        value = value.timeStamp
+                      if key == 'timeStamp'
+                        value = $filter('date')(value, 'short')
+                      content += "<p class=\"info-window-content\"><strong>#{keyDisplay[key] || key}:</strong> #{value}</p>"
+
+                  entry.marker.infoWindow = new google.maps.InfoWindow(
                     content: content
-                  ).open(map, marker)
+                  )
+
+                  entry.marker.addListener 'click', ->
+                    for innerEntry in entries
+                      innerEntry.marker?.infoWindow?.close()
+                    entry.marker.infoWindow.open(map, entry.marker)
+
+              (entry)
 
           , 250)
 

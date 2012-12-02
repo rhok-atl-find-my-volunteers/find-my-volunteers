@@ -131,6 +131,14 @@ samplePeople = [
       contact: ['(404) 293-9448']
       lastKnownLocation: {lat: 39.4958, lng: 92.944, timeStamp: new Date()}
       site: { lat: 39.48, lng: 39.239, alias: 'Atlanta' }
+    },
+    {
+      name: 'todd'
+      volunteerId: '25192'
+      groupId: 'djibouti5'
+      contact: ['(616) 293-9448']
+      lastKnownLocation: {lat: 39.4958, lng: 96.074, timeStamp: new Date()}
+      site: { lat: 39.48, lng: 43.369, alias: 'Bermuda' }
     }
   ]
 
