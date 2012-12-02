@@ -313,11 +313,16 @@ $VideoWidth: 270px;
   }
 }
 
-.map {
-    width: 600px;
-    height: 400px;
+.modal {
+    margin-left: -300px;
+    padding: 20px;
 }
 
-    .map img {
+.map {
+    width: 100%;
+    height: 400px;
+
+    img {
         max-width: inherit;
     }
+}

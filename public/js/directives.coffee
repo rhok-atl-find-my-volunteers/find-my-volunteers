@@ -13,12 +13,12 @@ angular.module('appDirectives', [])
     link: (scope, element, attrs) ->
       scope.$watch 'showMap', (showMap) ->
         if showMap
-          console.log 'showMap changed and is true'
+
           setTimeout( ->
             element.html ''
 
-            locations = angular.map scope.people, (person) ->
-              person.location
+            locations = $.map scope.entries, (entry) ->
+              entry.location
 
             mapOptions =
               center: new google.maps.LatLng(locations[0].lat, locations[0].lng)
