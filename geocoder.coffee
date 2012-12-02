@@ -20,7 +20,11 @@ exports.geocode = (db, person, address, completion)->
     completion alias.value if alias?
 
     unless alias?
-      geocoder.geocode address, (err, data)->
+      numberOfWords = address.match(/\S+/g).length
 
-        if not err?
-          completion data.results[0].geometry.location
+      if numberOfWords > 3
+        geocoder.geocode address, (err, data)->
+          if not err?
+            completion data.results[0].geometry.location
+      else
+        completion undefined
