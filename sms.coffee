@@ -1,9 +1,11 @@
 coder = require './geocoder'
 util = require 'util'
 _ = require 'underscore'
+iso8601 = require 'iso8601'
 
 exports.receive = (db, req, res)->
   message = req.body
+  message.timeStamp = iso8601.fromDate new Date
 
   coder.geocode message.Body, (location)->
     message.location = location

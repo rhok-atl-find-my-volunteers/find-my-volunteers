@@ -1,7 +1,7 @@
-exports.geocode = (address, completion) ->
-	util = require 'util'
-	geocoder = require 'geocoder'
+util = require 'util'
+geocoder = require 'geocoder'
 
+exports.geocode = (address, completion) ->
 	geocoder.geocode address, (err, data) ->
   	  if err?
   	    console.log util.inspect err
