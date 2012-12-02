@@ -1587,6 +1587,11 @@ p {
   color: #c7c7c7;
   cursor: default;
 }
+
+/* line 278, styles.scss */
+.map {
+  width: 600px;
+  height: 400px;
 /* line 277, styles.scss */
 .admin .checkinLog {
   padding: 20px;
@@ -1624,4 +1629,3 @@ p {
 /* line 297, styles.scss */
 .admin .checkinLog table td.location.located {
   color: blue;
-}

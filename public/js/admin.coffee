@@ -58,10 +58,9 @@ adminApp.controller 'adminCtrl', ($scope, $http)->
 
   $scope.submitSearch = ->
     $http.get('/api/people/search', params: q: $scope.search)
-      .success (results)->
+      .success (results) ->
         $scope.searchSubmitted = true
         $scope.results = results
-
   $scope.showCheckinLogForPerson = (person)->
     $http.get('/api/checkins/search', params: q: person.volunteerId)
       .success (checkins)->
