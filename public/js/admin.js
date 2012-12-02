@@ -1,8 +1,6 @@
 (function() {
   var adminApp;
-
   adminApp = angular.module('adminApp', ['ui.directives']);
-
   adminApp.controller('adminCtrl', function($scope, $http) {
     $scope.results = [
       {
@@ -29,5 +27,4 @@
       });
     };
   });
-
 }).call(this);

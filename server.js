@@ -1,9 +1,10 @@
 (function() {
-  var app, connect, cradle, express, sms, util;
+  var app, connect, cradle, express, registration, sms, util;
   express = require('express');
   util = require('util');
   cradle = require('cradle');
   sms = require('./sms');
+  registration = require('./registration');
   connect = function() {
     var port, prod, url;
     prod = !!process.env.CLOUDANT_URL;
@@ -32,27 +33,10 @@
     return res.sendfile(__dirname + '/public/index.html');
   });
   app.post('/api/sms/receive', function(req, res) {
-    console.log(util.inspect(sms));
     return sms.receive(connect(), req, res);
   });
   app.post('/api/register', function(req, res) {
-    var db, person, reg;
-    reg = req.body;
-    person = {
-      id: reg.volunteerId,
-      name: reg.name,
-      phone: reg.phoneNumber,
-      group: reg.groupId
-    };
-    db = connect();
-    return db.save('person/' + person.id, person, function(err) {
-      if (err) {
-        res.send(500, util.inspect(err));
-      }
-      if (!err) {
-        return res.send(204);
-      }
-    });
+    return registration.register(connect(), req, res);
   });
   app.listen(process.env.PORT || 5000);
   console.log("listening...");

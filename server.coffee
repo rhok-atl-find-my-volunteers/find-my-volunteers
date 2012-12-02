@@ -2,6 +2,7 @@ express = require 'express'
 util = require 'util'
 cradle = require 'cradle'
 sms = require './sms'
+registration = require './registration'
 
 connect = ()->
   prod = !!process.env.CLOUDANT_URL
@@ -32,18 +33,7 @@ app.post '/api/sms/receive', (req, res)->
   sms.receive connect(), req, res
 
 app.post '/api/register', (req, res)->
-  reg = req.body
-
-  person =
-    id: reg.volunteerId
-    name: reg.name
-    phone: reg.phoneNumber
-    group: reg.groupId
-
-  db = connect()
-  db.save 'person/' + person.id, person, (err)->
-    res.send 500, util.inspect err if err
-    res.send 204 unless err
+  registration.register connect(), req, res
 
 app.listen process.env.PORT or 5000
 
