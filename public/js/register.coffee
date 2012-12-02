@@ -14,9 +14,13 @@ registerApp.controller 'registerCtrl', ($scope, $http)->
   $scope.isClean = ->
     angular.equals self.original, $scope.info
 
+  $scope.clear = ->
+    $scope.info = {}
+
   $scope.submit = ->
     unless $scope.registrationForm.$invalid
       $http.post('/api/register', $scope.info)
        .success ->
           $scope.showModal = false
           $scope.formSubmitted = true
+          $scope.clear()
