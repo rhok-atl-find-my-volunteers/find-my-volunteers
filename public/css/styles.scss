@@ -6,13 +6,20 @@ $dark-grey: #333;
 $page-width: 960px;
 $default-border-radius: 3px;
 
+@mixin inline-block{
+  display:-moz-inline-stack;
+  display:inline-block;
+  zoom:1;
+  *display:inline;
+}
+
 @mixin button {
   @include background(linear-gradient(top, #555, #333));
   @include border-radius;
+  @include inline-block;
   border: solid 1px #222;
   color: #f8f8f8;
   cursor: pointer;
-  display: block;
   font-size: 1em;
   padding: 8px 15px;
   text-decoration: none;
@@ -22,6 +29,17 @@ $default-border-radius: 3px;
   &:focus,
   &:active {
       @include background(linear-gradient(top, #777, #555));
+  }
+
+  &[disabled]{
+    @include opacity(0.5);
+    cursor: default;
+
+    &:hover,
+    &:focus,
+    &:active {
+      @include background(linear-gradient(top, #555, #333));
+    }
   }
 }
 
@@ -37,7 +55,7 @@ body {
     width: $page-width;
     height: 50px;
     margin: 0 auto;
-    h1 { display: inline-block; }
+    h1 { @include inline-block; }
   }
 }
 
@@ -89,13 +107,12 @@ $VideoWidth: 270px;
   padding-top: 12px;
 
   p {
-    display: inline-block;
+    @include inline-block;
     padding-right: 25px;
   }
 
   button {
     @include button;
-    display: inline-block;
   }
 }
 
@@ -121,7 +138,7 @@ $VideoWidth: 270px;
   font-size: 0.7em;
 
   & > div {
-    display: inline-block;
+    @include inline-block;
     box-sizing: border-box;
     width: 30%;
     text-align: left;
@@ -200,4 +217,67 @@ $VideoWidth: 270px;
   display: block;
   margin-top: 5px;
   margin-left: 110px;
+}
+
+.admin {
+
+  header {
+    height: auto;
+
+    h1 {
+      float: none;
+    }
+  }
+
+  form.search {
+    width: 50%;
+    margin: 50px auto;
+
+    input {
+      width: 75%;
+      box-sizing: border-box;
+      padding: 7px;
+      height: auto;
+    }
+  }
+
+  .results {
+    header {
+      border-bottom: 1px solid #000;
+      padding: 0; margin: 0;
+      h2 {
+        float: left;
+        padding: 0; margin: 0;
+      }
+    }
+
+    nav {
+      float: right;
+
+      a {
+        padding: 0 5px;
+      }
+    }
+
+    li {
+      display: block;
+      padding: 10px;
+      margin: 0 10px;
+      border-top: 1px solid #000;
+
+      &:first-child {
+        border: 0;
+      }
+
+      .metadata {
+        float: left;
+
+        &>span {
+          padding: 0 5px;
+        }
+      }
+    }
+  }
+
+  button { @include button; }
 }
