@@ -1225,8 +1225,8 @@ body {
 /* line 63, styles.scss */
 body > header {
   width: 960px;
-  height: 50px;
   margin: 0 auto;
+  padding: 5px 0;
 }
 /* line 67, styles.scss */
 body > header h1 {
@@ -1249,20 +1249,24 @@ footer {
 }
 
 /* line 82, styles.scss */
-h1, h2, h3 {
+h2, h3 {
   margin: 20px 0;
 }
 
 /* line 86, styles.scss */
 h1 {
+  background: url("../images/peace-corps-logo.png") no-repeat;
   color: #2F387C;
   font-family: "Open Sans", "Helvetica Neue", Arial, sans-serif;
   font-size: 2em;
   font-weight: 700;
   float: left;
+  height: 100px;
+  line-height: 100px;
+  padding-left: 120px;
 }
 
-/* line 94, styles.scss */
+/* line 98, styles.scss */
 h2 {
   color: #941B1B;
   font-family: "Open Sans", "Helvetica Neue", Arial, sans-serif;
@@ -1270,42 +1274,42 @@ h2 {
   font-weight: 700;
 }
 
-/* line 101, styles.scss */
+/* line 105, styles.scss */
 p {
   line-height: 1.5;
   margin: 10px 0;
 }
 
-/* line 106, styles.scss */
+/* line 110, styles.scss */
 strong {
   font-weight: bold;
 }
 
-/* line 110, styles.scss */
+/* line 114, styles.scss */
 em {
   font-style: italic;
 }
 
-/* line 114, styles.scss */
+/* line 118, styles.scss */
 .nav {
   float: right;
 }
-/* line 117, styles.scss */
+/* line 121, styles.scss */
 .nav li {
   float: left;
 }
-/* line 120, styles.scss */
+/* line 124, styles.scss */
 .nav li a {
   display: block;
 }
 
-/* line 126, styles.scss */
+/* line 130, styles.scss */
 .nav-tabs {
   border-bottom: none;
   margin-bottom: 0;
 }
 
-/* line 131, styles.scss */
+/* line 135, styles.scss */
 .tab-content {
   background: #FFF;
   -webkit-border-radius: 0 3px 3px 3px;
@@ -1316,17 +1320,17 @@ em {
   padding: 15px;
 }
 
-/* line 137, styles.scss */
+/* line 141, styles.scss */
 .tab-pane label {
   margin-bottom: 5px;
 }
 
-/* line 144, styles.scss */
+/* line 148, styles.scss */
 #register {
   float: right;
-  padding-top: 15px;
+  padding-top: 30px;
 }
-/* line 148, styles.scss */
+/* line 152, styles.scss */
 #register p {
   display: -moz-inline-stack;
   display: inline-block;
@@ -1334,7 +1338,7 @@ em {
   *display: inline;
   padding-right: 25px;
 }
-/* line 153, styles.scss */
+/* line 157, styles.scss */
 #register button {
   background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #555555), color-stop(100%, #333333));
   background: -webkit-linear-gradient(top, #555555, #333333);
@@ -1392,38 +1396,38 @@ em {
   background: linear-gradient(top, #d3d3d3, #b7b7b7);
 }
 
-/* line 159, styles.scss */
+/* line 163, styles.scss */
 #videoOuterContainer {
   background: #333333 url("../images/debut_dark.png");
   -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.7) inset;
   -moz-box-shadow: 0 0 10px rgba(0, 0, 0, 0.7) inset;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.7) inset;
   color: #fff;
-  margin: 20px 0;
+  margin-bottom: 20px;
   text-align: center;
 }
-/* line 166, styles.scss */
+/* line 170, styles.scss */
 #videoOuterContainer > div {
   display: -moz-inline-stack;
   display: inline-block;
   zoom: 1;
   *display: inline;
 }
-/* line 169, styles.scss */
+/* line 173, styles.scss */
 #videoOuterContainer > div iframe {
   line-height: 320px;
   vertical-align: middle;
 }
-/* line 173, styles.scss */
+/* line 177, styles.scss */
 #videoOuterContainer > div iframe p {
   text-align: center;
 }
 
-/* line 178, styles.scss */
+/* line 182, styles.scss */
 .callouts {
   text-align: center;
 }
-/* line 181, styles.scss */
+/* line 185, styles.scss */
 .callouts > div {
   display: -moz-inline-stack;
   display: inline-block;
@@ -1436,28 +1440,28 @@ em {
   text-align: left;
   margin: 0 10px;
 }
-/* line 188, styles.scss */
+/* line 192, styles.scss */
 .callouts > div ul {
   list-style: disc;
   padding-left: 20px;
 }
 
-/* line 195, styles.scss */
+/* line 199, styles.scss */
 .modal {
   background: #e3e3e3;
 }
 
-/* line 199, styles.scss */
+/* line 203, styles.scss */
 .registration-form {
   margin: 0 auto;
   padding: 20px 0;
   width: 402px;
 }
-/* line 205, styles.scss */
+/* line 209, styles.scss */
 .registration-form fieldset {
   margin: 15px 0;
 }
-/* line 209, styles.scss */
+/* line 213, styles.scss */
 .registration-form label {
   display: block;
   float: left;
@@ -1465,7 +1469,7 @@ em {
   text-align: right;
   width: 100px;
 }
-/* line 217, styles.scss */
+/* line 221, styles.scss */
 .registration-form input {
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
@@ -1477,7 +1481,7 @@ em {
   padding: 8px 10px;
   width: 270px;
 }
-/* line 225, styles.scss */
+/* line 229, styles.scss */
 .registration-form button {
   background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #555555), color-stop(100%, #333333));
   background: -webkit-linear-gradient(top, #555555, #333333);
@@ -1537,12 +1541,12 @@ em {
   background: linear-gradient(top, #d3d3d3, #b7b7b7);
 }
 
-/* line 234, styles.scss */
+/* line 238, styles.scss */
 .help-inline {
   display: none;
 }
 
-/* line 238, styles.scss */
+/* line 242, styles.scss */
 .error .help-inline {
   color: #850C0C;
   display: block;
@@ -1550,11 +1554,7 @@ em {
   margin-left: 110px;
 }
 
-/* line 247, styles.scss */
-.admin header {
-  height: auto;
-}
-/* line 250, styles.scss */
+/* line 251, styles.scss */
 .admin header h1 {
   float: none;
 }
@@ -1592,7 +1592,7 @@ em {
 }
 /* line 277, styles.scss */
 .admin td.location.located {
-  color: blue;
+  color: #5360be;
   cursor: pointer;
 }
 /* line 284, styles.scss */

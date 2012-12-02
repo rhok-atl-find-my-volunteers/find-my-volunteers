@@ -62,8 +62,8 @@ body {
 
   & > header {
     width: $page-width;
-    height: 50px;
     margin: 0 auto;
+    padding: 5px 0;
     h1 { @include inline-block; }
   }
 }
@@ -79,16 +79,20 @@ footer {
 
 }
 
-h1,h2,h3 {
+h2,h3 {
   margin: 20px 0;
 }
 
 h1 {
+  background: url('../images/peace-corps-logo.png') no-repeat;
   color: #2F387C;
   font-family: 'Open Sans', $sans-serif;
   font-size: 2em;
   font-weight: 700;
   float: left;
+  height: 100px;
+  line-height: 100px;
+  padding-left: 120px;
 }
 
 h2 {
@@ -143,7 +147,7 @@ $VideoWidth: 270px;
 
 #register {
   float: right;
-  padding-top: 15px;
+  padding-top: 30px;
 
   p {
     @include inline-block;
@@ -160,7 +164,7 @@ $VideoWidth: 270px;
   background: #333 url('../images/debut_dark.png');
   @include box-shadow(0 0 10px rgba(0,0,0,0.7) inset);
   color: #fff;
-  margin: 20px 0;
+  margin-bottom: 20px;
   text-align: center;
 
   &>div {
@@ -244,12 +248,8 @@ $VideoWidth: 270px;
 
 .admin {
 
-  header {
-    height: auto;
-
-    h1 {
-      float: none;
-    }
+  header h1 {
+    float: none;
   }
 
   form.search {
@@ -275,7 +275,7 @@ $VideoWidth: 270px;
     color: #999;
 
     &.located {
-      color: blue;
+      color: lighten(#2F387C, 20%);
       cursor: pointer;
     }
   }
