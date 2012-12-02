@@ -63,3 +63,45 @@ angular.module('appDirectives', [])
                   ).open(map, marker)
 
           , 250)
+
+  .directive 'clickableGoogleMap', ($timeout)->
+    restrict: 'A'
+    link: (scope, element, attrs)->
+
+      scope.$watch 'showClickableMap', (showMap)->
+
+        if showMap
+          $timeout(->
+            mapOptions =
+              center: new google.maps.LatLng(0, 0)
+              zoom: 1
+              mapTypeId: google.maps.MapTypeId.ROADMAP
+
+            map = new google.maps.Map(element[0], mapOptions)
+
+            marked = false
+
+            map.addListener 'click', (e)->
+
+              unless marked
+
+                marked = true
+
+                marker = new google.maps.Marker(
+                  map: map,
+                  position: new google.maps.LatLng(e.latLng.$a, e.latLng.ab)
+                  draggable: true
+                )
+
+                scope.newSite.lat = e.latLng.$a
+                scope.newSite.lng = e.latLng.ab
+                scope.$apply()
+
+                marker.addListener 'dragend', (e)->
+
+                  scope.newSite.lat = e.latLng.$a
+                  scope.newSite.lng = e.latLng.ab
+                  scope.$apply()
+
+
+          , 250)
