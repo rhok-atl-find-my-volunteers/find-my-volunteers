@@ -7,7 +7,7 @@ constructPrefix = (person, address)->
   if address.toLowerCase().trim() is 'home'
     prefix = person.volunteerId
   else
-  prefix = person.groupId
+    prefix = person.groupId
 
 exports.geocode = (db, person, address, completion)->
   prefix = constructPrefix person, address
