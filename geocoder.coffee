@@ -11,11 +11,15 @@ constructPrefix = (person, address) ->
 
 exports.geocode = (db, person, address, completion) ->
 	prefix = constructPrefix person, address
+	console.log util.inspect prefix
 
 	key = (prefix + '_' + address).toLowerCase().trim()
+	console.log util.inspect key
 
 	db.view 'views/aliases', key: key, (err, response)->
 	  alias = response[0]
+	  console.log util.inspect alias
+
 	  completion alias.value if alias?
 
 	  unless alias?
@@ -24,3 +28,4 @@ exports.geocode = (db, person, address, completion) ->
 	  	  
 	  	  if not err?
 	  	    completion data.results[0].geometry.location
+	  	    console.log util.inspect data if data?
