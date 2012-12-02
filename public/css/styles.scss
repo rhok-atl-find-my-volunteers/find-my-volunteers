@@ -238,6 +238,21 @@ $VideoWidth: 270px;
     }
   }
 
+  th {
+    font-weight: bold;
+    color: #333;
+  }
+  td,th { padding: 4px 5px; }
+  td.location, th.location { width: 16px; }
+  td.location {
+    color: #999;
+
+    &.located {
+      color: blue;
+      cursor: pointer;
+    }
+  }
+
   .results {
     header {
       border-bottom: 1px solid #000;
@@ -248,32 +263,22 @@ $VideoWidth: 270px;
       }
     }
 
-    nav {
-      float: right;
+    table {
+      width: 100%;
 
-      a {
-        padding: 0 5px;
-      }
-    }
-
-    li {
-      display: block;
-      padding: 10px;
-      margin: 0 10px;
-      border-top: 1px solid #000;
-
-      &:first-child {
-        border: 0;
-      }
-
-      .metadata {
-        float: left;
-
-        &>span {
+      td.actions{
+        width: 1;
+        text-align: right;
+        a {
           padding: 0 5px;
         }
       }
     }
+
+    nav {
+      float: right;
+    }
+
   }
 
   button { @include button; }
@@ -292,28 +297,23 @@ $VideoWidth: 270px;
       table-layout: fixed;
       width: 100%;
 
-      th {
-        font-weight: bold;
-        color: #333;
-      }
-      td,th { padding: 4px 5px; }
-      .location { width: 16px; }
       .timestamp { width: 145px; }
 
-      td.location {
-        color: #999;
-
-        &.located {
-          color: blue;
-          cursor: pointer;
-        }
-      }
 
     }
   }
 }
 
+.modal {
+    margin-left: -300px;
+    padding: 20px;
+}
+
 .map {
-    width: 600px;
+    width: 100%;
     height: 400px;
+
+    img {
+        max-width: inherit;
+    }
 }
