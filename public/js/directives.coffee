@@ -1,8 +1,36 @@
 angular.module('appDirectives', [])
+
   .directive 'locationTitle', ->
     restrict: 'A'
-    link: (scope, element, attrs)->
+    link: (scope, element, attrs) ->
       if scope.entry.location?
         element.addClass 'located'
       else
         element.attr 'title', 'No Location Information'
+
+  .directive 'googleMap', ->
+    restrict: 'A'
+    link: (scope, element, attrs) ->
+      scope.$watch 'showMap', (showMap) ->
+        if showMap
+          console.log 'showMap changed and is true'
+          setTimeout( ->
+            element.html ''
+
+            locations = angular.map scope.people, (person) ->
+              person.location
+
+            mapOptions =
+              center: new google.maps.LatLng(locations[0].lat, locations[0].lng)
+              zoom: 15
+              mapTypeId: google.maps.MapTypeId.ROADMAP
+
+            map = new google.maps.Map( element[0], mapOptions )
+
+            for location in locations
+              new google.maps.Marker(
+                map: map,
+                position: new google.maps.LatLng(location.lat, location.lng)
+              )
+
+          , 250)

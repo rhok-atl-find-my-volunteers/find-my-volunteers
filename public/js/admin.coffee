@@ -61,6 +61,7 @@ adminApp.controller 'adminCtrl', ($scope, $http)->
       .success (results) ->
         $scope.searchSubmitted = true
         $scope.results = results
+
   $scope.showCheckinLogForPerson = (person)->
     $http.get('/api/checkins/search', params: q: person.volunteerId)
       .success (checkins)->
@@ -69,5 +70,8 @@ adminApp.controller 'adminCtrl', ($scope, $http)->
           entries: checkins
         $scope.showCheckinLog = true
 
+  $scope.showMap = false
+
   $scope.showLocation = (entries)->
     console.log 'mapping entries', entries
+    $scope.showMap = true
