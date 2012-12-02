@@ -1,18 +1,10 @@
 express = require 'express'
 util = require 'util'
-cradle = require 'cradle'
+sms = require './sms'
+registration = require './registration'
+db = require './db'
 
-connect = ()->
-  prod = !!process.env.CLOUDANT_URL
-  url = 'http://127.0.0.1'
-  url = process.env.CLOUDANT_URL if prod
-  port = 5984
-  port = 443 if prod
-
-  (new cradle.Connection url, port, {
-    cache: true
-    raw: false
-  }).database 'db'
+(require './couch_views/create_views')(db.connect)
 
 app = express()
 app.enable 'trust proxy'
@@ -28,27 +20,20 @@ app.get '/', (req, res)->
   res.sendfile(__dirname + '/public/index.html')
 
 app.post '/api/sms/receive', (req, res)->
-  db = connect()
-  db.save "sms/#{req.body.SmsSid}", req.body, (err, response)->
-    if err?
-      console.log util.inspect err
-      res.send '<Response><Sms>We are unable to process your request.</Sms></Response>'
-    else
-      res.send "<Response><Sms>We have received your request.</Sms></Response>"
+  sms.receive db.connect(), req, res
 
 app.post '/api/register', (req, res)->
-  reg = req.body
+  registration.register db.connect(), req, res
 
-  person =
-    id: reg.volunteerId
-    name: reg.name
-    phone: reg.phoneNumber
-    group: reg.groupId
-
-  db = connect()
-  db.save 'person/' + person.id, person, (err)->
-    res.send 500, util.inspect err if err
-    res.send 204 unless err
+app.get '/api/people/search', (req, res)->
+  res.json [
+    {
+      name: "bill",
+      volunteerId: "239388",
+      groupId: "cambodia3",
+      contact: ["293-439-48484"]
+    }
+  ]
 
 app.listen process.env.PORT or 5000
 
