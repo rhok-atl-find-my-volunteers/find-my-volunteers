@@ -1,7 +1,5 @@
 (function() {
-
   exports.name = 'person_by_phone';
-
   exports.map = function(doc) {
     var d, _ref, _ref2, _ref3;
     if (doc._id.match(/person\//)) {
@@ -14,5 +12,4 @@
       return emit(d.phone, d);
     }
   };
-
 }).call(this);

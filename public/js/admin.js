@@ -1,8 +1,10 @@
 (function() {
   var adminApp;
+  adminApp = angular.module('adminApp', ['ui.directives']);
 
   adminApp = angular.module('adminApp', ['ui.directives', 'appDirectives']);
 
+  adminApp = angular.module('adminApp', ['ui.directives']);
   adminApp.controller('adminCtrl', function($scope, $http) {
     $scope.searchSubmitted = true;
     $scope.results = [
@@ -72,5 +74,4 @@
       return console.log('mapping entries', entries);
     };
   });
-
 }).call(this);

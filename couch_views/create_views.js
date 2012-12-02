@@ -1,9 +1,7 @@
 (function() {
-  var create_views, util,
-    __slice = Array.prototype.slice;
-
+  var create_views, util;
+  var __slice = Array.prototype.slice;
   util = require('util');
-
   create_views = function() {
     var db, view, views, views_doc, _i, _len;
     db = arguments[0], views = 2 <= arguments.length ? __slice.call(arguments, 1) : [];
@@ -20,9 +18,7 @@
     }
     return db.save('_design/views', views_doc);
   };
-
   module.exports = function(connect) {
     return create_views(connect(), require('./person_by_phone'), require('./person_search'));
   };
-
 }).call(this);

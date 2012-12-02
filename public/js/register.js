@@ -1,8 +1,6 @@
 (function() {
   var registerApp;
-
   registerApp = angular.module('registerApp', ['ui.directives']);
-
   registerApp.controller('registerCtrl', function($scope, $http) {
     $scope.showModal = false;
     $scope.formSubmitted = false;
@@ -30,5 +28,4 @@
       }
     };
   });
-
 }).call(this);
