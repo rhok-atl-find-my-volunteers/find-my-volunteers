@@ -31,15 +31,11 @@ $default-border-radius: 3px;
       @include background(linear-gradient(top, #777, #555));
   }
 
-  &[disabled]{
-    @include opacity(0.5);
+  &[disabled] {
+    background: #555;
+    border-color: #555;
+    color: #c7c7c7;
     cursor: default;
-
-    &:hover,
-    &:focus,
-    &:active {
-      @include background(linear-gradient(top, #555, #333));
-    }
   }
 }
 
@@ -185,13 +181,6 @@ $VideoWidth: 270px;
     @include button;
     float: right;
     margin-left: 15px;
-
-    &[disabled] {
-      background: #555;
-      border-color: #555;
-      color: #c7c7c7;
-      cursor: default;
-    }
   }
 
   .cancel {
