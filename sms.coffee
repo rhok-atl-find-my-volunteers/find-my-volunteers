@@ -7,7 +7,7 @@ exports.receive = (db, req, res)->
 
   coder.geocode message.Body, (location)->
     message.location = location
-    db.view 'views/person_by_phone', key: message.From.replace /[^0-9]/, (err, response)->
+    db.view 'views/person_by_phone', key: (message.From.replace /[^0-9]/, ''), (err, response)->
       message = _.extend message, response[0]?.value
 
       db.save "sms/#{message.SmsSid}", message, (err, response)->
