@@ -360,6 +360,12 @@ $VideoWidth: 270px;
   }
 }
 
+.sendMessage {
+
+  input { width: 100%; box-sizing: border-box; height: auto; }
+  label { margin-bottom: 5px; }
+}
+
 .modal {
     margin-left: -300px;
     padding: 20px;
