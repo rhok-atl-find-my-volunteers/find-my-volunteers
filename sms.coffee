@@ -5,15 +5,16 @@ iso8601 = require 'iso8601'
 
 exports.send = (message)->
 
-  twilio_sid = process.env.twilio_sid
-  twilio_auth_token = process.env.twilio_auth_token
+  twilio_sid = process.env.TWILIO_SID
+  twilio_auth_token = process.env.TWILIO_AUTH_TOKEN
+  twilio_from_number = process.env.TWILIO_FROM_NUMBER
 
   for number in message.contacts
     do (number)->
       process.nextTick ()->
         https = require('https')
 
-        post_data = "From=14042366136&To=#{number}&Body=#{message.body}"
+        post_data = "From=#{twilio_from_number}&To=#{number}&Body=#{message.body}"
 
         options =
           host: 'api.twilio.com'

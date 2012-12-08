@@ -54,6 +54,8 @@ if not process.env.TWILIO_SID
   throw Exception "Need Twilio Api Sid"
 if not process.env.TWILIO_AUTH_TOKEN
   throw Exception 'Need Twilio Api Auth Token'
+if not process.env.TWILIO_FROM_NUMBER
+  throw Exception 'Need Twilio assigned Phone Number to send sms'
 
 app.listen process.env.PORT or 5000
 
