@@ -1,91 +1,12 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="registerApp">
+<html>
 <head>
     <meta charset="utf-8" />
     <title>Find My Volunteers</title>
-
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="vendor/bootstrap.min.css" />
-    <link rel="stylesheet" href="css/styles.css" />
-    <script src="js/html5shiv.js"></script>
 </head>
-<body ng-controller="registerCtrl">
-
-        <header class="clearfix">
-          <h1>Find My Volunteers</h1>
-
-          <div id="register">
-             <p ng-show="formSubmitted">Registration Submitted. Thank you!</p>
-             <button ng-click="openModal()" ng-hide="formSubmitted">Register Now</button>
-          </div>
-        </header>
-
-        <div id="videoOuterContainer">
-          <div id="videoContainer">
-            <iframe width="800" height="450" src="http://www.youtube.com/embed/Ul06QLTmJBM?wmode=transparent&rel=0" frameborder="0" allowfullscreen></iframe>
-          </div>
-        </div>
-
-
-        <div class="callouts">
-          <div>
-            <h2>Stay Safe</h2>
-            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula</p>
-            <ul>
-              <li>Notify someone when you're in trouble.</li>
-            </ul>
-          </div>
-
-          <div>
-            <h2>Keep in Touch</h2>
-            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula</p>
-            <ul>
-              <li>Let your fellow PCVs know where you're going.</li>
-            </ul>
-          </div>
-        </div>
-
-    <div ui-modal class="fade" ng-model="showModal">
-        <form novalidate class="registration-form" name="registrationForm" type="POST">
-
-            <fieldset class="clearfix" ng-class="{error: registrationForm.name.$error.required}">
-                <label for="name">Name:</label>
-                <input type="text" name="name" ng-model="info.name" required />
-                <span class="help-inline">Required</span>
-            </fieldset>
-
-            <fieldset class="clearfix" ng-class="{error: registrationForm.volunteerId.$error.required}">
-                <label for="volunteerId">Volunteer ID:</label>
-                <input type="text" name="volunteerId" ng-model="info.volunteerId" required />
-                <span class="help-inline">Required</span>
-            </fieldset>
-
-            <fieldset class="clearfix" ng-class="{error: registrationForm.phoneNumber.$error.required}">
-                <label for="phoneNumber">Phone #:</label>
-                <input type="text" name="phoneNumber" ng-model="info.phoneNumber" required />
-                <span class="help-inline">Required</span>
-            </fieldset>
-
-            <fieldset class="clearfix" ng-class="{error: registrationForm.groupId.$error.required}">
-                <label for="groupId">Group ID:</label>
-                <input type="text" name="groupId" ng-model="info.groupId" required />
-                <span class="help-inline">Required</span>
-            </fieldset>
-
-            <fieldset class="clearfix">
-                <button class="submit" ng-disabled="isClean() || registrationForm.$invalid" ng-click="submit()">Sign Up</button>
-                <button class="cancel" ng-click="closeModal()">Cancel</button>
-            </fieldset>
-
-        </form>
-    </div>
-
-    <script src="vendor/jquery-1.8.3.min.js"></script>
-    <script src="vendor/angular-1.0.3.min.js"></script>
-    <script src="vendor/bootstrap-modal.min.js"></script>
-    <script src="vendor/angular-ui-modal.js"></script>
-    <script src="js/services.js"></script>
-    <script src="js/register.js"></script>
-
+<body>
+  <div style='text-align: center;margin-top: 100px; font-size: 24px;'>
+    We have moved <a href='http://http://findmyvols.herokuapp.com/'>here</a>
+  </div>
 </body>
 </html>
