@@ -47,7 +47,7 @@ angular.module('appDirectives', [])
               message: 'Message'
 
             for entry in entries
-              do (entry) ->
+              do (entry)->
 
                 location = entry.location || entry.lastKnownLocation
 
@@ -106,19 +106,18 @@ angular.module('appDirectives', [])
 
                 marker = new google.maps.Marker(
                   map: map,
-                  position: new google.maps.LatLng(e.latLng.$a, e.latLng.ab)
+                  position: new google.maps.LatLng(e.latLng.lat(), e.latLng.lng())
                   draggable: true
                 )
 
-                scope.newSite.lat = e.latLng.$a
-                scope.newSite.lng = e.latLng.ab
+                scope.newSite.lat = e.latLng.lat()
+                scope.newSite.lng = e.latLng.lng()
                 scope.$apply()
 
                 marker.addListener 'dragend', (e)->
 
-                  scope.newSite.lat = e.latLng.$a
-                  scope.newSite.lng = e.latLng.ab
+                  scope.newSite.lat = e.latLng.lat()
+                  scope.newSite.lng = e.latLng.lng()
                   scope.$apply()
-
 
           , 250)
