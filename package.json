@@ -7,13 +7,17 @@
     "geocoder": "x",
     "coffee-script": "*",
     "iso8601": "x",
-    "underscore": "x"
+    "underscore": "x",
+    "mocha": "x",
+    "chai": "x",
+    "isolate": "x"
   },
   "engines": {
     "node": "0.8.x",
     "npm": "1.1.x"
   },
   "scripts": {
-    "install": "coffee --compile ."
+    "install": "coffee --compile .",
+    "test": "rake test"
   }
 }

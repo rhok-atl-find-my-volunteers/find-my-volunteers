@@ -48,7 +48,7 @@ app.get '/api/aliases', (req, res)->
   aliases_search.go db.connect(), req, res
 
 app.post '/api/alias', (req, res)->
-  aliases.add db.connect(), req, res
+  aliases.add req, res
 
 if not process.env.TWILIO_SID
   throw Exception "Need Twilio Api Sid"

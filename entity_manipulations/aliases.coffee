@@ -1,7 +1,9 @@
 util = require 'util'
+db = require '../db'
 
-exports.add = (db, req, res)->
+exports.add = (req, res)->
   {groupId, alias, lat, lng} = req.body
+  db = db.connect()
 
   db.get "aliases/#{groupId}", (err, doc)->
     if err?
