@@ -4,6 +4,8 @@ npm = "./node_modules/.bin"
 requested_files = ARGV.reject {|arg| arg.match(/=/) or !arg.match(/\.(js|coffee)/) }
 requested_files = false if requested_files.length == 0
 
+task :default => :build
+
 desc 'Build project'
 task :build do
   files = (requested_files or FileList["#{path}/**/*.coffee"]).map{ |file| file.gsub path, '.' }.join ' '
